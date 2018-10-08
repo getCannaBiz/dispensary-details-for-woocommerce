@@ -52,6 +52,7 @@ function wpd_details_compounddetails() {
 	$cbd    = get_post_meta( $post->ID, '_cbd', true );
 	$cba    = get_post_meta( $post->ID, '_cba', true );
 	$cbn    = get_post_meta( $post->ID, '_cbn', true );
+	$cbg    = get_post_meta( $post->ID, '_cbg', true );
 
 	/** Echo out the fields */
 	echo '<div class="compoundbox">';
@@ -73,6 +74,10 @@ function wpd_details_compounddetails() {
 	echo '<div class="compoundbox">';
 	echo '<p>CBN %:</p>';
 	echo '<input type="text" name="_cbn" value="' . $cbn  . '" class="widefat" />';
+	echo '</div>';
+	echo '<div class="compoundbox">';
+	echo '<p>CBG %:</p>';
+	echo '<input type="text" name="_cbg" value="' . $cbg  . '" class="widefat" />';
 	echo '</div>';
 
 }
@@ -102,9 +107,10 @@ function wpd_details_save_compounddetails_meta( $post_id, $post ) {
 
 	$thccbd_meta['_thc']    = $_POST['_thc'];
 	$thccbd_meta['_thca']   = $_POST['_thca'];
-	$thccbd_meta['_cbd']	= $_POST['_cbd'];
+	$thccbd_meta['_cbd']    = $_POST['_cbd'];
 	$thccbd_meta['_cba']    = $_POST['_cba'];
 	$thccbd_meta['_cbn']    = $_POST['_cbn'];
+	$thccbd_meta['_cbg']    = $_POST['_cbg'];
 
 	/** Add values of $compounddetails_meta as custom fields */
 
@@ -347,9 +353,9 @@ add_action( 'save_post', 'wpd_details_save_thccbdtopical_meta', 1, 2 ); /** Save
 /**
  * Growers Clone Details metabox
  *
- * Adds the clone details metabox to specific custom post types
+ * Adds the clone details metabox to WooCommerce Products
  *
- * @since    1.9.5
+ * @since    1.0.0
  */
 function add_grower_details_metaboxes() {
 
@@ -460,3 +466,120 @@ function wpd_details_save_grower_details_meta( $post_id, $post ) {
 }
 
 add_action( 'save_post', 'wpd_details_save_grower_details_meta', 1, 2 ); // save the custom fields
+
+/**
+ * Details metabox for the Tinctures menu type
+ *
+ * Adds a details metabox
+ *
+ * @since    1.2.0
+ */
+function add_tincture_details_metaboxes() {
+
+	$screens = apply_filters( 'wpd_details_tinctures_screens', array( 'product' ) );
+
+	foreach ( $screens as $screen ) {
+		add_meta_box(
+			'wpd_details_tinctures',
+			__( 'Tincture Details', 'wpd-details' ),
+			'wpd_details_tinctures',
+			$screen,
+			'normal',
+			'default'
+		);
+	}
+
+}
+
+add_action( 'add_meta_boxes', 'add_tincture_details_metaboxes' );
+
+/**
+ * Building the metabox
+ */
+function wpd_details_tinctures() {
+	global $post;
+
+	/** Noncename needed to verify where the data originated */
+	echo '<input type="hidden" name="tincturesdetailsmeta_noncename" id="tincturesdetailsmeta_noncename" value="' .
+	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
+
+	/** Get the details data if its already been entered */
+	$thcmg          = get_post_meta( $post->ID, '_tincture_thcmg', true );
+	$cbdmg          = get_post_meta( $post->ID, '_tincture_cbdmg', true );
+	$mlserving      = get_post_meta( $post->ID, '_tincture_mlserving', true );
+	$thccbdservings = get_post_meta( $post->ID, '_tincture_thccbdservings', true );
+	$netweight      = get_post_meta( $post->ID, '_tincture_netweight', true );
+
+	/** Echo out the fields */
+	echo '<div class="tincturesdetailsbox">';
+	echo '<p>THC mg per serving:</p>';
+	echo '<input type="text" name="_tincture_thcmg" value="' . esc_html( $thcmg ) . '" class="widefat" />';
+	echo '</div>';
+	echo '<div class="tincturesdetailsbox">';
+	echo '<p>CBD mg per serving:</p>';
+	echo '<input type="text" name="_tincture_cbdmg" value="' . esc_html( $cbdmg ) . '" class="widefat" />';
+	echo '</div>';
+	echo '<div class="tincturesdetailsbox">';
+	echo '<p>ml per serving:</p>';
+	echo '<input type="text" name="_tincture_mlserving" value="' . esc_html( $mlserving ) . '" class="widefat" />';
+	echo '</div>';
+	echo '<div class="tincturesdetailsbox">';
+	echo '<p>Servings:</p>';
+	echo '<input type="text" name="_tincture_thccbdservings" value="' . esc_html( $thccbdservings ) . '" class="widefat" />';
+	echo '</div>';
+	echo '<div class="tincturesdetailsbox">';
+	echo '<p>Net weght (ounces):</p>';
+	echo '<input type="text" name="_tincture_netweight" value="' . esc_html( $netweight ) . '" class="widefat" />';
+	echo '</div>';
+
+}
+
+/**
+ * Save the Metabox Data
+ */
+function wpd_details_save_tincture_details_meta( $post_id, $post ) {
+
+	/**
+	 * Verify this came from the our screen and with proper authorization,
+	 * because save_post can be triggered at other times
+	 */
+	if ( ! isset( $_POST['tincturesdetailsmeta_noncename' ] ) || ! wp_verify_nonce( $_POST['tincturesdetailsmeta_noncename'], plugin_basename( __FILE__ ) ) ) {
+		return $post->ID;
+	}
+
+	/** Is the user allowed to edit the post or page? */
+	if ( ! current_user_can( 'edit_post', $post->ID ) ) {
+		return $post->ID;
+	}
+
+	/**
+	 * OK, we're authenticated: we need to find and save the data
+	 * We'll put it into an array to make it easier to loop though.
+	 */
+
+	$details_meta['_tincture_thcmg']          = $_POST['_tincture_thcmg'];
+	$details_meta['_tincture_cbdmg']          = $_POST['_tincture_cbdmg'];
+	$details_meta['_tincture_mlserving']      = $_POST['_tincture_mlserving'];
+	$details_meta['_tincture_thccbdservings'] = $_POST['_tincture_thccbdservings'];
+	$details_meta['_tincture_netweight']      = $_POST['_tincture_netweight'];
+
+	/** Add values of $details_meta as custom fields */
+
+	foreach ( $details_meta as $key => $value ) { /** Cycle through the $details_meta array! */
+		if ( 'revision' === $post->post_type ) { /** Don't store custom data twice */
+			return;
+		}
+		$value = implode( ',', (array) $value ); /** If $value is an array, make it a CSV (unlikely) */
+		if ( get_post_meta( $post->ID, $key, false ) ) { /** If the custom field already has a value */
+			update_post_meta( $post->ID, $key, $value );
+		} else { /** If the custom field doesn't have a value */
+			add_post_meta( $post->ID, $key, $value );
+		}
+		if ( ! $value ) { /** Delete if blank */
+			delete_post_meta( $post->ID, $key );
+		}
+	}
+
+}
+
+add_action( 'save_post', 'wpd_details_save_tincture_details_meta', 1, 2 ); /** Save the custom fields */

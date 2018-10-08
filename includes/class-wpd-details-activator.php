@@ -47,6 +47,7 @@ class WPD_Details_Activator {
 		 global $wp_rewrite;
 		 $wp_rewrite->init();
 		 $wp_rewrite->flush_rules();
+
 	}
 
 }

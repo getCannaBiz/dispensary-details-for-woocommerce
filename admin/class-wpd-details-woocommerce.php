@@ -1,0 +1,309 @@
+<?php
+/**
+ * The admin-specific functionality of the plugin.
+ *
+ * @link       https://www.wpdispensary.com
+ * @since      1.0.0
+ *
+ * @package    WPD_Details
+ * @subpackage WPD_Details/admin
+ */
+
+/**
+ * WP Dispensary Details Settings
+ *
+ * Related to WooCOmmerce Settings API.
+ *
+ * @since  1.1
+ */
+class WPD_Details_WooCommerce_Settings {
+	/**
+	* Bootstraps the class and hooks required actions & filters.
+	*
+	*/
+	public static function init() {
+	   add_filter( 'woocommerce_settings_tabs_array', __CLASS__ . '::add_settings_tab', 50 );
+	   add_action( 'woocommerce_settings_tabs_wpd_details', __CLASS__ . '::settings_tab' );
+	   add_action( 'woocommerce_update_options_wpd_details', __CLASS__ . '::update_settings' );
+	   //add custom type.
+	   add_action( 'woocommerce_admin_field_custom_type', __CLASS__ . '::output_custom_type', 10, 1 );
+	}
+
+	public static function output_custom_type( $value ) {
+	 	//you can output the custom type in any format you'd like.
+		echo $value['desc'];
+	}
+
+	/**
+	* Add a new settings tab to the WooCommerce settings tabs array.
+	*
+	* @param array $settings_tabs Array of WooCommerce setting tabs & their labels, excluding the Subscription tab.
+	* @return array $settings_tabs Array of WooCommerce setting tabs & their labels, including the Subscription tab.
+	*/
+	public static function add_settings_tab( $settings_tabs ) {
+	   $settings_tabs['wpd_details'] = __( 'Dispensary Details', 'wpd-details' );
+	   return $settings_tabs;
+	}
+	/**
+	* Uses the WooCommerce admin fields API to output settings via the @see woocommerce_admin_fields() function.
+	*
+	* @uses woocommerce_admin_fields()
+	* @uses self::get_settings()
+	*/
+	public static function settings_tab() {
+	   woocommerce_admin_fields( self::get_settings() );
+	}
+	/**
+	* Uses the WooCommerce options API to save settings via the @see woocommerce_update_options() function.
+	*
+	* @uses woocommerce_update_options()
+	* @uses self::get_settings()
+	*/
+	public static function update_settings() {
+	   woocommerce_update_options( self::get_settings() );
+	}
+
+	/**
+	* Get all the settings for this plugin for @see woocommerce_admin_fields() function.
+	*
+	* @return array Array of settings for @see woocommerce_admin_fields() function.
+	*/
+	public static function get_settings() {
+
+		// Get loop of all Pages.
+		$args = array(
+			'sort_column'  => 'post_title',
+			'hierarchical' => 1,
+			'post_type'    => 'page',
+			'post_status'  => 'publish'
+		);
+		$pages = get_pages( $args );
+
+		// Create data array.
+		$pages_array = array( 'none' => '' );
+
+		// Loop through pages.
+		foreach ( $pages as $page ) {
+			$pages_array[ $page->ID ] = $page->post_title;
+		}
+
+		$settings = array(
+			// Section title.
+			'wpdd_settings_section_title' => array(
+			   'name' => __( 'Dispensary Details', 'wpd-details' ),
+			   'type' => 'title',
+			   'desc' => 'Brought to you by <a href="https://www.wpdispensary.com" target="_blank">WP Dispensary</a> &middot; <a href="https://www.wpdispensary.com/support/" target="_blank">Support</a> &middot; <a href="https://www.wpdispensary.com/documentation/" target="_blank">Documentation</a>',
+			   'id'   => 'wpdd_settings_section_title'
+			),
+			// Minimum order.
+			'min_order_amount' => array(
+			   'name' => __( 'Minimum Order', 'wpd-details' ),
+			   'type' => 'text',
+			   'desc' => __( 'The minimum amount before a customer can check out.', 'wpd-details' ),
+			   'id'   => 'wpdd_settings_minimum_amount'
+			),
+			// Visitor Checkout page redirect..
+			'a2c_redirect_page' => array(
+			   'name'    => __( 'Visitor Checkout Redirect', 'wpd-details' ),
+			   'type'    => 'select',
+			   'desc'    => __( 'Select the page your Checkout page should redirects visitors to.', 'wpd-details' ),
+			   'id'      => 'wpdd_settings_a2c_redirect',
+				 'options' => $pages_array,
+			),
+			// Shipping or Delivery.
+			'shipping_or_delivery' => array(
+			   'name'    => __( 'Delivery Service?', 'wpd-details' ),
+			   'type'    => 'select',
+			   'desc'    => __( 'Will you be delivering products to patients?', 'wpd-details' ),
+			   'id'      => 'wpdd_settings_shipping_delivery',
+				 'options' => array(
+					 'no'  => 'No',
+					 'yes' => 'Yes',
+				 ),
+			),
+			// Shipping or Delivery.
+			'order_status_completed' => array(
+			   'name'    => __( 'Auto-complete Orders', 'wpd-details' ),
+			   'type'    => 'select',
+			   'desc'    => __( 'Automatically change order status from "processing" to "completed".', 'wpd-details' ),
+			   'id'      => 'wpdd_settings_order_status_completed',
+				 'options' => array(
+					 'no'  => 'No',
+					 'yes' => 'Yes',
+				 ),
+			),
+			// Empty Cart page redirect.
+			'empty_cart_redirect_page' => array(
+			   'name'    => __( 'Empty Cart Redirect', 'wpd-details' ),
+			   'type'    => 'select',
+			   'desc'    => __( 'Select the page your Cart page should redirects visitors to if empty.', 'wpd-details' ),
+			   'id'      => 'wpdd_settings_empty_cart_redirect',
+				 'options' => $pages_array,
+			),
+			// Section End.
+			'section_end' => array(
+			   'type' => 'sectionend',
+			   'id'   => 'wpdd_settings_section_end'
+			),
+		);
+		return apply_filters( 'wpdd_woocommerce_settings', $settings );
+
+	}
+}
+WPD_Details_WooCommerce_Settings::init();
+
+/**
+ * Minimum Order Amount
+ */
+if ( null !== get_option( 'wpdd_settings_minimum_amount' ) || '' !== get_option( 'wpdd_settings_minimum_amount' ) ) {
+function wpd_details_minimum_order_amount() {
+
+	// Set minimum amount.
+	$minimum = get_option( 'wpdd_settings_minimum_amount' );
+
+	$wpdd_min_order = get_option( 'wpdd_settings_minimum_order' );
+	// echo $wpdd_settings_title;
+
+	if ( WC()->cart->subtotal < $minimum ) {
+		if( is_cart() ) {
+			wc_print_notice(
+				sprintf( 'Your order must be a minimum of %s. Your current order total is %s.' ,
+					wc_price( $minimum ),
+					wc_price( WC()->cart->subtotal )
+				), 'error'
+			);
+		} else {
+			wc_add_notice(
+				sprintf( 'Your order must be a minimum of %s. Your current order total is %s.' ,
+					wc_price( $minimum ),
+					wc_price( WC()->cart->subtotal )
+				), 'error'
+			);
+		}
+	}
+
+}
+add_action( 'woocommerce_checkout_process', 'wpd_details_minimum_order_amount' );
+add_action( 'woocommerce_before_cart' , 'wpd_details_minimum_order_amount' );
+}
+
+/**
+ * Redirect user from Checkout if they're not logged in.
+ */
+function wpd_details_login_redirect() {
+	if ( null !== get_option( 'wpdd_settings_a2c_redirect' ) && 'none' !== get_option( 'wpdd_settings_a2c_redirect' ) ) {
+   if (
+       ! is_user_logged_in()
+       && ( is_checkout() )
+   ) {
+       // feel free to customize the following line to suit your needs
+       wp_redirect( get_permalink( get_option( 'wpdd_settings_a2c_redirect' ) ) );
+       exit;
+		 }
+  }
+}
+add_action( 'template_redirect', 'wpd_details_login_redirect' );
+
+// Change the Shipping Address checkout label.
+if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
+function wpd_details_shipping_field_strings( $translated_text, $text, $domain ) {
+    switch ( $translated_text ) {
+      case 'Shipping Address' :
+        $translated_text = __( 'Delivery Address', 'woocommerce' );
+        break;
+    }
+    return $translated_text;
+	}
+}
+
+// Change the Ship to a different address text.
+if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
+function wpd_details_strings_translation( $translated_text, $text, $domain ) {
+	  switch ( $translated_text ) {
+	    case 'Ship to a different address?' :
+	      $translated_text =  __( 'Delivery Address', '__x__' );
+	      break;
+	  }
+	  return $translated_text;
+	}
+}
+
+/**
+ *
+ * Function to replace shipping text to delivery text
+ *
+ * @param $package_name
+ * @param $i
+ * @param $package
+ *
+ * @return string
+ */
+ if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
+function wpd_details_delivery_text( $package_name, $i, $package ) {
+    return sprintf( _nx( 'Delivery', 'Delivery %d', ( $i + 1 ), 'shipping packages', 'wpd-details' ), ( $i + 1 ) );
+	}
+}
+
+/*
+ *  Change the string "Shipping" to "Delivery" on Order Received page.
+ */
+ if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
+function wpd_details_translate_reply( $translated ) {
+		$translated = str_ireplace( 'Shipping', 'Delivery', $translated );
+		return $translated;
+	}
+}
+
+/**
+ * Runs filters if Delivery is selected in Settings.
+ */
+function wpd_details_shipping_delivery() {
+	if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
+		add_filter( 'gettext', 'wpd_details_shipping_field_strings', 20, 3 );
+		add_filter( 'gettext', 'wpd_details_strings_translation', 20, 3 );
+		add_filter( 'woocommerce_shipping_package_name' , 'wpd_details_delivery_text', 10, 3 );
+		add_filter( 'gettext', 'wpd_details_translate_reply' );
+		add_filter( 'ngettext', 'wpd_details_translate_reply' );
+	} else {
+		// Do nothing.
+	}
+}
+add_action( 'init', 'wpd_details_shipping_delivery', 1 );
+
+/**
+ * Auto changes orders from 'processing' to 'completed'.
+ */
+function wpd_details_order_status_completed( $order_id ) {
+    if( ! $order_id ) return;
+
+		if ( 'yes' === get_option( 'wpdd_settings_order_status_completed' ) ) {
+	    $order = new WC_Order( $order_id ); // Get an instance of the WC_Order object.
+
+	    if ( $order->has_status( 'processing' ) ) {
+	      $order-> update_status( 'completed' );
+			}
+		} else {
+			// Do nothing.
+		}
+}
+add_action( 'woocommerce_thankyou', 'wpd_details_order_status_completed', 10, 1 );
+
+/**
+ * Redirect to page if Cart is empty.
+ */
+function cart_empty_redirect_to_shop() {
+    global $woocommerce;
+
+		// Check if Redirect is set in Settings.
+		if ( null !== get_option( 'wpdd_settings_empty_cart_redirect' ) && 'none' !== get_option( 'wpdd_settings_empty_cart_redirect' ) ) {
+			// If we're on the Cart page & cart count is 0, o the redirect.
+    	if ( is_page( 'cart' ) && 0 === $woocommerce->cart->cart_contents_count ) {
+				wp_redirect( get_permalink( get_option( 'wpdd_settings_empty_cart_redirect' ) ) );
+        exit;
+			}
+		}	else {
+		 	// Do nothing.
+		}
+}
+
+add_action( 'wp_head', 'cart_empty_redirect_to_shop' );

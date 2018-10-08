@@ -67,10 +67,10 @@ class WPD_Details {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
-			$this->version = PLUGIN_NAME_VERSION;
+		if ( defined( 'DISPENSARY_DETAILS_VERSION' ) ) {
+			$this->version = DISPENSARY_DETAILS_VERSION;
 		} else {
-			$this->version = '1.0.0';
+			$this->version = '1.2.0';
 		}
 		$this->plugin_name = 'wpd-details';
 
@@ -136,6 +136,11 @@ class WPD_Details {
 		 * The file responsible for defining all front end display for dispensary details.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wpd-details-woocommerce.php';
+
+		/**
+		 * The file responsible for defining all WooCommerce filters for dispensary details.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wpd-details-woocommerce.php';
 
 		$this->loader = new WPD_Details_Loader();
 

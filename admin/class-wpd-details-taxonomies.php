@@ -45,9 +45,17 @@ function wpd_details_aroma() {
 		'menu_name'                  => __( 'Aromas' ),
 	  );
 
+		$capabilities = array(
+			'manage_terms' => 'edit_aromas',
+			'edit_terms'   => 'edit_aromas',
+			'delete_terms' => 'edit_aromas',
+			'assign_terms' => 'read',
+		);
+
 	  register_taxonomy( 'aroma', 'product', array(
 			'hierarchical'           => false,
 			'labels'                 => $labels,
+			'capabilities'           => $capabilities,
 			'show_ui'                => true,
 			'show_in_rest'           => true,
 			'show_admin_column'      => true,
@@ -95,9 +103,17 @@ function wpd_details_flavor() {
 		'menu_name'                  => __( 'Flavors' ),
 	  );
 
+		$capabilities = array(
+			'manage_terms' => 'edit_flavors',
+			'edit_terms'   => 'edit_flavors',
+			'delete_terms' => 'edit_flavors',
+			'assign_terms' => 'read',
+		);
+
 	  register_taxonomy( 'flavor', 'product', array(
 			'hierarchical'           => false,
 			'labels'                 => $labels,
+			'capabilities'           => $capabilities,
 			'show_ui'                => true,
 			'show_in_rest'           => true,
 			'show_admin_column'      => true,
@@ -144,9 +160,17 @@ function wpd_details_effect() {
 		'menu_name'                  => __( 'Effects' ),
 	  );
 
+		$capabilities = array(
+			'manage_terms' => 'edit_effects',
+			'edit_terms'   => 'edit_effects',
+			'delete_terms' => 'edit_effects',
+			'assign_terms' => 'read',
+		);
+
 	  register_taxonomy( 'effect', 'product', array(
 			'hierarchical'           => false,
 			'labels'                 => $labels,
+			'capabilities'           => $capabilities,
 			'show_ui'                => true,
 			'show_in_rest'           => true,
 			'show_admin_column'      => true,
@@ -175,27 +199,35 @@ add_action( 'init', 'wpd_details_symptom', 0 );
 function wpd_details_symptom() {
 
 	  $labels = array(
-		'name'                       => _x( 'Symptoms', 'general name' ),
-		'singular_name'              => _x( 'Symptom', 'singular name' ),
-		'search_items'               => __( 'Search Symptoms' ),
-		'popular_items'              => __( 'Popular Symptoms' ),
-		'all_items'                  => __( 'All Symptoms' ),
-		'parent_item'                => null,
-		'parent_item_colon'          => null,
-		'edit_item'                  => __( 'Edit Symptom' ),
-		'update_item'                => __( 'Update Symptom' ),
-		'add_new_item'               => __( 'Add New Symptom' ),
-		'new_item_name'              => __( 'New Symptom Name' ),
-		'separate_items_with_commas' => __( 'Separate symptoms with commas' ),
-		'add_or_remove_items'        => __( 'Add or remove symptoms' ),
-		'choose_from_most_used'      => __( 'Choose from the most used symptoms' ),
-		'not_found'                  => 'No symptoms found',
-		'menu_name'                  => __( 'Symptoms' ),
+			'name'                       => _x( 'Symptoms', 'general name' ),
+			'singular_name'              => _x( 'Symptom', 'singular name' ),
+			'search_items'               => __( 'Search Symptoms' ),
+			'popular_items'              => __( 'Popular Symptoms' ),
+			'all_items'                  => __( 'All Symptoms' ),
+			'parent_item'                => null,
+			'parent_item_colon'          => null,
+			'edit_item'                  => __( 'Edit Symptom' ),
+			'update_item'                => __( 'Update Symptom' ),
+			'add_new_item'               => __( 'Add New Symptom' ),
+			'new_item_name'              => __( 'New Symptom Name' ),
+			'separate_items_with_commas' => __( 'Separate symptoms with commas' ),
+			'add_or_remove_items'        => __( 'Add or remove symptoms' ),
+			'choose_from_most_used'      => __( 'Choose from the most used symptoms' ),
+			'not_found'                  => 'No symptoms found',
+			'menu_name'                  => __( 'Symptoms' ),
 	  );
+
+		$capabilities = array(
+			'manage_terms' => 'edit_symptoms',
+			'edit_terms'   => 'edit_symptoms',
+			'delete_terms' => 'edit_symptoms',
+			'assign_terms' => 'read',
+		);
 
 	  register_taxonomy( 'symptom', 'product', array(
 			'hierarchical'           => false,
 			'labels'                 => $labels,
+			'capabilities'           => $capabilities,
 			'show_ui'                => true,
 			'show_in_rest'           => true,
 			'show_admin_column'      => true,
@@ -224,27 +256,35 @@ add_action( 'init', 'wpd_details_condition', 0 );
 function wpd_details_condition() {
 
 	  $labels = array(
-		'name'                       => _x( 'Conditions', 'general name' ),
-		'singular_name'              => _x( 'Condition', 'singular name' ),
-		'search_items'               => __( 'Search Conditions' ),
-		'popular_items'              => __( 'Popular Conditions' ),
-		'all_items'                  => __( 'All Conditions' ),
-		'parent_item'                => null,
-		'parent_item_colon'          => null,
-		'edit_item'                  => __( 'Edit Condition' ),
-		'update_item'                => __( 'Update Condition' ),
-		'add_new_item'               => __( 'Add New Condition' ),
-		'new_item_name'              => __( 'New Condition Name' ),
-		'separate_items_with_commas' => __( 'Separate conditions with commas' ),
-		'add_or_remove_items'        => __( 'Add or remove conditions' ),
-		'choose_from_most_used'      => __( 'Choose from the most used conditions' ),
-		'not_found'                  => 'No conditions found',
-		'menu_name'                  => __( 'Conditions' ),
+			'name'                       => _x( 'Conditions', 'general name' ),
+			'singular_name'              => _x( 'Condition', 'singular name' ),
+			'search_items'               => __( 'Search Conditions' ),
+			'popular_items'              => __( 'Popular Conditions' ),
+			'all_items'                  => __( 'All Conditions' ),
+			'parent_item'                => null,
+			'parent_item_colon'          => null,
+			'edit_item'                  => __( 'Edit Condition' ),
+			'update_item'                => __( 'Update Condition' ),
+			'add_new_item'               => __( 'Add New Condition' ),
+			'new_item_name'              => __( 'New Condition Name' ),
+			'separate_items_with_commas' => __( 'Separate conditions with commas' ),
+			'add_or_remove_items'        => __( 'Add or remove conditions' ),
+			'choose_from_most_used'      => __( 'Choose from the most used conditions' ),
+			'not_found'                  => 'No conditions found',
+			'menu_name'                  => __( 'Conditions' ),
 	  );
+
+		$capabilities = array(
+			'manage_terms' => 'edit_conditions',
+			'edit_terms'   => 'edit_conditions',
+			'delete_terms' => 'edit_conditions',
+			'assign_terms' => 'read',
+		);
 
 	  register_taxonomy( 'condition', 'product', array(
 			'hierarchical'           => false,
 			'labels'                 => $labels,
+			'capabilities'           => $capabilities,
 			'show_ui'                => true,
 			'show_in_rest'           => true,
 			'show_admin_column'      => true,
@@ -273,27 +313,35 @@ add_action( 'init', 'wpd_details_ingredient', 0 );
 function wpd_details_ingredient() {
 
 	  $labels = array(
-		'name'                       => _x( 'Ingredients', 'general name' ),
-		'singular_name'              => _x( 'Ingredient', 'singular name' ),
-		'search_items'               => __( 'Search Ingredients' ),
-		'popular_items'              => __( 'Popular Ingredients' ),
-		'all_items'                  => __( 'All Ingredients' ),
-		'parent_item'                => null,
-		'parent_item_colon'          => null,
-		'edit_item'                  => __( 'Edit Ingredient' ),
-		'update_item'                => __( 'Update Ingredient' ),
-		'add_new_item'               => __( 'Add New Ingredient' ),
-		'new_item_name'              => __( 'New Ingredient Name' ),
-		'separate_items_with_commas' => __( 'Separate ingredients with commas' ),
-		'add_or_remove_items'        => __( 'Add or remove ingredients' ),
-		'choose_from_most_used'      => __( 'Choose from the most used ingredients' ),
-		'not_found'                  => 'No ingredients found',
-		'menu_name'                  => __( 'Ingredients' ),
+			'name'                       => _x( 'Ingredients', 'general name' ),
+			'singular_name'              => _x( 'Ingredient', 'singular name' ),
+			'search_items'               => __( 'Search Ingredients' ),
+			'popular_items'              => __( 'Popular Ingredients' ),
+			'all_items'                  => __( 'All Ingredients' ),
+			'parent_item'                => null,
+			'parent_item_colon'          => null,
+			'edit_item'                  => __( 'Edit Ingredient' ),
+			'update_item'                => __( 'Update Ingredient' ),
+			'add_new_item'               => __( 'Add New Ingredient' ),
+			'new_item_name'              => __( 'New Ingredient Name' ),
+			'separate_items_with_commas' => __( 'Separate ingredients with commas' ),
+			'add_or_remove_items'        => __( 'Add or remove ingredients' ),
+			'choose_from_most_used'      => __( 'Choose from the most used ingredients' ),
+			'not_found'                  => 'No ingredients found',
+			'menu_name'                  => __( 'Ingredients' ),
 	  );
+
+		$capabilities = array(
+			'manage_terms' => 'edit_ingredients',
+			'edit_terms'   => 'edit_ingredients',
+			'delete_terms' => 'edit_ingredients',
+			'assign_terms' => 'read',
+		);
 
 	  register_taxonomy( 'ingredients', 'product', array(
 			'hierarchical'           => false,
 			'labels'                 => $labels,
+			'capabilities'           => $capabilities,
 			'show_ui'                => true,
 			'show_in_rest'           => true,
 			'show_admin_column'      => true,
@@ -340,9 +388,17 @@ function wpd_details_vendor() {
 		'menu_name'                  => __( 'Vendors' ),
 	);
 
+	$capabilities = array(
+		'manage_terms' => 'edit_vendors',
+		'edit_terms'   => 'edit_vendors',
+		'delete_terms' => 'edit_vendors',
+		'assign_terms' => 'read',
+	);
+
 	register_taxonomy( 'vendor', 'product', array(
 		'hierarchical'           => false,
 		'labels'                 => $labels,
+		'capabilities'           => $capabilities,
 		'show_ui'                => true,
 		'show_in_rest'           => true,
 		'show_admin_column'      => true,

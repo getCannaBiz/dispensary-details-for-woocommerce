@@ -11,7 +11,7 @@
  * Plugin Name:       Dispensary Details for WooCommerce
  * Plugin URI:        https://www.wpdispensary.com/downloads/dispensary-details-for-woocommerce
  * Description:       Add additional details to your dispensary items being sold through WooCommerce. Brought to you by <a href="https://www.wpdispensary.com" target="_blank">WP Dispensary</a>.
- * Version:           1.0.0
+ * Version:           1.2.0
  * Author:            WP Dispensary
  * Author URI:        https://www.wpdispensary.com
  * License:           GPL-2.0+
@@ -25,7 +25,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'PLUGIN_NAME_VERSION', '1.0.0' );
+define( 'DISPENSARY_DETAILS_VERSION', '1.2.0' );
 
 /**
  * The code that runs during plugin activation.

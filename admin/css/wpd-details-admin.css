@@ -3,11 +3,11 @@
  * included in this file.
  */
 
-
 #wpd_details_edibles .inside,
 #wpd_details_compounds .inside,
 #wpd_details_growers .inside,
-#wpd_details_topicals .inside {
+#wpd_details_topicals .inside,
+#wpd_details_tinctures .inside {
     overflow: auto;
 }
 
@@ -31,7 +31,19 @@
 }
 
 #postbox-container-2 #wpd_details_compounds .inside .compoundbox {
-    width: 18%;
+    width: 14.667%;
+    float: left;
+    margin: 0 1%;
+}
+
+#wpd_details_topicals .inside .topicalsbox {
+	float: left;
+	position: relative;
+	width: 100%;
+}
+
+#postbox-container-2 #wpd_details_topicals .inside .topicalsbox {
+    width: 31.333%;
     float: left;
     margin: 0 1%;
 }
@@ -49,15 +61,15 @@
 	width: 18%;
 }
 
-
-#wpd_details_topicals .inside .topicalsbox {
+#wpd_details_tinctures .inside .tincturesdetailsbox {
 	float: left;
 	position: relative;
 	width: 100%;
 }
 
-#postbox-container-2 #wpd_details_topicals .inside .topicalsbox {
-    width: 31.333%;
-    float: left;
-    margin: 0 1%;
+#postbox-container-2 #wpd_details_tinctures .inside .tincturesdetailsbox {
+	float: left;
+	margin: 10px 1%;
+	position: relative;
+	width: 18%;
 }

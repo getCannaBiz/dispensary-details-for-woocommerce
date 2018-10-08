@@ -9,9 +9,23 @@ table.wpd-details-table {
 }
 
 table.wpd-details-table td {
-	border: 1px solid #DDD;
 	padding: 10px;
-	width: 50%;
+}
+
+table.wpd-details-table td:first-child {
+    width: 25%;
+}
+
+@media screen and (max-width: 600px) {
+	table.wpd-details-table td:first-child {
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	table.wpd-details-table td:first-child {
+		width: auto;
+	}
 }
 
 table.wpd-details-table td span {
