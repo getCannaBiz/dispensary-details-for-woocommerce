@@ -70,7 +70,7 @@ class WPD_Details {
 		if ( defined( 'DISPENSARY_DETAILS_VERSION' ) ) {
 			$this->version = DISPENSARY_DETAILS_VERSION;
 		} else {
-			$this->version = '1.2.0';
+			$this->version = '1.3.0';
 		}
 		$this->plugin_name = 'wpd-details';
 
@@ -119,7 +119,7 @@ class WPD_Details {
 		/**
 		 * The file responsible for defining all metaboxes for dispensary details.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wpd-details-metaboxes.php';
+		//require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wpd-details-metaboxes.php';
 
 		/**
 		 * The file responsible for defining all taxonomies for dispensary details.

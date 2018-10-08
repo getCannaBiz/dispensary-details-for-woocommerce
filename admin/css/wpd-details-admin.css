@@ -73,3 +73,7 @@
 	position: relative;
 	width: 18%;
 }
+
+td.forminp span.description {
+    display: block;
+}
