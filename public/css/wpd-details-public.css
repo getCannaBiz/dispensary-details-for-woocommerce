@@ -1,0 +1,43 @@
+table.wpd-details-table {
+	background: #FFF;
+	border-width: 1px;
+	font-size: 14px;
+	line-height: 1.2;
+	margin: 12px 0;
+	table-layout: unset;
+	width: 100%;
+}
+
+table.wpd-details-table td {
+	border: 1px solid #DDD;
+	padding: 10px;
+	width: 50%;
+}
+
+table.wpd-details-table td span {
+	color: #454545;
+	font-weight: 600;
+	margin-right: 10px;
+}
+
+.ingredientlist {
+	border: 1px solid #DDD;
+	float: left;
+	font-size: 15px;
+	line-height: 18px;
+	margin-top: 24px;
+	width: 100%;
+}
+
+.ingredientlist span {
+	display: inline-block;
+	padding: 10px;
+}
+
+.ingredientlist strong {
+	background: #DDD;
+	color: #454545;
+	display: block;
+	font-weight: 600;
+	padding: 10px;
+}

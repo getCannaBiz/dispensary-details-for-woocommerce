@@ -1,0 +1,63 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+
+#wpd_details_edibles .inside,
+#wpd_details_compounds .inside,
+#wpd_details_growers .inside,
+#wpd_details_topicals .inside {
+    overflow: auto;
+}
+
+#wpd_details_edibles .inside .ediblesbox {
+	float: left;
+	position: relative;
+	width: 100%;
+}
+
+#postbox-container-2 #wpd_details_edibles .inside .ediblesbox {
+	float: left;
+	margin: 10px 1%;
+	position: relative;
+	width: 23%;
+}
+
+#wpd_details_compounds .inside .compoundbox {
+	float: left;
+	position: relative;
+	width: 100%;
+}
+
+#postbox-container-2 #wpd_details_compounds .inside .compoundbox {
+    width: 18%;
+    float: left;
+    margin: 0 1%;
+}
+
+#wpd_details_growers .inside .growerbox {
+	float: left;
+	position: relative;
+	width: 100%;
+}
+
+#postbox-container-2 #wpd_details_growers .inside .growerbox {
+	float: left;
+	margin: 0 1%;
+	position: relative;
+	width: 18%;
+}
+
+
+#wpd_details_topicals .inside .topicalsbox {
+	float: left;
+	position: relative;
+	width: 100%;
+}
+
+#postbox-container-2 #wpd_details_topicals .inside .topicalsbox {
+    width: 31.333%;
+    float: left;
+    margin: 0 1%;
+}
