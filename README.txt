@@ -1,5 +1,5 @@
 === Dispensary Details for WooCommerce ===
-Contributors: deviodigital, wpdispensary
+Contributors: wpdispensary, deviodigital
 Donate link: https://www.wpdispensary.com
 Tags: dispensary, weed, woocommerce, ecommerce, marijuana, cannabis
 Requires at least: 3.0.1
