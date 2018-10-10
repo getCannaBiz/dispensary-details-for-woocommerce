@@ -140,7 +140,10 @@ class WPD_Details {
 		/**
 		 * The file responsible for defining all WooCommerce filters for dispensary details.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wpd-details-woocommerce.php';
+		if ( ! class_exists( 'Wpd_Wooconnect' ) ) {
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wpd-details-woocommerce.php';
+		}
+
 		/**
 		 * The file responsible for defining all custom User Fields.
 		 */
