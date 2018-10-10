@@ -97,33 +97,41 @@ class WPD_Details_WooCommerce_Settings {
 			),
 			// Minimum order.
 			'min_order_amount' => array(
-			   'name' => __( 'Minimum Order', 'wpd-details' ),
+			   'name' => __( 'Minimum order', 'wpd-details' ),
 			   'type' => 'text',
 			   'desc' => __( 'The minimum amount before a customer can check out.', 'wpd-details' ),
 			   'id'   => 'wpdd_settings_minimum_amount'
 			),
-			// Visitor Checkout page redirect..
-			'a2c_redirect_page' => array(
-			   'name'    => __( 'Visitor Checkout Redirect', 'wpd-details' ),
-			   'type'    => 'select',
-			   'desc'    => __( 'Select the page your Checkout page should redirects visitors to.', 'wpd-details' ),
-			   'id'      => 'wpdd_settings_a2c_redirect',
-				 'options' => $pages_array,
-			),
 			// Shipping or Delivery.
 			'shipping_or_delivery' => array(
-			   'name'    => __( 'Delivery Service?', 'wpd-details' ),
-			   'type'    => 'select',
-			   'desc'    => __( 'Will you be delivering products to patients?', 'wpd-details' ),
-			   'id'      => 'wpdd_settings_shipping_delivery',
-				 'options' => array(
-					 'no'  => 'No',
-					 'yes' => 'Yes',
-				 ),
+				'name'    => __( 'Delivery service?', 'wpd-details' ),
+				'type'    => 'select',
+				'desc'    => __( 'Will you be delivering products to patients?', 'wpd-details' ),
+				'id'      => 'wpdd_settings_shipping_delivery',
+				'options' => array(
+					'no'  => 'No',
+					'yes' => 'Yes',
+				),
 			),
-			// Shipping or Delivery.
+			// Empty Cart page redirect.
+			'empty_cart_redirect_page' => array(
+				'name'    => __( 'Redirect empty cart', 'wpd-details' ),
+				'type'    => 'select',
+				'desc'    => __( 'Select the page your Cart page should redirects visitors to if empty.', 'wpd-details' ),
+				'id'      => 'wpdd_settings_empty_cart_redirect',
+				'options' => $pages_array,
+			),
+			// Visitor Checkout page redirect.
+			'a2c_redirect_page' => array(
+				'name'    => __( 'Redirect visitor checkout', 'wpd-details' ),
+				'type'    => 'select',
+				'desc'    => __( 'Select the page your Checkout page should redirects visitors to.', 'wpd-details' ),
+				'id'      => 'wpdd_settings_a2c_redirect',
+				'options' => $pages_array,
+			),
+			// Order Status completed.
 			'order_status_completed' => array(
-			   'name'    => __( 'Auto-complete Orders', 'wpd-details' ),
+			   'name'    => __( 'Auto-complete orders', 'wpd-details' ),
 			   'type'    => 'select',
 			   'desc'    => __( 'Automatically change order status from "processing" to "completed".', 'wpd-details' ),
 			   'id'      => 'wpdd_settings_order_status_completed',
@@ -132,13 +140,16 @@ class WPD_Details_WooCommerce_Settings {
 					 'yes' => 'Yes',
 				 ),
 			),
-			// Empty Cart page redirect.
-			'empty_cart_redirect_page' => array(
-			   'name'    => __( 'Empty Cart Redirect', 'wpd-details' ),
-			   'type'    => 'select',
-			   'desc'    => __( 'Select the page your Cart page should redirects visitors to if empty.', 'wpd-details' ),
-			   'id'      => 'wpdd_settings_empty_cart_redirect',
-				 'options' => $pages_array,
+			// Require Recommendation.
+			'require_recommendation' => array(
+				'name'    => __( 'Doctor recommendation', 'wpd-details' ),
+				'type'    => 'select',
+				'desc'    => __( 'Adds verification fields to registration and edit user forms.', 'wpd-details' ),
+				'id'      => 'wpdd_settings_require_recommendation',
+				'options' => array(
+					'no'  => 'No',
+					'yes' => 'Yes',
+				),
 			),
 			// Section End.
 			'section_end' => array(
@@ -160,9 +171,6 @@ function wpd_details_minimum_order_amount() {
 
 	// Set minimum amount.
 	$minimum = get_option( 'wpdd_settings_minimum_amount' );
-
-	$wpdd_min_order = get_option( 'wpdd_settings_minimum_order' );
-	// echo $wpdd_settings_title;
 
 	if ( WC()->cart->subtotal < $minimum ) {
 		if( is_cart() ) {
@@ -879,3 +887,16 @@ function save_wpd_details_growers( $post_id ) {
 }
 add_action( 'woocommerce_process_product_meta', 'save_wpd_details_growers' );
 
+/**
+ * Customize WooCommerce account edit template
+ * 
+ * @since 1.4
+ */
+function wpd_details_get_woocommerce_template( $located, $template_name, $args, $template_path, $default_path ) {    
+    if ( 'myaccount/form-edit-account.php' == $template_name ) {
+        $located = plugin_dir_path( dirname( __FILE__ ) ) . 'woocommerce/myaccount/form-edit-account.php';
+    }
+    
+    return $located;
+}
+add_filter( 'wc_get_template', 'wpd_details_get_woocommerce_template', 10, 5 );

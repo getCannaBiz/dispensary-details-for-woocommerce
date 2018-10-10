@@ -55,3 +55,48 @@ table.wpd-details-table td span {
 	font-weight: 600;
 	padding: 10px;
 }
+
+/** WooCommerce file upload remove button */
+
+div.recommendation-doc {
+    position: relative;
+    width: 140px;
+    display: inline-block;
+}
+
+button.remove-recommendation-doc {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    color: #FFF;
+    background: #FF0000;
+    border: 0;
+    padding: 10px 6.61px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1px;
+    font-family: 'Helvetica', Arial, sans-serif;
+    text-align: center;
+}
+
+button.remove-recommendation-doc:active,
+button.remove-recommendation-doc:focus,
+button.remove-recommendation-doc:hover {
+	cursor: pointer;
+	background: #F00000;
+	color: #FFF;
+}
+
+/* WooCommerce Patient Verification File upload */
+
+img.wpd-details-recommendation-doc,
+.entry-content img.wpd-details-recommendation-doc:last-child {
+	height: auto;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+input#reg_wpd_details_recommendation_doc {
+    width: 100%;
+}
