@@ -1,0 +1,693 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Dispensary Details for WooCommerce\n"
+"POT-Creation-Date: 2018-10-08 17:51-0400\n"
+"PO-Revision-Date: 2018-10-08 17:50-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpd-details.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/class-wpd-details-metaboxes.php:27
+msgid "Compound Details"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:151
+msgid "Edible Details"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:262
+msgid "Topical Details"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:367
+msgid "Grower Details"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:484
+msgid "Tincture Details"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:30
+msgctxt "general name"
+msgid "Aromas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:31
+msgctxt "singular name"
+msgid "Aroma"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:32
+msgid "Search Aromas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:33
+msgid "Popular Aromas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:34
+msgid "All Aromas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:37
+msgid "Edit Aroma"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:38
+msgid "Update Aroma"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:39
+msgid "Add New Aroma"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:40
+msgid "New Aroma Name"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:41
+msgid "Separate aromas with commas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:42
+msgid "Add or remove aromas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:43
+msgid "Choose from the most used aromas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:45
+msgid "Aromas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:88
+msgctxt "general name"
+msgid "Flavors"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:89
+msgctxt "singular name"
+msgid "Flavor"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:90
+msgid "Search Flavors"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:91
+msgid "Popular Flavors"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:92
+msgid "All Flavors"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:95
+msgid "Edit Flavor"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:96
+msgid "Update Flavor"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:97
+msgid "Add New Flavor"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:98
+msgid "New Flavor Name"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:99
+msgid "Separate flavors with commas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:100
+msgid "Add or remove flavors"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:101
+msgid "Choose from the most used flavors"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:103
+msgid "Flavors"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:145
+msgctxt "general name"
+msgid "Effects"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:146
+msgctxt "singular name"
+msgid "Effect"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:147
+msgid "Search Effects"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:148
+msgid "Popular Effects"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:149
+msgid "All Effects"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:152
+msgid "Edit Effect"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:153
+msgid "Update Effect"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:154
+msgid "Add New Effect"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:155
+msgid "New Effect Name"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:156
+msgid "Separate effects with commas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:157
+msgid "Add or remove effects"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:158
+msgid "Choose from the most used effects"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:160
+msgid "Effects"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:202
+msgctxt "general name"
+msgid "Symptoms"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:203
+msgctxt "singular name"
+msgid "Symptom"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:204
+msgid "Search Symptoms"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:205
+msgid "Popular Symptoms"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:206
+msgid "All Symptoms"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:209
+msgid "Edit Symptom"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:210
+msgid "Update Symptom"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:211
+msgid "Add New Symptom"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:212
+msgid "New Symptom Name"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:213
+msgid "Separate symptoms with commas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:214
+msgid "Add or remove symptoms"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:215
+msgid "Choose from the most used symptoms"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:217
+msgid "Symptoms"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:259
+msgctxt "general name"
+msgid "Conditions"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:260
+msgctxt "singular name"
+msgid "Condition"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:261
+msgid "Search Conditions"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:262
+msgid "Popular Conditions"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:263
+msgid "All Conditions"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:266
+msgid "Edit Condition"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:267
+msgid "Update Condition"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:268
+msgid "Add New Condition"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:269
+msgid "New Condition Name"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:270
+msgid "Separate conditions with commas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:271
+msgid "Add or remove conditions"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:272
+msgid "Choose from the most used conditions"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:274
+msgid "Conditions"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:316
+msgctxt "general name"
+msgid "Ingredients"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:317
+msgctxt "singular name"
+msgid "Ingredient"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:318
+msgid "Search Ingredients"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:319
+msgid "Popular Ingredients"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:320
+msgid "All Ingredients"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:323
+msgid "Edit Ingredient"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:324
+msgid "Update Ingredient"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:325
+msgid "Add New Ingredient"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:326
+msgid "New Ingredient Name"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:327
+msgid "Separate ingredients with commas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:328
+msgid "Add or remove ingredients"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:329
+msgid "Choose from the most used ingredients"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:331
+msgid "Ingredients"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:373
+msgctxt "general name"
+msgid "Vendors"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:374
+msgctxt "singular name"
+msgid "Vendor"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:375
+msgid "Search Vendors"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:376
+msgid "Popular Vendors"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:377
+msgid "All Vendors"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:380
+msgid "Edit Vendor"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:381
+msgid "Update Vendor"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:382
+msgid "Add New Vendor"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:383
+msgid "New Vendor Name"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:384
+msgid "Separate vendors with commas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:385
+msgid "Add or remove vendors"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:386
+msgid "Choose from the most used vendors"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:388
+msgid "Vendors"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:44
+#: admin/class-wpd-details-woocommerce.php:93
+msgid "Dispensary Details"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:100
+msgid "Minimum order"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:102
+msgid "The minimum amount before a customer can check out."
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:107
+msgid "Delivery service?"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:109
+msgid "Will you be delivering products to patients?"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:118
+msgid "Redirect empty cart"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:120
+msgid "Select the page your Cart page should redirects visitors to if empty."
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:126
+msgid "Redirect visitor checkout"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:128
+msgid "Select the page your Checkout page should redirects visitors to."
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:134
+msgid "Auto-complete orders"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:136
+msgid "Automatically change order status from \"processing\" to \"completed\"."
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:209
+#: admin/class-wpd-details-woocommerce.php:221
+msgid "Delivery Address"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:240
+#, php-format
+msgctxt "shipping packages"
+msgid "Delivery"
+msgid_plural "Delivery %d"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-wpd-details-woocommerce.php:319
+msgid "Reduce stock quantity by:"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:380
+msgid "Compounds"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:400
+msgid "THC %"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:406
+msgid "THCA %"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:412
+msgid "CBD %"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:418
+msgid "CBA %"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:424
+msgid "CBN %"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:430
+msgid "CBG %"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:498
+msgid "Tinctures"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:518
+#: admin/class-wpd-details-woocommerce.php:625
+msgid "THC mg per serving"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:524
+#: admin/class-wpd-details-woocommerce.php:631
+msgid "CBD mg per serving"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:530
+msgid "ml per serving"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:536
+#: admin/class-wpd-details-woocommerce.php:637
+msgid "Servings"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:542
+msgid "Net weight (oz)"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:605
+msgid "Edibles"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:643
+msgid "Net weight (g)"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:701
+msgid "Topicals"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:721
+msgid "THC mg"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:727
+msgid "CBD mg"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:733
+msgid "Size (oz)"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:786
+msgid "Growers"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:806
+msgid "Origin"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:812
+msgid "Grow Time"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:818
+msgid "Yield"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:824
+msgid "Seeds per unit"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:830
+msgid "Clones per unit"
+msgstr ""
+
+#: admin/wpd-details-user-fields.php:97 admin/wpd-details-user-fields.php:178
+msgid "Customer Verification"
+msgstr ""
+
+#: admin/wpd-details-user-fields.php:102 admin/wpd-details-user-fields.php:180
+msgid "Doctor recommendation"
+msgstr ""
+
+#: admin/wpd-details-user-fields.php:119 admin/wpd-details-user-fields.php:197
+#: admin/wpd-details-user-fields.php:239
+msgid "Recommendation number"
+msgstr ""
+
+#: admin/wpd-details-user-fields.php:125
+msgid "Expiration date"
+msgstr ""
+
+#: admin/wpd-details-user-fields.php:202 admin/wpd-details-user-fields.php:246
+msgid "Expiration Date"
+msgstr ""
+
+#: admin/wpd-details-user-fields.php:227
+#: woocommerce/myaccount/form-edit-account.php:23
+msgid "First name"
+msgstr ""
+
+#: admin/wpd-details-user-fields.php:232
+#: woocommerce/myaccount/form-edit-account.php:27
+msgid "Last name"
+msgstr ""
+
+#: admin/wpd-details-user-fields.php:262
+msgid "<strong>Error</strong>: First name is required!"
+msgstr ""
+
+#: admin/wpd-details-user-fields.php:265
+msgid "<strong>Error</strong>: Last name is required!."
+msgstr ""
+
+#: admin/wpd-details-user-fields.php:268
+msgid "<strong>Error</strong>: Recommendation number is required!."
+msgstr ""
+
+#: admin/wpd-details-user-fields.php:271
+msgid "<strong>Error</strong>: Expiration date is required!."
+msgstr ""
+
+#: public/class-wpd-details-woocommerce.php:22
+msgid "Details"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:33
+msgid "Display name"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:34
+msgid ""
+"This will be how your name will be displayed in the account section and in "
+"reviews"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:39
+msgid "Email address"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:44
+msgid "Password change"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:47
+msgid "Current password (leave blank to leave unchanged)"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:51
+msgid "New password (leave blank to leave unchanged)"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:55
+msgid "Confirm new password"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:65
+msgid "Save changes"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Dispensary Details for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.wpdispensary.com/product/dispensary-details-for-woocommerce"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Add additional details to your dispensary items being sold through "
+"WooCommerce. Brought to you by <a href=\"https://www.wpdispensary.com\" "
+"target=\"_blank\">WP Dispensary</a>."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WP Dispensary"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.wpdispensary.com"
+msgstr ""
