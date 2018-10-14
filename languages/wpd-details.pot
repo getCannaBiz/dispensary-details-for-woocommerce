@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Dispensary Details for WooCommerce\n"
-"POT-Creation-Date: 2018-10-08 17:51-0400\n"
-"PO-Revision-Date: 2018-10-08 17:50-0400\n"
+"POT-Creation-Date: 2018-10-14 09:52-0400\n"
+"PO-Revision-Date: 2018-10-14 09:52-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -25,20 +25,116 @@ msgstr ""
 msgid "Compound Details"
 msgstr ""
 
+#: admin/class-wpd-details-metaboxes.php:59
+msgid "THC"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:63
+msgid "THCA"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:67
+msgid "CBD"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:71
+msgid "CBA"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:75
+msgid "CBN"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:79
+msgid "CBG"
+msgstr ""
+
 #: admin/class-wpd-details-metaboxes.php:151
 msgid "Edible Details"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:181
+#: admin/class-wpd-details-metaboxes.php:515
+#: admin/class-wpd-details-woocommerce.php:532
+#: admin/class-wpd-details-woocommerce.php:639
+msgid "THC mg per serving"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:185
+#: admin/class-wpd-details-metaboxes.php:519
+#: admin/class-wpd-details-woocommerce.php:538
+#: admin/class-wpd-details-woocommerce.php:645
+msgid "CBD mg per serving"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:189
+#: admin/class-wpd-details-metaboxes.php:527
+#: admin/class-wpd-details-woocommerce.php:550
+#: admin/class-wpd-details-woocommerce.php:651
+msgid "Servings"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:193
+msgid "Net weight (grams)"
 msgstr ""
 
 #: admin/class-wpd-details-metaboxes.php:262
 msgid "Topical Details"
 msgstr ""
 
+#: admin/class-wpd-details-metaboxes.php:291
+#: admin/class-wpd-details-woocommerce.php:747
+msgid "Size (oz)"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:295
+#: admin/class-wpd-details-woocommerce.php:735
+msgid "THC mg"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:299
+#: admin/class-wpd-details-woocommerce.php:741
+msgid "CBD mg"
+msgstr ""
+
 #: admin/class-wpd-details-metaboxes.php:367
 msgid "Grower Details"
 msgstr ""
 
+#: admin/class-wpd-details-metaboxes.php:398
+#: admin/class-wpd-details-woocommerce.php:820
+msgid "Origin"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:402
+msgid "Grow time"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:406
+#: admin/class-wpd-details-woocommerce.php:832
+msgid "Yield"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:410
+#: admin/class-wpd-details-woocommerce.php:838
+msgid "Seeds per unit"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:414
+#: admin/class-wpd-details-woocommerce.php:844
+msgid "Clones per unit"
+msgstr ""
+
 #: admin/class-wpd-details-metaboxes.php:484
 msgid "Tincture Details"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:523
+msgid "mL per serving"
+msgstr ""
+
+#: admin/class-wpd-details-metaboxes.php:531
+msgid "Net weight (ounces)"
 msgstr ""
 
 #: admin/class-wpd-details-taxonomies.php:30
@@ -89,6 +185,10 @@ msgstr ""
 
 #: admin/class-wpd-details-taxonomies.php:43
 msgid "Choose from the most used aromas"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:44
+msgid "no aromas found"
 msgstr ""
 
 #: admin/class-wpd-details-taxonomies.php:45
@@ -145,6 +245,10 @@ msgstr ""
 msgid "Choose from the most used flavors"
 msgstr ""
 
+#: admin/class-wpd-details-taxonomies.php:102
+msgid "No flavors found"
+msgstr ""
+
 #: admin/class-wpd-details-taxonomies.php:103
 msgid "Flavors"
 msgstr ""
@@ -197,6 +301,10 @@ msgstr ""
 
 #: admin/class-wpd-details-taxonomies.php:158
 msgid "Choose from the most used effects"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:159
+msgid "No effects found"
 msgstr ""
 
 #: admin/class-wpd-details-taxonomies.php:160
@@ -253,6 +361,10 @@ msgstr ""
 msgid "Choose from the most used symptoms"
 msgstr ""
 
+#: admin/class-wpd-details-taxonomies.php:216
+msgid "No symptoms found"
+msgstr ""
+
 #: admin/class-wpd-details-taxonomies.php:217
 msgid "Symptoms"
 msgstr ""
@@ -305,6 +417,10 @@ msgstr ""
 
 #: admin/class-wpd-details-taxonomies.php:272
 msgid "Choose from the most used conditions"
+msgstr ""
+
+#: admin/class-wpd-details-taxonomies.php:273
+msgid "No conditions found"
 msgstr ""
 
 #: admin/class-wpd-details-taxonomies.php:274
@@ -361,6 +477,10 @@ msgstr ""
 msgid "Choose from the most used ingredients"
 msgstr ""
 
+#: admin/class-wpd-details-taxonomies.php:330
+msgid "No ingredients found"
+msgstr ""
+
 #: admin/class-wpd-details-taxonomies.php:331
 msgid "Ingredients"
 msgstr ""
@@ -415,6 +535,10 @@ msgstr ""
 msgid "Choose from the most used vendors"
 msgstr ""
 
+#: admin/class-wpd-details-taxonomies.php:387
+msgid "No vendors found"
+msgstr ""
+
 #: admin/class-wpd-details-taxonomies.php:388
 msgid "Vendors"
 msgstr ""
@@ -464,12 +588,21 @@ msgstr ""
 msgid "Automatically change order status from \"processing\" to \"completed\"."
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:209
-#: admin/class-wpd-details-woocommerce.php:221
+#: admin/class-wpd-details-woocommerce.php:145
+#: admin/wpd-details-user-fields.php:102 admin/wpd-details-user-fields.php:186
+msgid "Doctor recommendation"
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:147
+msgid "Adds verification fields to registration and edit user forms."
+msgstr ""
+
+#: admin/class-wpd-details-woocommerce.php:220
+#: admin/class-wpd-details-woocommerce.php:232
 msgid "Delivery Address"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:240
+#: admin/class-wpd-details-woocommerce.php:251
 #, php-format
 msgctxt "shipping packages"
 msgid "Delivery"
@@ -477,157 +610,114 @@ msgid_plural "Delivery %d"
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/class-wpd-details-woocommerce.php:319
+#: admin/class-wpd-details-woocommerce.php:330
 msgid "Reduce stock quantity by:"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:380
+#: admin/class-wpd-details-woocommerce.php:394
 msgid "Compounds"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:400
+#: admin/class-wpd-details-woocommerce.php:414
 msgid "THC %"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:406
+#: admin/class-wpd-details-woocommerce.php:420
 msgid "THCA %"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:412
+#: admin/class-wpd-details-woocommerce.php:426
 msgid "CBD %"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:418
+#: admin/class-wpd-details-woocommerce.php:432
 msgid "CBA %"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:424
+#: admin/class-wpd-details-woocommerce.php:438
 msgid "CBN %"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:430
+#: admin/class-wpd-details-woocommerce.php:444
 msgid "CBG %"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:498
+#: admin/class-wpd-details-woocommerce.php:512
 msgid "Tinctures"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:518
-#: admin/class-wpd-details-woocommerce.php:625
-msgid "THC mg per serving"
-msgstr ""
-
-#: admin/class-wpd-details-woocommerce.php:524
-#: admin/class-wpd-details-woocommerce.php:631
-msgid "CBD mg per serving"
-msgstr ""
-
-#: admin/class-wpd-details-woocommerce.php:530
+#: admin/class-wpd-details-woocommerce.php:544
 msgid "ml per serving"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:536
-#: admin/class-wpd-details-woocommerce.php:637
-msgid "Servings"
-msgstr ""
-
-#: admin/class-wpd-details-woocommerce.php:542
+#: admin/class-wpd-details-woocommerce.php:556
 msgid "Net weight (oz)"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:605
+#: admin/class-wpd-details-woocommerce.php:619
 msgid "Edibles"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:643
+#: admin/class-wpd-details-woocommerce.php:657
 msgid "Net weight (g)"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:701
+#: admin/class-wpd-details-woocommerce.php:715
 msgid "Topicals"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:721
-msgid "THC mg"
-msgstr ""
-
-#: admin/class-wpd-details-woocommerce.php:727
-msgid "CBD mg"
-msgstr ""
-
-#: admin/class-wpd-details-woocommerce.php:733
-msgid "Size (oz)"
-msgstr ""
-
-#: admin/class-wpd-details-woocommerce.php:786
+#: admin/class-wpd-details-woocommerce.php:800
 msgid "Growers"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:806
-msgid "Origin"
-msgstr ""
-
-#: admin/class-wpd-details-woocommerce.php:812
+#: admin/class-wpd-details-woocommerce.php:826
 msgid "Grow Time"
 msgstr ""
 
-#: admin/class-wpd-details-woocommerce.php:818
-msgid "Yield"
-msgstr ""
-
-#: admin/class-wpd-details-woocommerce.php:824
-msgid "Seeds per unit"
-msgstr ""
-
-#: admin/class-wpd-details-woocommerce.php:830
-msgid "Clones per unit"
-msgstr ""
-
-#: admin/wpd-details-user-fields.php:97 admin/wpd-details-user-fields.php:178
+#: admin/wpd-details-user-fields.php:97 admin/wpd-details-user-fields.php:184
 msgid "Customer Verification"
 msgstr ""
 
-#: admin/wpd-details-user-fields.php:102 admin/wpd-details-user-fields.php:180
-msgid "Doctor recommendation"
+#: admin/wpd-details-user-fields.php:117 admin/wpd-details-user-fields.php:201
+msgid "x"
 msgstr ""
 
-#: admin/wpd-details-user-fields.php:119 admin/wpd-details-user-fields.php:197
-#: admin/wpd-details-user-fields.php:239
+#: admin/wpd-details-user-fields.php:124 admin/wpd-details-user-fields.php:208
+#: admin/wpd-details-user-fields.php:253
 msgid "Recommendation number"
 msgstr ""
 
-#: admin/wpd-details-user-fields.php:125
+#: admin/wpd-details-user-fields.php:130
 msgid "Expiration date"
 msgstr ""
 
-#: admin/wpd-details-user-fields.php:202 admin/wpd-details-user-fields.php:246
+#: admin/wpd-details-user-fields.php:213 admin/wpd-details-user-fields.php:260
 msgid "Expiration Date"
 msgstr ""
 
-#: admin/wpd-details-user-fields.php:227
+#: admin/wpd-details-user-fields.php:239
 #: woocommerce/myaccount/form-edit-account.php:23
 msgid "First name"
 msgstr ""
 
-#: admin/wpd-details-user-fields.php:232
+#: admin/wpd-details-user-fields.php:244
 #: woocommerce/myaccount/form-edit-account.php:27
 msgid "Last name"
 msgstr ""
 
-#: admin/wpd-details-user-fields.php:262
+#: admin/wpd-details-user-fields.php:278
 msgid "<strong>Error</strong>: First name is required!"
 msgstr ""
 
-#: admin/wpd-details-user-fields.php:265
+#: admin/wpd-details-user-fields.php:281
 msgid "<strong>Error</strong>: Last name is required!."
 msgstr ""
 
-#: admin/wpd-details-user-fields.php:268
+#: admin/wpd-details-user-fields.php:285
 msgid "<strong>Error</strong>: Recommendation number is required!."
 msgstr ""
 
-#: admin/wpd-details-user-fields.php:271
+#: admin/wpd-details-user-fields.php:288
 msgid "<strong>Error</strong>: Expiration date is required!."
 msgstr ""
 

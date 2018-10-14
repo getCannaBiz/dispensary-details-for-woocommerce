@@ -56,27 +56,27 @@ function wpd_details_compounddetails() {
 
 	/** Echo out the fields */
 	echo '<div class="compoundbox">';
-	echo '<p>THC %:</p>';
+	echo '<p>' . __( 'THC', 'wpd-details' ) . ' %</p>';
 	echo '<input type="text" name="_thc" value="' . $thc  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="compoundbox">';
-	echo '<p>THCA %:</p>';
+	echo '<p>' . __( 'THCA', 'wpd-details' ) . ' %</p>';
 	echo '<input type="text" name="_thca" value="' . $thca  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="compoundbox">';
-	echo '<p>CBD %:</p>';
+	echo '<p>' . __( 'CBD', 'wpd-details' ) . ' %</p>';
 	echo '<input type="text" name="_cbd" value="' . $cbd  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="compoundbox">';
-	echo '<p>CBA %:</p>';
+	echo '<p>' . __( 'CBA', 'wpd-details' ) . ' %</p>';
 	echo '<input type="text" name="_cba" value="' . $cba  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="compoundbox">';
-	echo '<p>CBN %:</p>';
+	echo '<p>' . __( 'CBN', 'wpd-details' ) . ' %</p>';
 	echo '<input type="text" name="_cbn" value="' . $cbn  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="compoundbox">';
-	echo '<p>CBG %:</p>';
+	echo '<p>' . __( 'CBG', 'wpd-details' ) . ' %</p>';
 	echo '<input type="text" name="_cbg" value="' . $cbg  . '" class="widefat" />';
 	echo '</div>';
 
@@ -178,19 +178,19 @@ function wpd_details_edibles() {
 
 	/** Echo out the fields */
 	echo '<div class="ediblesbox">';
-	echo '<p>THC mg per serving:</p>';
+	echo '<p>' . __( 'THC mg per serving', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_thcmg" value="' . $thcmg  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="ediblesbox">';
-	echo '<p>CBD mg per serving:</p>';
+	echo '<p>' . __( 'CBD mg per serving', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_cbdmg" value="' . $cbdmg  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="ediblesbox">';
-	echo '<p>Servings:</p>';
+	echo '<p>' . __( 'Servings', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_thccbdservings" value="' . $thccbdservings  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="ediblesbox">';
-	echo '<p>Net weight (grams):</p>';
+	echo '<p>' . __( 'Net weight (grams)', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_netweight" value="' . $netweight  . '" class="widefat" />';
 	echo '</div>';
 }
@@ -288,15 +288,15 @@ function wpd_details_topicals() {
 
 	/** Echo out the fields */
 	echo '<div class="topicalsbox">';
-	echo '<p>Size (oz):</p>';
+	echo '<p>' . __( 'Size (oz)', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_sizetopical" value="' . $sizetopicals  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="topicalsbox">';
-	echo '<p>THC mg:</p>';
+	echo '<p>' . __( 'THC mg', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_thctopical" value="' . $thctopicals  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="topicalsbox">';
-	echo '<p>CBD mg:</p>';
+	echo '<p>' . __( 'CBD mg', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_cbdtopical" value="' . $cbdtopicals  . '" class="widefat" />';
 	echo '</div>';
 
@@ -395,23 +395,23 @@ function wpd_details_growers() {
 
 	/** Echo out the fields */
 	echo '<div class="growerbox">';
-	echo '<p>Origin:</p>';
+	echo '<p>' . __( 'Origin', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_origin" value="' . $origin  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="growerbox">';
-	echo '<p>Grow Time:</p>';
+	echo '<p>' . __( 'Grow time', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_time" value="' . $time  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="growerbox">';
-	echo '<p>Yield:</p>';
+	echo '<p>' . __( 'Yield', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_yield" value="' . $yield  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="growerbox">';
-	echo '<p>Seeds per unit:</p>';
+	echo '<p>' . __( 'Seeds per unit', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_seedcount" value="' . $seedcount  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="growerbox">';
-	echo '<p>Clones per unit:</p>';
+	echo '<p>' . __( 'Clones per unit', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_clonecount" value="' . $clonecount  . '" class="widefat" />';
 	echo '</div>';
 
@@ -512,23 +512,23 @@ function wpd_details_tinctures() {
 
 	/** Echo out the fields */
 	echo '<div class="tincturesdetailsbox">';
-	echo '<p>THC mg per serving:</p>';
+	echo '<p>' . __( 'THC mg per serving', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_tincture_thcmg" value="' . esc_html( $thcmg ) . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="tincturesdetailsbox">';
-	echo '<p>CBD mg per serving:</p>';
+	echo '<p>' . __( 'CBD mg per serving', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_tincture_cbdmg" value="' . esc_html( $cbdmg ) . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="tincturesdetailsbox">';
-	echo '<p>ml per serving:</p>';
+	echo '<p>' . __( 'mL per serving', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_tincture_mlserving" value="' . esc_html( $mlserving ) . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="tincturesdetailsbox">';
-	echo '<p>Servings:</p>';
+	echo '<p>' . __( 'Servings', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_tincture_thccbdservings" value="' . esc_html( $thccbdservings ) . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="tincturesdetailsbox">';
-	echo '<p>Net weght (ounces):</p>';
+	echo '<p>' . __( 'Net weight (ounces)', 'wpd-details' ) . '</p>';
 	echo '<input type="text" name="_tincture_netweight" value="' . esc_html( $netweight ) . '" class="widefat" />';
 	echo '</div>';
 
