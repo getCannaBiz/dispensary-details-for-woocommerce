@@ -105,12 +105,12 @@ function wpd_details_save_compounddetails_meta( $post_id, $post ) {
 	 * We'll put it into an array to make it easier to loop though.
 	 */
 
-	$thccbd_meta['_thc']    = $_POST['_thc'];
-	$thccbd_meta['_thca']   = $_POST['_thca'];
-	$thccbd_meta['_cbd']    = $_POST['_cbd'];
-	$thccbd_meta['_cba']    = $_POST['_cba'];
-	$thccbd_meta['_cbn']    = $_POST['_cbn'];
-	$thccbd_meta['_cbg']    = $_POST['_cbg'];
+	$thccbd_meta['_thc']  = $_POST['_thc'];
+	$thccbd_meta['_thca'] = $_POST['_thca'];
+	$thccbd_meta['_cbd']  = $_POST['_cbd'];
+	$thccbd_meta['_cba']  = $_POST['_cba'];
+	$thccbd_meta['_cbn']  = $_POST['_cbn'];
+	$thccbd_meta['_cbg']  = $_POST['_cbg'];
 
 	/** Add values of $compounddetails_meta as custom fields */
 
@@ -282,9 +282,9 @@ function wpd_details_topicals() {
 	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
 
 	/** Get the thc mg data if its already been entered */
-	$thctopicals	= get_post_meta( $post->ID, '_thctopical', true );
-	$cbdtopicals	= get_post_meta( $post->ID, '_cbdtopical', true );
-	$sizetopicals	= get_post_meta( $post->ID, '_sizetopical', true );
+	$thctopicals  = get_post_meta( $post->ID, '_thctopical', true );
+	$cbdtopicals  = get_post_meta( $post->ID, '_cbdtopical', true );
+	$sizetopicals = get_post_meta( $post->ID, '_sizetopical', true );
 
 	/** Echo out the fields */
 	echo '<div class="topicalsbox">';
@@ -325,9 +325,9 @@ function wpd_details_save_thccbdtopical_meta( $post_id, $post ) {
 	 * We'll put it into an array to make it easier to loop though.
 	 */
 
-	$thcmgtopical_meta['_thctopical']	= $_POST['_thctopical'];
-	$thcmgtopical_meta['_cbdtopical']	= $_POST['_cbdtopical'];
-	$thcmgtopical_meta['_sizetopical']	= $_POST['_sizetopical'];
+	$thcmgtopical_meta['_thctopical']  = $_POST['_thctopical'];
+	$thcmgtopical_meta['_cbdtopical']  = $_POST['_cbdtopical'];
+	$thcmgtopical_meta['_sizetopical'] = $_POST['_sizetopical'];
 
 	/** Add values of $thcmg_meta as custom fields */
 
@@ -440,11 +440,11 @@ function wpd_details_save_grower_details_meta( $post_id, $post ) {
 	 * We'll put it into an array to make it easier to loop though.
 	 */
 
-	 $grower_details_meta['_origin']      = $_POST['_origin'];
-	 $grower_details_meta['_time']        = $_POST['_time'];
-	 $grower_details_meta['_yield']       = $_POST['_yield'];
-	 $grower_details_meta['_seedcount']   = $_POST['_seedcount'];
-	 $grower_details_meta['_clonecount']  = $_POST['_clonecount'];
+	 $grower_details_meta['_origin']     = $_POST['_origin'];
+	 $grower_details_meta['_time']       = $_POST['_time'];
+	 $grower_details_meta['_yield']      = $_POST['_yield'];
+	 $grower_details_meta['_seedcount']  = $_POST['_seedcount'];
+	 $grower_details_meta['_clonecount'] = $_POST['_clonecount'];
 
 	/** Add values of $grower_details_meta as custom fields */
 

@@ -167,32 +167,32 @@ WPD_Details_WooCommerce_Settings::init();
  * Minimum Order Amount
  */
 if ( null !== get_option( 'wpdd_settings_minimum_amount' ) || '' !== get_option( 'wpdd_settings_minimum_amount' ) ) {
-function wpd_details_minimum_order_amount() {
+	function wpd_details_minimum_order_amount() {
 
-	// Set minimum amount.
-	$minimum = get_option( 'wpdd_settings_minimum_amount' );
+		// Set minimum amount.
+		$minimum = get_option( 'wpdd_settings_minimum_amount' );
 
-	if ( WC()->cart->subtotal < $minimum ) {
-		if( is_cart() ) {
-			wc_print_notice(
-				sprintf( 'Your order must be a minimum of %s. Your current order total is %s.' ,
-					wc_price( $minimum ),
-					wc_price( WC()->cart->subtotal )
-				), 'error'
-			);
-		} else {
-			wc_add_notice(
-				sprintf( 'Your order must be a minimum of %s. Your current order total is %s.' ,
-					wc_price( $minimum ),
-					wc_price( WC()->cart->subtotal )
-				), 'error'
-			);
+		if ( WC()->cart->subtotal < $minimum ) {
+			if( is_cart() ) {
+				wc_print_notice(
+					sprintf( 'Your order must be a minimum of %s. Your current order total is %s.' ,
+						wc_price( $minimum ),
+						wc_price( WC()->cart->subtotal )
+					), 'error'
+				);
+			} else {
+				wc_add_notice(
+					sprintf( 'Your order must be a minimum of %s. Your current order total is %s.' ,
+						wc_price( $minimum ),
+						wc_price( WC()->cart->subtotal )
+					), 'error'
+				);
+			}
 		}
-	}
 
-}
-add_action( 'woocommerce_checkout_process', 'wpd_details_minimum_order_amount' );
-add_action( 'woocommerce_before_cart' , 'wpd_details_minimum_order_amount' );
+	}
+	add_action( 'woocommerce_checkout_process', 'wpd_details_minimum_order_amount' );
+	add_action( 'woocommerce_before_cart' , 'wpd_details_minimum_order_amount' );
 }
 
 /**
@@ -200,33 +200,33 @@ add_action( 'woocommerce_before_cart' , 'wpd_details_minimum_order_amount' );
  */
 function wpd_details_login_redirect() {
 	if ( null !== get_option( 'wpdd_settings_a2c_redirect' ) && 'none' !== get_option( 'wpdd_settings_a2c_redirect' ) ) {
-   if (
-       ! is_user_logged_in()
-       && ( is_checkout() )
-   ) {
-       // feel free to customize the following line to suit your needs
-       wp_redirect( get_permalink( get_option( 'wpdd_settings_a2c_redirect' ) ) );
-       exit;
-		 }
-  }
+		if (
+			! is_user_logged_in()
+			&& ( is_checkout() )
+		) {
+		// feel free to customize the following line to suit your needs
+			wp_redirect( get_permalink( get_option( 'wpdd_settings_a2c_redirect' ) ) );
+			exit;
+		}
+	}
 }
 add_action( 'template_redirect', 'wpd_details_login_redirect' );
 
 // Change the Shipping Address checkout label.
 if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
-function wpd_details_shipping_field_strings( $translated_text, $text, $domain ) {
-    switch ( $translated_text ) {
-      case 'Shipping Address' :
-        $translated_text = __( 'Delivery Address', 'woocommerce' );
-        break;
-    }
-    return $translated_text;
+	function wpd_details_shipping_field_strings( $translated_text, $text, $domain ) {
+		switch ( $translated_text ) {
+		case 'Shipping Address' :
+			$translated_text = __( 'Delivery Address', 'woocommerce' );
+			break;
+		}
+		return $translated_text;
 	}
 }
 
 // Change the Ship to a different address text.
 if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
-function wpd_details_strings_translation( $translated_text, $text, $domain ) {
+	function wpd_details_strings_translation( $translated_text, $text, $domain ) {
 	  switch ( $translated_text ) {
 	    case 'Ship to a different address?' :
 	      $translated_text =  __( 'Delivery Address', '__x__' );
@@ -246,17 +246,17 @@ function wpd_details_strings_translation( $translated_text, $text, $domain ) {
  *
  * @return string
  */
- if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
-function wpd_details_delivery_text( $package_name, $i, $package ) {
-    return sprintf( _nx( 'Delivery', 'Delivery %d', ( $i + 1 ), 'shipping packages', 'wpd-details' ), ( $i + 1 ) );
+if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
+	function wpd_details_delivery_text( $package_name, $i, $package ) {
+    	return sprintf( _nx( 'Delivery', 'Delivery %d', ( $i + 1 ), 'shipping packages', 'wpd-details' ), ( $i + 1 ) );
 	}
 }
 
 /*
  *  Change the string "Shipping" to "Delivery" on Order Received page.
  */
- if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
-function wpd_details_translate_reply( $translated ) {
+if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
+	function wpd_details_translate_reply( $translated ) {
 		$translated = str_ireplace( 'Shipping', 'Delivery', $translated );
 		return $translated;
 	}
@@ -288,7 +288,7 @@ function wpd_details_order_status_completed( $order_id ) {
 	    $order = new WC_Order( $order_id ); // Get an instance of the WC_Order object.
 
 	    if ( $order->has_status( 'processing' ) ) {
-	      $order-> update_status( 'completed' );
+	      $order->update_status( 'completed' );
 			}
 		} else {
 			// Do nothing.
@@ -325,7 +325,7 @@ function wpd_details_inventory_reduction( $loop, $variation_data, $variation ) {
 	echo '<div class="variation-custom-fields">';
 
 	// Inventory reduction.
-	woocommerce_wp_text_input( array( 
+	woocommerce_wp_text_input( array(
 		'id'          => '_inventory_reduction['. $loop .']', 
 		'label'       => __( 'Reduce stock quantity by:', 'woocommerce' ), 
 		'placeholder' => 'ex: 7',
@@ -356,15 +356,18 @@ add_filter( 'woocommerce_stock_amount', 'floatval' );
 /**
  * Reduce inventory based on variable input field.
  */
-function filter_order_item_quantity( $quantity, $order, $item ) {
+function wpd_details_filter_order_item_quantity( $quantity, $order, $item ) {
 
+	// Get simple item inventory reduction amount.
 	$multiplier = $item->get_product()->get_meta( '_inventory_reduction' );
 
+	// Get variation item inventory reduction amount.
 	if ( empty( $multiplier ) && $item->get_product()->is_type( 'variation' ) ) {
 		$product    = wc_get_product( $item->get_product()->get_parent_id() );
 		$multiplier = $product->get_meta( '_inventory_reduction' );
 	}
 
+	// Updated quantity.
 	if ( ! empty( $multiplier ) ) {
 		$quantity = $multiplier * $quantity;
 	}
@@ -372,7 +375,7 @@ function filter_order_item_quantity( $quantity, $order, $item ) {
 	return $quantity;
 
 }
-add_filter( 'woocommerce_order_item_quantity', 'filter_order_item_quantity', 10, 3 ); 
+add_filter( 'woocommerce_order_item_quantity', 'wpd_details_filter_order_item_quantity', 10, 3 ); 
 
 /**
  * Custom Product Data Tab
