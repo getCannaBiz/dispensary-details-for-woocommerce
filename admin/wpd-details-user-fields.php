@@ -205,12 +205,12 @@ function wpd_details_add_to_edit_account_form() {
         </p>
 
         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-            <label for="reg_wpd_details_recommendation_num"><?php _e( 'Recommendation number', 'woocommerce' ); ?> <span class="required">*</span></label>
+            <label for="reg_wpd_details_recommendation_num"><?php _e( 'Recommendation number', 'woocommerce' ); ?></label>
             <input type="text" class="input-text" name="wpd_details_recommendation_num" id="reg_wpd_details_recommendation_num" value="<?php echo get_user_meta( $user->ID, 'wpd_details_recommendation_num', true ); ?>" />
         </p>
 
         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-            <label for="reg_wpd_details_recommendation_exp"><?php _e( 'Expiration Date', 'woocommerce' ); ?> <span class="required">*</span></label>
+            <label for="reg_wpd_details_recommendation_exp"><?php _e( 'Expiration Date', 'woocommerce' ); ?></label>
             <input type="date" class="input-date" name="wpd_details_recommendation_exp" id="reg_wpd_details_recommendation_exp" value="<?php echo get_user_meta( $user->ID, 'wpd_details_recommendation_exp', true ); ?>" />
         </p>
 
@@ -250,14 +250,14 @@ function wpd_details_add_name_woo_account_registration() {
     <?php if ( 'yes' === get_option( 'wpdd_settings_require_recommendation' ) ) { ?>
 
     <p class="form-row">
-        <label for="reg_wpd_details_recommendation_num"><?php _e( 'Recommendation number', 'woocommerce' ); ?> <span class="required">*</span></label>
+        <label for="reg_wpd_details_recommendation_num"><?php _e( 'Recommendation number', 'woocommerce' ); ?></label>
         <input type="text" class="input-text" name="wpd_details_recommendation_num" id="reg_wpd_details_recommendation_num" value="<?php if ( ! empty( $_POST['wpd_details_recommendation_num'] ) ) esc_attr_e( $_POST['wpd_details_recommendation_num'] ); ?>" />
     </p>
 
     <div class="clear"></div>
 
     <p class="form-row">
-        <label for="reg_wpd_details_recommendation_exp"><?php _e( 'Expiration Date', 'woocommerce' ); ?> <span class="required">*</span></label>
+        <label for="reg_wpd_details_recommendation_exp"><?php _e( 'Expiration date', 'woocommerce' ); ?></label>
         <input type="date" class="input-date" name="wpd_details_recommendation_exp" id="reg_wpd_details_recommendation_exp" value="<?php if ( ! empty( $_POST['wpd_details_recommendation_exp'] ) ) esc_attr_e( $_POST['wpd_details_recommendation_exp'] ); ?>" />
     </p>
 
@@ -278,15 +278,7 @@ function wpd_details_validate_name_fields( $errors, $username, $email ) {
         $errors->add( 'billing_first_name_error', __( '<strong>Error</strong>: First name is required!', 'woocommerce' ) );
     }
     if ( isset( $_POST['billing_last_name'] ) && empty( $_POST['billing_last_name'] ) ) {
-        $errors->add( 'billing_last_name_error', __( '<strong>Error</strong>: Last name is required!.', 'woocommerce' ) );
-    }
-    if ( 'yes' === get_option( 'wpdd_settings_require_recommendation' ) ) {
-        if ( isset( $_POST['wpd_details_recommendation_num'] ) && empty( $_POST['wpd_details_recommendation_num'] ) ) {
-            $errors->add( 'wpd_details_recommendation_num_error', __( '<strong>Error</strong>: Recommendation number is required!.', 'woocommerce' ) );
-        }
-        if ( isset( $_POST['wpd_details_recommendation_exp'] ) && empty( $_POST['wpd_details_recommendation_exp'] ) ) {
-            $errors->add( 'wpd_details_recommendation_exp_error', __( '<strong>Error</strong>: Expiration date is required!.', 'woocommerce' ) );
-        }
+        $errors->add( 'billing_last_name_error', __( '<strong>Error</strong>: Last name is required!', 'woocommerce' ) );
     }
     return $errors;
 }
