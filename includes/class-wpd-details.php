@@ -70,7 +70,7 @@ class WPD_Details {
 		if ( defined( 'DISPENSARY_DETAILS_VERSION' ) ) {
 			$this->version = DISPENSARY_DETAILS_VERSION;
 		} else {
-			$this->version = '1.3.0';
+			$this->version = '1.4';
 		}
 		$this->plugin_name = 'wpd-details';
 

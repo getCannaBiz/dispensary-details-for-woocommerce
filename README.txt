@@ -4,7 +4,7 @@ Donate link: https://www.wpdispensary.com
 Tags: dispensary, weed, woocommerce, ecommerce, marijuana, cannabis
 Requires at least: 3.0.1
 Tested up to: 4.9.8
-Stable tag: 1.3.0
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,14 @@ Add additional details to your dispensary items being sold through WooCommerce.
 Add additional details to your dispensary items being sold through WooCommerce. Brought to you by [WP Dispensary](https://www.wpdispensary.com/)
 
 == Changelog ==
+
+= 1.4.0 =
+* Added patient verification fields to user profiles in `admin/wpd-details-user-fields.php`
+* Added Doctor recommendation option to Settings page in `admin/class-wpd-details-woocommerce.php`
+* Added WooComerce template file for the edit-account screen in `woocommerce/form-edit-account.php`
+* Updated CSS for Edit User screen in the admin dashboard in `admin/css/wpd-details-admin.css`
+* Updated CSS for patient recommendation fields in user profiles in `admin/css/wpd-details-public.css`
+* Updated text strings for localization in `languages/wpd-details.pot`
 
 = 1.3.0 =
 * Add ability to reduce stock by decimal grams in `admin/class-wpd-details-woocommerce.php`
