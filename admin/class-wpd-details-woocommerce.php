@@ -104,7 +104,7 @@ class WPD_Details_WooCommerce_Settings {
 			),
 			// Shipping or Delivery.
 			'shipping_or_delivery' => array(
-				'name'    => __( 'Delivery service?', 'wpd-details' ),
+				'name'    => __( 'Delivery service', 'wpd-details' ),
 				'type'    => 'select',
 				'desc'    => __( 'Will you be delivering products to patients?', 'wpd-details' ),
 				'id'      => 'wpdd_settings_shipping_delivery',
