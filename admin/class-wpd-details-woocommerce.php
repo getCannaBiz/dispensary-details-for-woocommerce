@@ -315,12 +315,12 @@ function cart_empty_redirect_to_shop() {
 
 		// Check if Redirect is set in Settings.
 		if ( null !== get_option( 'wpdd_settings_empty_cart_redirect' ) && 'none' !== get_option( 'wpdd_settings_empty_cart_redirect' ) ) {
-			// If we're on the Cart page & cart count is 0, o the redirect.
-    	if ( is_page( 'cart' ) && 0 === $woocommerce->cart->cart_contents_count ) {
+			// If we're on the Cart page & cart count is 0, do the redirect.
+			if ( is_page( 'cart' ) && 0 === $woocommerce->cart->cart_contents_count ) {
 				wp_redirect( get_permalink( get_option( 'wpdd_settings_empty_cart_redirect' ) ) );
         exit;
 			}
-		}	else {
+		} else {
 		 	// Do nothing.
 		}
 }
