@@ -140,7 +140,7 @@ class WPD_Details_WooCommerce_Settings {
 					 'yes' => 'Yes',
 				 ),
 			),
-			// Require Recommendation.
+			// Doctor Recommendation.
 			'require_recommendation' => array(
 				'name'    => __( 'Doctor recommendation', 'wpd-details' ),
 				'type'    => 'select',
