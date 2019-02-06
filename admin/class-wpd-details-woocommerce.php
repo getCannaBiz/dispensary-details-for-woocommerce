@@ -151,6 +151,17 @@ class WPD_Details_WooCommerce_Settings {
 					'yes' => 'Yes',
 				),
 			),
+			// Require Recommendation.
+			'require_recommendation_checkout' => array(
+				'name'    => __( 'Require recommendation', 'wpd-details' ),
+				'type'    => 'select',
+				'desc'    => __( 'Only allow checkout after recommendation docs are added.', 'wpd-details' ),
+				'id'      => 'wpdd_settings_require_recommendation_checkout',
+				'options' => array(
+					'no'  => 'No',
+					'yes' => 'Yes',
+				),
+			),
 			// Section End.
 			'section_end' => array(
 			   'type' => 'sectionend',
@@ -315,6 +326,42 @@ function cart_empty_redirect_to_shop() {
 }
 
 add_action( 'wp_head', 'cart_empty_redirect_to_shop' );
+
+/**
+ * Require verification documents for checkout
+ * 
+ * @since 1.5
+ */
+if ( 'yes' == get_option( 'wpdd_settings_require_recommendation_checkout' ) ) {
+	function wpd_details_require_doctor_recommendation_checkout() {
+
+		// Get user.
+		$user_id = get_current_user_id();
+		$user    = get_userdata( $user_id );
+
+		// Set minimum amount.
+		$document = get_user_meta( $user->ID, 'wpd_details_recommendation_doc', true );
+
+		if ( empty( $document ) ) {
+			if( is_cart() ) {
+				wc_print_notice(
+					sprintf( 'Doctor recommendation is required to checkout. <a href="%s">Add document</a>' ,
+						wc_get_account_endpoint_url( 'edit-account' )
+					), 'error'
+				);
+			} else {
+				wc_add_notice(
+					sprintf( 'Doctor recommendation is required to checkout. <a href="%s">Add document</a>' ,
+						wc_get_account_endpoint_url( 'edit-account' )
+					), 'error'
+				);
+			}
+		}
+
+	}
+	add_action( 'woocommerce_checkout_process', 'wpd_details_require_doctor_recommendation_checkout' );
+	add_action( 'woocommerce_before_cart' , 'wpd_details_require_doctor_recommendation_checkout' );
+}
 
 /**
  * WooCommerce - Inventory Management for Cannabis products
