@@ -215,9 +215,10 @@ function wpd_details_login_redirect() {
 			! is_user_logged_in()
 			&& ( is_checkout() )
 		) {
-		// feel free to customize the following line to suit your needs
+			// Redirect to the URL from the settings.
 			wp_redirect( get_permalink( get_option( 'wpdd_settings_a2c_redirect' ) ) );
-			exit;
+		} else {
+			// Do nothing.
 		}
 	}
 }
@@ -318,7 +319,8 @@ function cart_empty_redirect_to_shop() {
 			// If we're on the Cart page & cart count is 0, do the redirect.
 			if ( is_page( 'cart' ) && 0 === $woocommerce->cart->cart_contents_count ) {
 				wp_redirect( get_permalink( get_option( 'wpdd_settings_empty_cart_redirect' ) ) );
-        exit;
+			} else {
+				// Do nothing.
 			}
 		} else {
 		 	// Do nothing.
