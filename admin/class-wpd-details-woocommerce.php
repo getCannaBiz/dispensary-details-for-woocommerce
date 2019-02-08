@@ -229,7 +229,7 @@ if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
 	function wpd_details_shipping_field_strings( $translated_text, $text, $domain ) {
 		switch ( $translated_text ) {
 		case 'Shipping Address' :
-			$translated_text = __( 'Delivery Address', 'woocommerce' );
+			$translated_text = __( 'Delivery Address', 'wpd-details' );
 			break;
 		}
 		return $translated_text;
@@ -376,7 +376,7 @@ function wpd_details_inventory_reduction( $loop, $variation_data, $variation ) {
 	// Inventory reduction.
 	woocommerce_wp_text_input( array(
 		'id'          => '_inventory_reduction['. $loop .']', 
-		'label'       => __( 'Reduce stock quantity by:', 'woocommerce' ), 
+		'label'       => __( 'Reduce stock quantity by:', 'wpd-details' ), 
 		'placeholder' => 'ex: 7',
 		'value'       => get_post_meta( $variation->ID, '_inventory_reduction', true )
 	) );
@@ -440,7 +440,7 @@ add_filter( 'woocommerce_order_item_quantity', 'wpd_details_filter_order_item_qu
 function wpd_details_compounds_tab( $tabs ) {
   
   $tabs['wpd_details_compounds'] = array(
-    'label'  => __( 'Compounds', 'woocommerce' ),
+    'label'  => __( 'Compounds', 'wpd-details' ),
     'target' => 'wpd_details_compounds_panel',
     'class'  => array(),
   );
@@ -460,37 +460,37 @@ function wpd_details_compounds_panel( $product ) {
 		// THC.
 		$thc_field = array(
 			'id'    => 'wpd_details_thc',
-			'label' => __( 'THC %', 'woocommerce' ),
+			'label' => __( 'THC %', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $thc_field );
 		// THCA.
 		$thca_field = array(
 			'id'    => 'wpd_details_thca',
-			'label' => __( 'THCA %', 'woocommerce' ),
+			'label' => __( 'THCA %', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $thca_field );
 		// CBD.
 		$cbd_field = array(
 			'id'    => 'wpd_details_cbd',
-			'label' => __( 'CBD %', 'woocommerce' ),
+			'label' => __( 'CBD %', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $cbd_field );
 		// CBA.
 		$cba_field = array(
 			'id'    => 'wpd_details_cba',
-			'label' => __( 'CBA %', 'woocommerce' ),
+			'label' => __( 'CBA %', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $cba_field );
 		// CBN.
 		$cbn_field = array(
 			'id'    => 'wpd_details_cbn',
-			'label' => __( 'CBN %', 'woocommerce' ),
+			'label' => __( 'CBN %', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $cbn_field );
 		// CBG.
 		$cbg_field = array(
 			'id'    => 'wpd_details_cbg',
-			'label' => __( 'CBG %', 'woocommerce' ),
+			'label' => __( 'CBG %', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $cbg_field );
 		?>
@@ -558,7 +558,7 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_compounds' );
 function wpd_details_tinctures_tab( $tabs ) {
   
 	$tabs['wpd_details_tinctures'] = array(
-	  'label'  => __( 'Tinctures', 'woocommerce' ),
+	  'label'  => __( 'Tinctures', 'wpd-details' ),
 	  'target' => 'wpd_details_tinctures_panel',
 	  'class'  => array(),
 	);
@@ -578,31 +578,31 @@ function wpd_details_tinctures_panel( $product ) {
 		// THC.
 		$thcmg_field = array(
 			'id'    => 'wpd_details_tincture_thcmg',
-			'label' => __( 'THC mg per serving', 'woocommerce' ),
+			'label' => __( 'THC mg per serving', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $thcmg_field );
 		// CBD.
 		$cbdmg_field = array(
 			'id'    => 'wpd_details_tincture_cbdmg',
-			'label' => __( 'CBD mg per serving', 'woocommerce' ),
+			'label' => __( 'CBD mg per serving', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $cbdmg_field );
 		// ml.
 		$mlservings_field = array(
 			'id'    => 'wpd_details_tincture_mlservings',
-			'label' => __( 'ml per serving', 'woocommerce' ),
+			'label' => __( 'ml per serving', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $mlservings_field );
 		// Servings.
 		$thccbdservings_field = array(
 			'id'    => 'wpd_details_tincture_thccbdservings',
-			'label' => __( 'Servings', 'woocommerce' ),
+			'label' => __( 'Servings', 'wpd-details' ),
 			);
 		woocommerce_wp_text_input( $thccbdservings_field );
 		// Net weight.
 		$netweight_field = array(
 			'id'    => 'wpd_details_tincture_netweight',
-			'label' => __( 'Net weight (oz)', 'woocommerce' ),
+			'label' => __( 'Net weight (oz)', 'wpd-details' ),
 			);
 		woocommerce_wp_text_input( $netweight_field );
 		?>
@@ -665,7 +665,7 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_tinctures' );
 function wpd_details_edibles_tab( $tabs ) {
   
 	$tabs['wpd_details_edibles'] = array(
-	  'label'  => __( 'Edibles', 'woocommerce' ),
+	  'label'  => __( 'Edibles', 'wpd-details' ),
 	  'target' => 'wpd_details_edibles_panel',
 	  'class'  => array(),
 	);
@@ -685,25 +685,25 @@ function wpd_details_edibles_panel( $product ) {
 		// THC.
 		$thcmg_field = array(
 			'id'    => 'wpd_details_thcmg',
-			'label' => __( 'THC mg per serving', 'woocommerce' ),
+			'label' => __( 'THC mg per serving', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $thcmg_field );
 		// CBD.
 		$cbdmg_field = array(
 			'id'    => 'wpd_details_cbdmg',
-			'label' => __( 'CBD mg per serving', 'woocommerce' ),
+			'label' => __( 'CBD mg per serving', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $cbdmg_field );
 		// Servings.
 		$thccbdservings_field = array(
 		'id'    => 'wpd_details_thccbdservings',
-		'label' => __( 'Servings', 'woocommerce' ),
+		'label' => __( 'Servings', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $thccbdservings_field );
 		// Net Weight.
 		$netweight_field = array(
 			'id'    => 'wpd_details_netweight',
-			'label' => __( 'Net weight (g)', 'woocommerce' ),
+			'label' => __( 'Net weight (g)', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $netweight_field );
 		?>
@@ -761,7 +761,7 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_edibles' );
 function wpd_details_topicals_tab( $tabs ) {
   
 	$tabs['wpd_details_topicals'] = array(
-	  'label'  => __( 'Topicals', 'woocommerce' ),
+	  'label'  => __( 'Topicals', 'wpd-details' ),
 	  'target' => 'wpd_details_topicals_panel',
 	  'class'  => array(),
 	);
@@ -781,19 +781,19 @@ function wpd_details_topicals_panel( $product ) {
 		// THC.
 		$thctopical_field = array(
 			'id'    => 'wpd_details_thctopical',
-			'label' => __( 'THC mg', 'woocommerce' ),
+			'label' => __( 'THC mg', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $thctopical_field );
 		// CBD.
 		$cbdtopical_field = array(
 			'id'    => 'wpd_details_cbdtopical',
-			'label' => __( 'CBD mg', 'woocommerce' ),
+			'label' => __( 'CBD mg', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $cbdtopical_field );
 		// Size.
 		$sizetopical_field = array(
 		'id'    => 'wpd_details_sizetopical',
-		'label' => __( 'Size (oz)', 'woocommerce' ),
+		'label' => __( 'Size (oz)', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $sizetopical_field );
 		?>
@@ -846,7 +846,7 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_topicals' );
 function wpd_details_growers_tab( $tabs ) {
   
 	$tabs['wpd_details_growers'] = array(
-	  'label'  => __( 'Growers', 'woocommerce' ),
+	  'label'  => __( 'Growers', 'wpd-details' ),
 	  'target' => 'wpd_details_growers_panel',
 	  'class'  => array(),
 	);
@@ -866,31 +866,31 @@ function wpd_details_growers_panel( $product ) {
 		// Origin.
 		$origin_field = array(
 			'id'    => 'wpd_details_origin',
-			'label' => __( 'Origin', 'woocommerce' ),
+			'label' => __( 'Origin', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $origin_field );
 		// Time.
 		$time_field = array(
 			'id'    => 'wpd_details_time',
-			'label' => __( 'Grow Time', 'woocommerce' ),
+			'label' => __( 'Grow Time', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $time_field );
 		// Yield.
 		$yield_field = array(
 			'id'    => 'wpd_details_yield',
-			'label' => __( 'Yield', 'woocommerce' ),
+			'label' => __( 'Yield', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $yield_field );
 		// Seeds.
 		$seeds_field = array(
 			'id'    => 'wpd_details_seedcount',
-			'label' => __( 'Seeds per unit', 'woocommerce' ),
+			'label' => __( 'Seeds per unit', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $seeds_field );
 		// Clones.
 		$clones_field = array(
 			'id'    => 'wpd_details_clonecount',
-			'label' => __( 'Clones per unit', 'woocommerce' ),
+			'label' => __( 'Clones per unit', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $clones_field );
 		?>
