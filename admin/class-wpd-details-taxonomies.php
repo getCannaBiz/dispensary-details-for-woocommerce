@@ -465,3 +465,55 @@ function wpd_details_shelf_type() {
 }
 add_action( 'init', 'wpd_details_shelf_type', 0 );
 
+/**
+ * Strain Type
+ *
+ * Adds the Strain Type taxonomy to specific custom post types
+ *
+ * @since    1.5
+ */
+function wpd_details_strain_type() {
+
+	$labels = array(
+		'name'                       => _x( 'Strain types', 'general name', 'wpd-details' ),
+		'singular_name'              => _x( 'Strain type', 'singular name', 'wpd-details' ),
+		'search_items'               => __( 'Search strain types', 'wpd-details' ),
+		'popular_items'              => __( 'Popular strain types', 'wpd-details' ),
+		'all_items'                  => __( 'All strain types', 'wpd-details' ),
+		'parent_item'                => null,
+		'parent_item_colon'          => null,
+		'edit_item'                  => __( 'Edit strain type', 'wpd-details' ),
+		'update_item'                => __( 'Update strain type', 'wpd-details' ),
+		'add_new_item'               => __( 'Add New strain type', 'wpd-details' ),
+		'new_item_name'              => __( 'New strain type name', 'wpd-details' ),
+		'separate_items_with_commas' => __( 'Separate strain types with commas', 'wpd-details' ),
+		'add_or_remove_items'        => __( 'Add or remove strain types', 'wpd-details' ),
+		'choose_from_most_used'      => __( 'Choose from the most used strain types', 'wpd-details' ),
+		'not_found'                  => __( 'No strain types found', 'wpd-details' ),
+		'menu_name'                  => __( 'Strain types', 'wpd-details' ),
+	);
+
+	$capabilities = array(
+		'manage_terms' => 'edit_strain_type',
+		'edit_terms'   => 'edit_strain_type',
+		'delete_terms' => 'edit_strain_type',
+		'assign_terms' => 'read',
+	);
+
+	register_taxonomy( 'strain_type', 'product', array(
+		'hierarchical'           => false,
+		'labels'                 => $labels,
+		'capabilities'           => $capabilities,
+		'show_ui'                => true,
+		'show_in_rest'           => true,
+		'show_admin_column'      => true,
+		'show_in_nav_menus'      => false,
+		'update_count_callback'  => '_update_post_term_count',
+		'query_var'              => true,
+		'rewrite'                => array(
+			'slug' => 'strain-type',
+		),
+	) );
+
+}
+add_action( 'init', 'wpd_details_strain_type', 0 );
