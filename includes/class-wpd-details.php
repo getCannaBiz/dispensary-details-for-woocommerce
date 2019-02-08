@@ -149,6 +149,13 @@ class WPD_Details {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/wpd-details-user-fields.php';
 
+		/**
+		 * The file responsible for defining all codes to create the shortcode.
+		 * 
+		 * @since 1.5
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/wpd-details-shortcode.php';
+
 		$this->loader = new WPD_Details_Loader();
 
 	}
