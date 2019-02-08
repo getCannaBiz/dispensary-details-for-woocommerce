@@ -294,13 +294,13 @@ add_action( 'init', 'wpd_details_shipping_delivery', 1 );
  * Auto changes orders from 'processing' to 'completed'.
  */
 function wpd_details_order_status_completed( $order_id ) {
-    if( ! $order_id ) return;
+    if ( ! $order_id ) return;
 
 		if ( 'yes' === get_option( 'wpdd_settings_order_status_completed' ) ) {
-	    $order = new WC_Order( $order_id ); // Get an instance of the WC_Order object.
+			$order = new WC_Order( $order_id ); // Get an instance of the WC_Order object.
 
-	    if ( $order->has_status( 'processing' ) ) {
-	      $order->update_status( 'completed' );
+			if ( $order->has_status( 'processing' ) ) {
+				$order->update_status( 'completed' );
 			}
 		} else {
 			// Do nothing.
