@@ -40,6 +40,8 @@ class WPD_Details_Activator {
 		wpd_details_condition();
 		wpd_details_ingredient();
 		wpd_details_vendor();
+		wpd_details_shelf_type();
+		wpd_details_strain_type();
 
 		/**
 		 * Flush Rewrite Rules
