@@ -3,8 +3,8 @@ Contributors: wpdispensary, deviodigital
 Donate link: https://www.wpdispensary.com
 Tags: dispensary, weed, woocommerce, ecommerce, marijuana, cannabis
 Requires at least: 3.0.1
-Tested up to: 4.9.8
-Stable tag: 1.4
+Tested up to: 5.0.3
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,18 @@ Add additional details to your dispensary items being sold through WooCommerce.
 Add additional details to your dispensary items being sold through WooCommerce. Brought to you by [WP Dispensary](https://www.wpdispensary.com/)
 
 == Changelog ==
+
+= 1.5.0 =
+* Added setting to require recommendation before checkout in `admin/class-wpd-details-woocommerce.php`
+* Added `wpd_details` shortcode in `includes/class-wpd-details.php`
+* Added Shelf type taxonomy in `admin/class-wpd-details-taxonomies.php`
+* Added Strain type taxonomy in `admin/class-wpd-details-taxonomies.php`
+* Added Shelf type and Strain type functions to activation hook in `includes/class-wpd-details-activator.php`
+* Updated text strings for localalization in `admin/class-wpd-details-woocommerce.php`
+* Updated `wp_redirect` for empty cart and visitor checkout to remove `exit` in `admin/class-wpd-details-woocommerce.php`
+* Updated text strings for localalization in `languages/wpd-details.pot`
+* WordPress Coding Standards updates throughout various files
+* General code cleanup throughout multiple files
 
 = 1.4.0 =
 * Added patient verification fields to user profiles in `admin/wpd-details-user-fields.php`
