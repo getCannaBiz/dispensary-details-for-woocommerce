@@ -39,6 +39,11 @@ function wpd_details_save_custom_profile_fields( $user_id ) {
         update_user_meta( $user_id, 'wpd_details_recommendation_exp', sanitize_text_field( $_POST['wpd_details_recommendation_exp'] ) );
     }
 
+    // Remove recommendation doc.
+    if ( isset( $_POST['remove_recommendation_doc'] ) ) {
+        update_user_meta( $user_id, 'wpd_details_recommendation_doc', '' );
+    }
+
     // If no new files are uploaded, return.
     if ( ! isset( $_FILES ) || empty( $_FILES ) || ! isset( $_FILES['wpd_details_recommendation_doc'] ) )
         return;
