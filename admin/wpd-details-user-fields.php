@@ -32,7 +32,7 @@ function wpd_details_save_custom_profile_fields( $user_id ) {
 
     // Update recommendation number.
     if ( isset( $_POST['wpd_details_recommendation_num'] ) ) {
-        update_user_meta( $user_id, 'wpd_details_recommendation_num', $_POST['wpd_details_recommendation_num'] );
+        update_user_meta( $user_id, 'wpd_details_recommendation_num', esc_html( $_POST['wpd_details_recommendation_num'] ) );
     }
     // Update recommendation expiration date.
     if ( isset( $_POST['wpd_details_recommendation_exp'] ) ) {
@@ -177,11 +177,11 @@ function wpd_details_add_to_edit_account_form() {
 
     // Save recommendation number.
     if ( isset( $_POST['wpd_details_recommendation_num'] ) ) {
-        update_user_meta( $user->ID, 'wpd_details_recommendation_num', $_POST['wpd_details_recommendation_num'] );
+        update_user_meta( $user->ID, 'wpd_details_recommendation_num', esc_html( $_POST['wpd_details_recommendation_num'] ) );
     }
     // Save recommendation expiration.
     if ( isset( $_POST['wpd_details_recommendation_exp'] ) ) {
-        update_user_meta( $user->ID, 'wpd_details_recommendation_exp', $_POST['wpd_details_recommendation_exp'] );
+        update_user_meta( $user->ID, 'wpd_details_recommendation_exp', esc_html( $_POST['wpd_details_recommendation_exp'] ) );
     }
     ?>
     <?php if ( 'yes' === get_option( 'wpdd_settings_require_recommendation' ) ) { ?>
@@ -307,7 +307,7 @@ function wpd_details_save_name_fields( $customer_id ) {
             update_user_meta( $customer_id, 'wpd_details_recommendation_num', sanitize_text_field( $_POST['wpd_details_recommendation_num'] ) );
         }
         if ( isset( $_POST['wpd_details_recommendation_exp'] ) ) {
-            update_user_meta( $customer_id, 'wpd_details_recommendation_exp', $_POST['wpd_details_recommendation_exp'] );
+            update_user_meta( $customer_id, 'wpd_details_recommendation_exp', sanitize_text_field( $_POST['wpd_details_recommendation_exp'] ) );
         }
     } 
 }

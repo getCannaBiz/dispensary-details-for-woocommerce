@@ -505,12 +505,12 @@ add_action( 'woocommerce_product_data_panels', 'wpd_details_compounds_panel' );
  */
 function save_wpd_details_compounds( $post_id ) { 
 
-	$wpd_details_thc  = isset( $_POST['wpd_details_thc'] ) ? $_POST['wpd_details_thc'] : '';
-	$wpd_details_thca = isset( $_POST['wpd_details_thca'] ) ? $_POST['wpd_details_thca'] : '';
-	$wpd_details_cbd  = isset( $_POST['wpd_details_cbd'] ) ? $_POST['wpd_details_cbd'] : '';
-	$wpd_details_cba  = isset( $_POST['wpd_details_cba'] ) ? $_POST['wpd_details_cba'] : '';
-	$wpd_details_cbn  = isset( $_POST['wpd_details_cbn'] ) ? $_POST['wpd_details_cbn'] : '';
-	$wpd_details_cbg  = isset( $_POST['wpd_details_cbg'] ) ? $_POST['wpd_details_cbg'] : '';
+	$wpd_details_thc  = isset( $_POST['wpd_details_thc'] ) ? esc_html( $_POST['wpd_details_thc'] ) : '';
+	$wpd_details_thca = isset( $_POST['wpd_details_thca'] ) ? esc_html( $_POST['wpd_details_thca'] ) : '';
+	$wpd_details_cbd  = isset( $_POST['wpd_details_cbd'] ) ? esc_html( $_POST['wpd_details_cbd'] ) : '';
+	$wpd_details_cba  = isset( $_POST['wpd_details_cba'] ) ? esc_html( $_POST['wpd_details_cba'] ) : '';
+	$wpd_details_cbn  = isset( $_POST['wpd_details_cbn'] ) ? esc_html( $_POST['wpd_details_cbn'] ) : '';
+	$wpd_details_cbg  = isset( $_POST['wpd_details_cbg'] ) ? esc_html( $_POST['wpd_details_cbg'] ) : '';
 
 	// Get Product.
 	$product = wc_get_product( $post_id );
@@ -617,11 +617,11 @@ add_action( 'woocommerce_product_data_panels', 'wpd_details_tinctures_panel' );
  */
 function save_wpd_details_tinctures( $post_id ) { 
 
-	$wpd_details_tincture_thcmg          = isset( $_POST['wpd_details_tincture_thcmg'] ) ? $_POST['wpd_details_tincture_thcmg'] : '';
-	$wpd_details_tincture_cbdmg          = isset( $_POST['wpd_details_tincture_cbdmg'] ) ? $_POST['wpd_details_tincture_cbdmg'] : '';
-	$wpd_details_tincture_thccbdservings = isset( $_POST['wpd_details_tincture_thccbdservings'] ) ? $_POST['wpd_details_tincture_thccbdservings'] : '';
-	$wpd_details_tincture_mlservings     = isset( $_POST['wpd_details_tincture_mlservings'] ) ? $_POST['wpd_details_tincture_mlservings'] : '';
-	$wpd_details_tincture_netweight      = isset( $_POST['wpd_details_tincture_netweight'] ) ? $_POST['wpd_details_tincture_netweight'] : '';
+	$wpd_details_tincture_thcmg          = isset( $_POST['wpd_details_tincture_thcmg'] ) ? esc_html( $_POST['wpd_details_tincture_thcmg'] ) : '';
+	$wpd_details_tincture_cbdmg          = isset( $_POST['wpd_details_tincture_cbdmg'] ) ? esc_html( $_POST['wpd_details_tincture_cbdmg'] ) : '';
+	$wpd_details_tincture_thccbdservings = isset( $_POST['wpd_details_tincture_thccbdservings'] ) ? esc_html( $_POST['wpd_details_tincture_thccbdservings'] ) : '';
+	$wpd_details_tincture_mlservings     = isset( $_POST['wpd_details_tincture_mlservings'] ) ? esc_html( $_POST['wpd_details_tincture_mlservings'] ) : '';
+	$wpd_details_tincture_netweight      = isset( $_POST['wpd_details_tincture_netweight'] ) ? esc_html( $_POST['wpd_details_tincture_netweight'] ) : '';
 
 	// Get Product.
 	$product = wc_get_product( $post_id );
@@ -718,10 +718,10 @@ add_action( 'woocommerce_product_data_panels', 'wpd_details_edibles_panel' );
  */
 function save_wpd_details_edibles( $post_id ) { 
 
-	$wpd_details_thcmg          = isset( $_POST['wpd_details_thcmg'] ) ? $_POST['wpd_details_thcmg'] : '';
-	$wpd_details_thccbdservings = isset( $_POST['wpd_details_thccbdservings'] ) ? $_POST['wpd_details_thccbdservings'] : '';
-	$wpd_details_cbdmg          = isset( $_POST['wpd_details_cbdmg'] ) ? $_POST['wpd_details_cbdmg'] : '';
-	$wpd_details_netweight      = isset( $_POST['wpd_details_netweight'] ) ? $_POST['wpd_details_netweight'] : '';
+	$wpd_details_thcmg          = isset( $_POST['wpd_details_thcmg'] ) ? esc_html( $_POST['wpd_details_thcmg'] ) : '';
+	$wpd_details_thccbdservings = isset( $_POST['wpd_details_thccbdservings'] ) ? esc_html( $_POST['wpd_details_thccbdservings'] ) : '';
+	$wpd_details_cbdmg          = isset( $_POST['wpd_details_cbdmg'] ) ? esc_html( $_POST['wpd_details_cbdmg'] ) : '';
+	$wpd_details_netweight      = isset( $_POST['wpd_details_netweight'] ) ? esc_html( $_POST['wpd_details_netweight'] ) : '';
 
 	// Get Product.
 	$product = wc_get_product( $post_id );
@@ -808,9 +808,9 @@ add_action( 'woocommerce_product_data_panels', 'wpd_details_topicals_panel' );
  */
 function save_wpd_details_topicals( $post_id ) { 
 
-	$wpd_details_thctopical  = isset( $_POST['wpd_details_thctopical'] ) ? $_POST['wpd_details_thctopical'] : '';
-	$wpd_details_sizetopical = isset( $_POST['wpd_details_sizetopical'] ) ? $_POST['wpd_details_sizetopical'] : '';
-	$wpd_details_cbdtopical  = isset( $_POST['wpd_details_cbdtopical'] ) ? $_POST['wpd_details_cbdtopical'] : '';
+	$wpd_details_thctopical  = isset( $_POST['wpd_details_thctopical'] ) ? esc_html( $_POST['wpd_details_thctopical'] ) : '';
+	$wpd_details_sizetopical = isset( $_POST['wpd_details_sizetopical'] ) ? esc_html( $_POST['wpd_details_sizetopical'] ) : '';
+	$wpd_details_cbdtopical  = isset( $_POST['wpd_details_cbdtopical'] ) ? esc_html( $_POST['wpd_details_cbdtopical'] ) : '';
 
 	// Get Product.
 	$product = wc_get_product( $post_id );
@@ -905,11 +905,11 @@ add_action( 'woocommerce_product_data_panels', 'wpd_details_growers_panel' );
  */
 function save_wpd_details_growers( $post_id ) { 
 
-	$wpd_details_origin     = isset( $_POST['wpd_details_origin'] ) ? $_POST['wpd_details_origin'] : '';
-	$wpd_details_time       = isset( $_POST['wpd_details_time'] ) ? $_POST['wpd_details_time'] : '';
-	$wpd_details_yield      = isset( $_POST['wpd_details_yield'] ) ? $_POST['wpd_details_yield'] : '';
-	$wpd_details_seedcount  = isset( $_POST['wpd_details_seedcount'] ) ? $_POST['wpd_details_seedcount'] : '';
-	$wpd_details_clonecount = isset( $_POST['wpd_details_clonecount'] ) ? $_POST['wpd_details_clonecount'] : '';
+	$wpd_details_origin     = isset( $_POST['wpd_details_origin'] ) ? esc_html( $_POST['wpd_details_origin'] ) : '';
+	$wpd_details_time       = isset( $_POST['wpd_details_time'] ) ? esc_html( $_POST['wpd_details_time'] ) : '';
+	$wpd_details_yield      = isset( $_POST['wpd_details_yield'] ) ? esc_html( $_POST['wpd_details_yield'] ) : '';
+	$wpd_details_seedcount  = isset( $_POST['wpd_details_seedcount'] ) ? esc_html( $_POST['wpd_details_seedcount'] ) : '';
+	$wpd_details_clonecount = isset( $_POST['wpd_details_clonecount'] ) ? esc_html( $_POST['wpd_details_clonecount'] ) : '';
 
 	// Get Product.
 	$product = wc_get_product( $post_id );

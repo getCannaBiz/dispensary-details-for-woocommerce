@@ -105,12 +105,12 @@ function wpd_details_save_compounddetails_meta( $post_id, $post ) {
 	 * We'll put it into an array to make it easier to loop though.
 	 */
 
-	$thccbd_meta['_thc']  = $_POST['_thc'];
-	$thccbd_meta['_thca'] = $_POST['_thca'];
-	$thccbd_meta['_cbd']  = $_POST['_cbd'];
-	$thccbd_meta['_cba']  = $_POST['_cba'];
-	$thccbd_meta['_cbn']  = $_POST['_cbn'];
-	$thccbd_meta['_cbg']  = $_POST['_cbg'];
+	$thccbd_meta['_thc']  = esc_html( $_POST['_thc'] );
+	$thccbd_meta['_thca'] = esc_html( $_POST['_thca'] );
+	$thccbd_meta['_cbd']  = esc_html( $_POST['_cbd'] );
+	$thccbd_meta['_cba']  = esc_html( $_POST['_cba'] );
+	$thccbd_meta['_cbn']  = esc_html( $_POST['_cbn'] );
+	$thccbd_meta['_cbg']  = esc_html( $_POST['_cbg'] );
 
 	/** Add values of $compounddetails_meta as custom fields */
 
@@ -218,10 +218,10 @@ function wpd_details_save_thc_cbd_mg_meta( $post_id, $post ) {
 	 * We'll put it into an array to make it easier to loop though.
 	 */
 
-	$thc_cbd_mg_meta['_thcmg']          = $_POST['_thcmg'];
-	$thc_cbd_mg_meta['_cbdmg']          = $_POST['_cbdmg'];
-	$thc_cbd_mg_meta['_thccbdservings'] = $_POST['_thccbdservings'];
-	$thc_cbd_mg_meta['_netweight']      = $_POST['_netweight'];
+	$thc_cbd_mg_meta['_thcmg']          = esc_html( $_POST['_thcmg'] );
+	$thc_cbd_mg_meta['_cbdmg']          = esc_html( $_POST['_cbdmg'] );
+	$thc_cbd_mg_meta['_thccbdservings'] = esc_html( $_POST['_thccbdservings'] );
+	$thc_cbd_mg_meta['_netweight']      = esc_html( $_POST['_netweight'] );
 
 	/** Add values of $thccbdmg_meta as custom fields */
 
@@ -325,9 +325,9 @@ function wpd_details_save_thccbdtopical_meta( $post_id, $post ) {
 	 * We'll put it into an array to make it easier to loop though.
 	 */
 
-	$thcmgtopical_meta['_thctopical']  = $_POST['_thctopical'];
-	$thcmgtopical_meta['_cbdtopical']  = $_POST['_cbdtopical'];
-	$thcmgtopical_meta['_sizetopical'] = $_POST['_sizetopical'];
+	$thcmgtopical_meta['_thctopical']  = esc_html( $_POST['_thctopical'] );
+	$thcmgtopical_meta['_cbdtopical']  = esc_html( $_POST['_cbdtopical'] );
+	$thcmgtopical_meta['_sizetopical'] = esc_html( $_POST['_sizetopical'] );
 
 	/** Add values of $thcmg_meta as custom fields */
 
@@ -440,11 +440,11 @@ function wpd_details_save_grower_details_meta( $post_id, $post ) {
 	 * We'll put it into an array to make it easier to loop though.
 	 */
 
-	 $grower_details_meta['_origin']     = $_POST['_origin'];
-	 $grower_details_meta['_time']       = $_POST['_time'];
-	 $grower_details_meta['_yield']      = $_POST['_yield'];
-	 $grower_details_meta['_seedcount']  = $_POST['_seedcount'];
-	 $grower_details_meta['_clonecount'] = $_POST['_clonecount'];
+	$grower_details_meta['_origin']     = esc_html( $_POST['_origin'] );
+	$grower_details_meta['_time']       = esc_html( $_POST['_time'] );
+	$grower_details_meta['_yield']      = esc_html( $_POST['_yield'] );
+	$grower_details_meta['_seedcount']  = esc_html( $_POST['_seedcount'] );
+	$grower_details_meta['_clonecount'] = esc_html( $_POST['_clonecount'] );
 
 	/** Add values of $grower_details_meta as custom fields */
 
@@ -557,11 +557,11 @@ function wpd_details_save_tincture_details_meta( $post_id, $post ) {
 	 * We'll put it into an array to make it easier to loop though.
 	 */
 
-	$details_meta['_tincture_thcmg']          = $_POST['_tincture_thcmg'];
-	$details_meta['_tincture_cbdmg']          = $_POST['_tincture_cbdmg'];
-	$details_meta['_tincture_mlserving']      = $_POST['_tincture_mlserving'];
-	$details_meta['_tincture_thccbdservings'] = $_POST['_tincture_thccbdservings'];
-	$details_meta['_tincture_netweight']      = $_POST['_tincture_netweight'];
+	$details_meta['_tincture_thcmg']          = esc_html( $_POST['_tincture_thcmg'] );
+	$details_meta['_tincture_cbdmg']          = esc_html( $_POST['_tincture_cbdmg'] );
+	$details_meta['_tincture_mlserving']      = esc_html( $_POST['_tincture_mlserving'] );
+	$details_meta['_tincture_thccbdservings'] = esc_html( $_POST['_tincture_thccbdservings'] );
+	$details_meta['_tincture_netweight']      = esc_html( $_POST['_tincture_netweight'] );
 
 	/** Add values of $details_meta as custom fields */
 
