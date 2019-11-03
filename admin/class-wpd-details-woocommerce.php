@@ -952,3 +952,86 @@ function wpd_details_get_woocommerce_template( $located, $template_name, $args, 
     return $located;
 }
 add_filter( 'wc_get_template', 'wpd_details_get_woocommerce_template', 10, 5 );
+
+/**
+ * Inventory check on add to cart
+ *
+ * @param bool $passed
+ * @param int $product_id
+ * @param int $quantity
+ * @param string $variation_id
+ * @param string $variations
+ * @return bool
+ * @since 1.6
+ */
+function wpd_details_validate_add_cart_item( $passed, $product_id, $quantity, $variation_id = '', $variations = '' ) {
+	// Stock amount.
+	$in_stock = get_post_meta( $product_id, '_stock', TRUE );
+
+	// Inventory reduction amount.
+	$inventory_reduction = get_post_meta( esc_html( $_POST['variation_id'] ), '_inventory_reduction', TRUE );
+
+	// Total stock reduction.
+	$reduce_stock = $quantity * $inventory_reduction;
+
+	// Product cart ID.
+	$product_cart_id = WC()->cart->generate_cart_id( $_POST['variation_id'] );
+
+	//print_r( $product_cart_id );
+
+	// Is product in cart.
+	$in_cart = WC()->cart->find_product_in_cart( $product_cart_id );
+
+	// Loop through cart items.
+	foreach ( WC()->cart->get_cart() as $cart_item ) {
+		// Get product data.
+		$product = $cart_item['data'];
+
+		// Product data.
+        if ( ! empty( $product ) ) {
+			// Product ID.
+            $product_id = method_exists( $product, 'get_id' ) ? $product->get_id() : $product->id;
+
+			// Reduce inventory.
+			$reduction = get_post_meta( $product_id, '_inventory_reduction', TRUE );
+
+			// Inventory reduction amount.
+			if ( $reduction ) {
+				$reduce_stock = $reduce_stock + ( $cart_item['quantity'] * $reduction );
+			}
+        }
+	}
+
+	// do your validation, if not met switch $passed to false
+    if ( $in_stock < $reduce_stock ) {
+        $passed = false;
+        wc_add_notice( apply_filters( 'wpd_details_validate_add_cart_item_error', __( 'You cannot add that amount to the cart.', 'wpd-details' ) ), 'error' );
+	}
+
+    return $passed;
+}
+add_filter( 'woocommerce_add_to_cart_validation', 'wpd_details_validate_add_cart_item', 10, 5 );
+
+/**
+ * Variation active
+ *
+ * @param bool $active
+ * @param array $variation
+ * @return bool
+ */
+function wpd_details_variation_is_active( $active, $variation ) {
+
+	// Stock quantity.
+	$stock_quantity = $variation->get_stock_quantity();
+
+	// Inventory reduction amount.
+	$inventory_reduction = get_post_meta( esc_html( $variation->get_ID() ), '_inventory_reduction', TRUE );
+
+	// Check reduction amount against stock quantity.
+	if ( $inventory_reduction > $stock_quantity ) {
+		return false;
+	}
+
+	return $active;
+}
+add_filter( 'woocommerce_variation_is_active', 'wpd_details_variation_is_active', 10, 2 );
