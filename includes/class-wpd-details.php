@@ -67,12 +67,12 @@ class WPD_Details {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
+		$this->plugin_name = 'wpd-details';
+		$this->version     = '1.6';
+
 		if ( defined( 'DISPENSARY_DETAILS_VERSION' ) ) {
 			$this->version = DISPENSARY_DETAILS_VERSION;
-		} else {
-			$this->version = '1.5';
 		}
-		$this->plugin_name = 'wpd-details';
 
 		$this->load_dependencies();
 		$this->set_locale();

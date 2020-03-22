@@ -3,8 +3,8 @@ Contributors: wpdispensary, deviodigital
 Donate link: https://www.wpdispensary.com
 Tags: dispensary, weed, woocommerce, ecommerce, marijuana, cannabis
 Requires at least: 3.0.1
-Tested up to: 5.0.3
-Stable tag: 1.5
+Tested up to: 5.3.2
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,13 @@ Add additional details to your dispensary items being sold through WooCommerce.
 Add additional details to your dispensary items being sold through WooCommerce. Brought to you by [WP Dispensary](https://www.wpdispensary.com/)
 
 == Changelog ==
+
+= 1.6.0 =
+* Added validation check to the add to cart button for product inventory amount in `admin/class-wpd-details-woocommerce.php`
+* Added validation check to the add to cart button for product inventory amount in `public/js/wpd-details-public.js`
+* Bugfix removed recommendation doc if red X is clicked in `admin/wpd-details-user-fileds.php`
+* Updated text strings for localization in `languages/wpd-details.pot`
+* Updated code to escape all `$_POST` instances in multiple files
 
 = 1.5.0 =
 * Added setting to require recommendation before checkout in `admin/class-wpd-details-woocommerce.php`
