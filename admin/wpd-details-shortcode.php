@@ -1,26 +1,23 @@
 <?php
 // Add Shortcode
 function wpd_details_shortcode() {
-	global $post;
-
-	$my_post = get_post( $post->ID );
+		global $post;
 
     $details_table = '<table class="wpd-details-table">';
 
-    /**
-     * Setting up WP Dispensary menu item data
-     */
-    if ( get_the_term_list( $post->ID, 'shelf_type', true ) ) {
-        $wpdshelftype = '<tr><td><span>' . __( 'Shelf', 'wpd-details' ) . ':</span></td><td>' . get_the_term_list( $post->ID, 'shelf_type', '', ', ', '' ) . '</td></tr>';
-    } else {
-        $wpdshelftype = '';
-    }
+		// Shelf type.
+		if ( get_the_term_list( $post->ID, 'shelf_type', true ) ) {
+				$wpd_shelf = '<tr><td><span>' . __( 'Shelf', 'wpd-details' ) . ':</span></td><td>' . get_the_term_list( $post->ID, 'shelf_type', '', ', ', '' ) . '</td></tr>';
+		} else {
+				$wpd_shelf = '';
+		}
 
-    if ( get_the_term_list( $post->ID, 'strain_type', true ) ) {
-        $wpdstraintype = '<tr><td><span>' . __( 'Strain', 'wpd-details' ) . ':</span></td><td>' . get_the_term_list( $post->ID, 'strain_type', '', ', ', '' ) . '</td></tr>';
-    } else {
-        $wpdstraintype = '';
-    }
+		// Strain type.
+		if ( get_the_term_list( $post->ID, 'strain_type', true ) ) {
+				$wpd_strain = '<tr><td><span>' . __( 'Strain', 'wpd-details' ) . ':</span></td><td>' . get_the_term_list( $post->ID, 'strain_type', '', ', ', '' ) . '</td></tr>';
+		} else {
+				$wpd_strain = '';
+		}
 
     if ( get_the_term_list( $post->ID, 'aroma', true ) ) {
         $wpdaroma = '<tr><td><span>' . __( 'Aromas', 'wpd-details' ) . ':</span></td><td>' . get_the_term_list( $post->ID, 'aroma', '', ', ', '' ) . '</td></tr>';
@@ -58,11 +55,6 @@ function wpd_details_shortcode() {
         $wpdingredients = '';
     }
 
-    if ( get_the_term_list( $post->ID, 'vendor', true ) ) {
-        $wpdvendors = '<tr><td><span>' . __( 'Vendor', 'wpd-details' ) . ':</span></td><td>' . get_the_term_list( $post->ID, 'vendor', '', ', ', '' ) . '</td></tr>';
-    } else {
-        $wpdvendors = '';
-    }
     if ( get_post_meta( $post->ID, '_thc', true ) ) {
         $wpdthc = '<tr><td><span>' . __( 'THC', 'wpd-details' ) . ':</span></td><td>' . get_post_meta( $post->ID, '_thc', true ) .'%</td></tr>';
     } else {
@@ -207,7 +199,7 @@ function wpd_details_shortcode() {
         $wpdnetweight2 = '';
     }
 
-    $details_table .= $wpdshelftype . $wpdstraintype . $wpdaroma . $wpdflavor . $wpdeffect . $wpdsymptom . $wpdcondition . $wpdvendors . $wpdthc . $wpdthca . $wpdcbd . $wpdcba . $wpdcbn . $wpdcbg . $wpdthcmg . $wpdcbdmg . $wpdthcmg2 . $wpdcbdmg2 . $wpdmlperserving . $wpdservings . $wpdnetweight . $wpdnetweight2 . $wpdthctopical . $wpdcbdtopical . $wpdsizetopical . $wpdorigin . $wpdtime . $wpdyield . $wpdseedcount . $wpdclonecount;
+    $details_table .= $wpd_shelf . $wpd_strain . $wpdaroma . $wpdflavor . $wpdeffect . $wpdsymptom . $wpdcondition . $wpdthc . $wpdthca . $wpdcbd . $wpdcba . $wpdcbn . $wpdcbg . $wpdthcmg . $wpdcbdmg . $wpdthcmg2 . $wpdcbdmg2 . $wpdmlperserving . $wpdservings . $wpdnetweight . $wpdnetweight2 . $wpdthctopical . $wpdcbdtopical . $wpdsizetopical . $wpdorigin . $wpdtime . $wpdyield . $wpdseedcount . $wpdclonecount;
 
     $details_table .= '</table>';
 
