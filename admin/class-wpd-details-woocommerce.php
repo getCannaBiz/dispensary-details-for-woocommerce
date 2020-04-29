@@ -331,7 +331,7 @@ add_action( 'wp_head', 'cart_empty_redirect_to_shop' );
 
 /**
  * Require verification documents for checkout
- * 
+ *
  * @since 1.5
  */
 if ( 'yes' == get_option( 'wpdd_settings_require_recommendation_checkout' ) ) {
@@ -367,7 +367,7 @@ if ( 'yes' == get_option( 'wpdd_settings_require_recommendation_checkout' ) ) {
 
 /**
  * WooCommerce - Inventory Management for Cannabis products
- * 
+ *
  * @since 1.3
  */
 function wpd_details_inventory_reduction( $loop, $variation_data, $variation ) {
@@ -375,13 +375,13 @@ function wpd_details_inventory_reduction( $loop, $variation_data, $variation ) {
 
 	// Inventory reduction.
 	woocommerce_wp_text_input( array(
-		'id'          => '_inventory_reduction['. $loop .']', 
-		'label'       => __( 'Reduce stock quantity by:', 'wpd-details' ), 
+		'id'          => '_inventory_reduction['. $loop .']',
+		'label'       => __( 'Reduce stock quantity by:', 'wpd-details' ),
 		'placeholder' => 'ex: 7',
 		'value'       => get_post_meta( $variation->ID, '_inventory_reduction', true )
 	) );
 
-	echo "</div>"; 
+	echo "</div>";
 }
 
 // Display Fields in admin on product edit screen.
@@ -398,7 +398,7 @@ function save_wpd_details_inventory_reduction( $variation_id, $i ) {
 add_action( 'woocommerce_save_product_variation', 'save_wpd_details_inventory_reduction', 10, 2 );
 
 // Removes the WooCommerce filter, that is validating the quantity to be an int
-remove_filter( 'woocommerce_stock_amount', 'intval' ); 
+remove_filter( 'woocommerce_stock_amount', 'intval' );
 // Add a filter, that validates the quantity to be a float
 add_filter( 'woocommerce_stock_amount', 'floatval' );
 
@@ -424,13 +424,13 @@ function wpd_details_filter_order_item_quantity( $quantity, $order, $item ) {
 	return $quantity;
 
 }
-add_filter( 'woocommerce_order_item_quantity', 'wpd_details_filter_order_item_quantity', 10, 3 ); 
+add_filter( 'woocommerce_order_item_quantity', 'wpd_details_filter_order_item_quantity', 10, 3 );
 
 /**
  * Custom Product Data Tab
- * 
+ *
  * Tab: Compounds
- * 
+ *
  * @since 1.3
  */
 
@@ -438,13 +438,13 @@ add_filter( 'woocommerce_order_item_quantity', 'wpd_details_filter_order_item_qu
  * Adding a custom tab
  */
 function wpd_details_compounds_tab( $tabs ) {
-  
+
   $tabs['wpd_details_compounds'] = array(
     'label'  => __( 'Compounds', 'wpd-details' ),
     'target' => 'wpd_details_compounds_panel',
     'class'  => array(),
   );
-  
+
   return $tabs;
 }
 add_filter( 'woocommerce_product_data_tabs', 'wpd_details_compounds_tab' );
@@ -503,7 +503,7 @@ add_action( 'woocommerce_product_data_panels', 'wpd_details_compounds_panel' );
 /**
  * Saving the custom fields
  */
-function save_wpd_details_compounds( $post_id ) { 
+function save_wpd_details_compounds( $post_id ) {
 
 	$wpd_details_thc  = isset( $_POST['wpd_details_thc'] ) ? esc_html( $_POST['wpd_details_thc'] ) : '';
 	$wpd_details_thca = isset( $_POST['wpd_details_thca'] ) ? esc_html( $_POST['wpd_details_thca'] ) : '';
@@ -546,9 +546,9 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_compounds' );
 
 /**
  * Custom Product Data Tab
- * 
+ *
  * Tab: Tinctures
- * 
+ *
  * @since 1.3
  */
 
@@ -556,13 +556,13 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_compounds' );
  * Adding a custom tab
  */
 function wpd_details_tinctures_tab( $tabs ) {
-  
+
 	$tabs['wpd_details_tinctures'] = array(
 	  'label'  => __( 'Tinctures', 'wpd-details' ),
 	  'target' => 'wpd_details_tinctures_panel',
 	  'class'  => array(),
 	);
-	
+
 	return $tabs;
 }
 add_filter( 'woocommerce_product_data_tabs', 'wpd_details_tinctures_tab' );
@@ -603,7 +603,7 @@ function wpd_details_tinctures_panel( $product ) {
 		$netweight_field = array(
 			'id'    => 'wpd_details_tincture_netweight',
 			'label' => __( 'Net weight (oz)', 'wpd-details' ),
-			);
+		);
 		woocommerce_wp_text_input( $netweight_field );
 		?>
 		</div>
@@ -615,7 +615,7 @@ add_action( 'woocommerce_product_data_panels', 'wpd_details_tinctures_panel' );
 /**
  * Saving the custom fields
  */
-function save_wpd_details_tinctures( $post_id ) { 
+function save_wpd_details_tinctures( $post_id ) {
 
 	$wpd_details_tincture_thcmg          = isset( $_POST['wpd_details_tincture_thcmg'] ) ? esc_html( $_POST['wpd_details_tincture_thcmg'] ) : '';
 	$wpd_details_tincture_cbdmg          = isset( $_POST['wpd_details_tincture_cbdmg'] ) ? esc_html( $_POST['wpd_details_tincture_cbdmg'] ) : '';
@@ -653,9 +653,9 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_tinctures' );
 
 /**
  * Custom Product Data Tab
- * 
+ *
  * Tab: Edibles
- * 
+ *
  * @since 1.3
  */
 
@@ -663,13 +663,13 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_tinctures' );
  * Adding a custom tab
  */
 function wpd_details_edibles_tab( $tabs ) {
-  
+
 	$tabs['wpd_details_edibles'] = array(
 	  'label'  => __( 'Edibles', 'wpd-details' ),
 	  'target' => 'wpd_details_edibles_panel',
 	  'class'  => array(),
 	);
-	
+
 	return $tabs;
 }
 add_filter( 'woocommerce_product_data_tabs', 'wpd_details_edibles_tab' );
@@ -696,8 +696,8 @@ function wpd_details_edibles_panel( $product ) {
 		woocommerce_wp_text_input( $cbdmg_field );
 		// Servings.
 		$thccbdservings_field = array(
-		'id'    => 'wpd_details_thccbdservings',
-		'label' => __( 'Servings', 'wpd-details' ),
+			'id'    => 'wpd_details_thccbdservings',
+			'label' => __( 'Servings', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $thccbdservings_field );
 		// Net Weight.
@@ -716,7 +716,7 @@ add_action( 'woocommerce_product_data_panels', 'wpd_details_edibles_panel' );
 /**
  * Saving the custom fields
  */
-function save_wpd_details_edibles( $post_id ) { 
+function save_wpd_details_edibles( $post_id ) {
 
 	$wpd_details_thcmg          = isset( $_POST['wpd_details_thcmg'] ) ? esc_html( $_POST['wpd_details_thcmg'] ) : '';
 	$wpd_details_thccbdservings = isset( $_POST['wpd_details_thccbdservings'] ) ? esc_html( $_POST['wpd_details_thccbdservings'] ) : '';
@@ -749,9 +749,9 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_edibles' );
 
 /**
  * Custom Product Data Tab
- * 
+ *
  * Tab: Topicals
- * 
+ *
  * @since 1.3
  */
 
@@ -759,13 +759,13 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_edibles' );
  * Adding a custom tab
  */
 function wpd_details_topicals_tab( $tabs ) {
-  
+
 	$tabs['wpd_details_topicals'] = array(
 	  'label'  => __( 'Topicals', 'wpd-details' ),
 	  'target' => 'wpd_details_topicals_panel',
 	  'class'  => array(),
 	);
-	
+
 	return $tabs;
 }
 add_filter( 'woocommerce_product_data_tabs', 'wpd_details_topicals_tab' );
@@ -792,8 +792,8 @@ function wpd_details_topicals_panel( $product ) {
 		woocommerce_wp_text_input( $cbdtopical_field );
 		// Size.
 		$sizetopical_field = array(
-		'id'    => 'wpd_details_sizetopical',
-		'label' => __( 'Size (oz)', 'wpd-details' ),
+			'id'    => 'wpd_details_sizetopical',
+			'label' => __( 'Size (oz)', 'wpd-details' ),
 		);
 		woocommerce_wp_text_input( $sizetopical_field );
 		?>
@@ -806,7 +806,7 @@ add_action( 'woocommerce_product_data_panels', 'wpd_details_topicals_panel' );
 /**
  * Saving the custom fields
  */
-function save_wpd_details_topicals( $post_id ) { 
+function save_wpd_details_topicals( $post_id ) {
 
 	$wpd_details_thctopical  = isset( $_POST['wpd_details_thctopical'] ) ? esc_html( $_POST['wpd_details_thctopical'] ) : '';
 	$wpd_details_sizetopical = isset( $_POST['wpd_details_sizetopical'] ) ? esc_html( $_POST['wpd_details_sizetopical'] ) : '';
@@ -834,9 +834,9 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_topicals' );
 
 /**
  * Custom Product Data Tab
- * 
+ *
  * Tab: Growers
- * 
+ *
  * @since 1.3
  */
 
@@ -844,13 +844,13 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_topicals' );
  * Adding a custom tab
  */
 function wpd_details_growers_tab( $tabs ) {
-  
+
 	$tabs['wpd_details_growers'] = array(
 	  'label'  => __( 'Growers', 'wpd-details' ),
 	  'target' => 'wpd_details_growers_panel',
 	  'class'  => array(),
 	);
-	
+
 	return $tabs;
 }
 add_filter( 'woocommerce_product_data_tabs', 'wpd_details_growers_tab' );
@@ -903,7 +903,7 @@ add_action( 'woocommerce_product_data_panels', 'wpd_details_growers_panel' );
 /**
  * Saving the custom fields
  */
-function save_wpd_details_growers( $post_id ) { 
+function save_wpd_details_growers( $post_id ) {
 
 	$wpd_details_origin     = isset( $_POST['wpd_details_origin'] ) ? esc_html( $_POST['wpd_details_origin'] ) : '';
 	$wpd_details_time       = isset( $_POST['wpd_details_time'] ) ? esc_html( $_POST['wpd_details_time'] ) : '';
@@ -941,14 +941,14 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_growers' );
 
 /**
  * Customize WooCommerce account edit template
- * 
+ *
  * @since 1.4
  */
-function wpd_details_get_woocommerce_template( $located, $template_name, $args, $template_path, $default_path ) {    
+function wpd_details_get_woocommerce_template( $located, $template_name, $args, $template_path, $default_path ) {
     if ( 'myaccount/form-edit-account.php' == $template_name ) {
         $located = plugin_dir_path( dirname( __FILE__ ) ) . 'woocommerce/myaccount/form-edit-account.php';
     }
-    
+
     return $located;
 }
 add_filter( 'wc_get_template', 'wpd_details_get_woocommerce_template', 10, 5 );
