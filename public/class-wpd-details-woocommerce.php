@@ -41,3 +41,18 @@ function wpd_details_tab_content() {
 		// Reset Post Data
 		wp_reset_postdata();
 }
+
+/**
+ * Display Vendor above single product titles
+ *
+ * @since 1.7
+ */
+function wpd_details_vendors_single_product_summary( $post_id ) {
+	if ( get_the_term_list( $post_id, 'vendor', true ) ) {
+			$wpd_vendor = '<span class="wpd-details-vendor">' . get_the_term_list( $post_id, 'vendor', '', ', ', '' ) . '</span>';
+	} else {
+			$wpd_vendor = '';
+	}
+	echo $wpd_vendor;
+}
+add_action( 'woocommerce_single_product_summary', 'wpd_details_vendors_single_product_summary', 4 );
