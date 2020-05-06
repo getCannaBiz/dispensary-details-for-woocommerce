@@ -19,7 +19,7 @@
  *
  * @package    WPD_Details
  * @subpackage WPD_Details/includes
- * @author     WP Dispensary <deviodigital@gmail.com>
+ * @author     WP Dispensary <contact@wpdispensary.com>
  */
 class WPD_Details_Loader {
 
