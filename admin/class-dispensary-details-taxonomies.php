@@ -16,9 +16,9 @@
  *
  * Adds the Aroma taxonomy to all custom post types
  *
- * @since    1.0.0
+ * @since  1.0.0
+ * @return void
  */
-
 function dispensary_details_aroma() {
 
 	  $labels = [
@@ -70,7 +70,8 @@ add_action( 'init', 'dispensary_details_aroma', 0 );
  *
  * Adds the Flavor taxonomy to all custom post types
  *
- * @since    1.0.0
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_flavor() {
 
@@ -122,7 +123,8 @@ add_action( 'init', 'dispensary_details_flavor', 0 );
  *
  * Adds the Effect taxonomy to all custom post types
  *
- * @since    1.0.0
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_effect() {
 
@@ -174,7 +176,8 @@ add_action( 'init', 'dispensary_details_effect', 0 );
  *
  * Adds the Symptom taxonomy to all custom post types
  *
- * @since    1.0.0
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_symptom() {
 
@@ -226,7 +229,8 @@ add_action( 'init', 'dispensary_details_symptom', 0 );
  *
  * Adds the Condition taxonomy to all custom post types
  *
- * @since    1.0.0
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_condition() {
 
@@ -278,7 +282,8 @@ add_action( 'init', 'dispensary_details_condition', 0 );
  *
  * Adds the Ingredient taxonomy to all custom post types
  *
- * @since    1.0.0
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_ingredient() {
 
@@ -330,7 +335,8 @@ add_action( 'init', 'dispensary_details_ingredient', 0 );
  *
  * Adds the Vendor taxonomy to all custom post types
  *
- * @since    1.9.11
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_vendor() {
 
@@ -383,7 +389,8 @@ add_action( 'init', 'dispensary_details_vendor', 0 );
  *
  * Adds the Shelf Type taxonomy to specific custom post types
  *
- * @since    1.5
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_shelf_type() {
 
@@ -436,7 +443,8 @@ add_action( 'init', 'dispensary_details_shelf_type', 0 );
  *
  * Adds the Strain Type taxonomy to specific custom post types
  *
- * @since    1.5
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_strain_type() {
 

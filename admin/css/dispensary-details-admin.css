@@ -3,71 +3,71 @@
  * included in this file.
  */
 
-#wpd_details_edibles .inside,
-#wpd_details_compounds .inside,
-#wpd_details_growers .inside,
-#wpd_details_topicals .inside,
-#wpd_details_tinctures .inside {
+#dispensary_details_edibles .inside,
+#dispensary_details_compounds .inside,
+#dispensary_details_growers .inside,
+#dispensary_details_topicals .inside,
+#dispensary_details_tinctures .inside {
     overflow: auto;
 }
 
-#wpd_details_edibles .inside .ediblesbox {
+#dispensary_details_edibles .inside .ediblesbox {
 	float: left;
 	position: relative;
 	width: 100%;
 }
 
-#postbox-container-2 #wpd_details_edibles .inside .ediblesbox {
+#postbox-container-2 #dispensary_details_edibles .inside .ediblesbox {
 	float: left;
 	margin: 10px 1%;
 	position: relative;
 	width: 23%;
 }
 
-#wpd_details_compounds .inside .compoundbox {
+#dispensary_details_compounds .inside .compoundbox {
 	float: left;
 	position: relative;
 	width: 100%;
 }
 
-#postbox-container-2 #wpd_details_compounds .inside .compoundbox {
+#postbox-container-2 #dispensary_details_compounds .inside .compoundbox {
     width: 14.667%;
     float: left;
     margin: 0 1%;
 }
 
-#wpd_details_topicals .inside .topicalsbox {
+#dispensary_details_topicals .inside .topicalsbox {
 	float: left;
 	position: relative;
 	width: 100%;
 }
 
-#postbox-container-2 #wpd_details_topicals .inside .topicalsbox {
+#postbox-container-2 #dispensary_details_topicals .inside .topicalsbox {
     width: 31.333%;
     float: left;
     margin: 0 1%;
 }
 
-#wpd_details_growers .inside .growerbox {
+#dispensary_details_growers .inside .growerbox {
 	float: left;
 	position: relative;
 	width: 100%;
 }
 
-#postbox-container-2 #wpd_details_growers .inside .growerbox {
+#postbox-container-2 #dispensary_details_growers .inside .growerbox {
 	float: left;
 	margin: 0 1%;
 	position: relative;
 	width: 18%;
 }
 
-#wpd_details_tinctures .inside .tincturesdetailsbox {
+#dispensary_details_tinctures .inside .tincturesdetailsbox {
 	float: left;
 	position: relative;
 	width: 100%;
 }
 
-#postbox-container-2 #wpd_details_tinctures .inside .tincturesdetailsbox {
+#postbox-container-2 #dispensary_details_tinctures .inside .tincturesdetailsbox {
 	float: left;
 	margin: 10px 1%;
 	position: relative;
@@ -86,11 +86,11 @@ div.recommendation-doc {
     width: 140px;
 }
 
-td.wpd-details-recommendation-doc input[type="file"] {
+td.dispensary-details-recommendation-doc input[type="file"] {
     display: block;
 }
 
-img.wpd-details-recommendation-doc {
+img.dispensary-details-recommendation-doc {
 	height: auto;
     margin-bottom: 12px;
 	width: 100%;

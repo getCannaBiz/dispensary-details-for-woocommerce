@@ -14,7 +14,7 @@
  *
  * Related to WooCOmmerce Settings API.
  *
- * @since  1.1
+ * @since  1.0.0
  */
 class Dispensary_Details_WooCommerce_Settings {
 	/**
@@ -89,25 +89,25 @@ class Dispensary_Details_WooCommerce_Settings {
 
 		$settings = [
 			// Section title.
-			'wpdd_settings_section_title' => [
+			'dispensary_details_settings_section_title' => [
 			   'name' => __( 'Dispensary Details', 'dispensary-details' ),
 			   'type' => 'title',
 			   'desc' => 'Brought to you by <a href="https://cannabizsoftware.com" target="_blank">CannaBiz Software</a> &middot; <a href="https://cannabizsoftware.com/support/" target="_blank">Support</a> &middot; <a href="https://cannabizsoftware.com/documentation/" target="_blank">Documentation</a>',
-			   'id'   => 'wpdd_settings_section_title'
+			   'id'   => 'dispensary_details_settings_section_title'
             ],
 			// Minimum order.
 			'min_order_amount' => [
 			   'name' => __( 'Minimum order', 'dispensary-details' ),
 			   'type' => 'text',
 			   'desc' => __( 'The minimum amount before a customer can check out.', 'dispensary-details' ),
-			   'id'   => 'wpdd_settings_minimum_amount'
+			   'id'   => 'dispensary_details_settings_minimum_amount'
             ],
 			// Shipping or Delivery.
 			'shipping_or_delivery' => [
 				'name'    => __( 'Delivery service', 'dispensary-details' ),
 				'type'    => 'select',
 				'desc'    => __( 'Will you be delivering products to patients?', 'dispensary-details' ),
-				'id'      => 'wpdd_settings_shipping_delivery',
+				'id'      => 'dispensary_details_settings_shipping_delivery',
 				'options' => [
 					'no'  => 'No',
 					'yes' => 'Yes',
@@ -118,7 +118,7 @@ class Dispensary_Details_WooCommerce_Settings {
 				'name'    => __( 'Redirect empty cart', 'dispensary-details' ),
 				'type'    => 'select',
 				'desc'    => __( 'Select the page your Cart page should redirects visitors to if empty.', 'dispensary-details' ),
-				'id'      => 'wpdd_settings_empty_cart_redirect',
+				'id'      => 'dispensary_details_settings_empty_cart_redirect',
 				'options' => $pages_array,
             ],
 			// Visitor Checkout page redirect.
@@ -126,7 +126,7 @@ class Dispensary_Details_WooCommerce_Settings {
 				'name'    => __( 'Redirect visitor checkout', 'dispensary-details' ),
 				'type'    => 'select',
 				'desc'    => __( 'Select the page your Checkout page should redirects visitors to.', 'dispensary-details' ),
-				'id'      => 'wpdd_settings_a2c_redirect',
+				'id'      => 'dispensary_details_settings_a2c_redirect',
 				'options' => $pages_array,
 			],
 			// Order Status completed.
@@ -134,7 +134,7 @@ class Dispensary_Details_WooCommerce_Settings {
 			   'name'    => __( 'Auto-complete orders', 'dispensary-details' ),
 			   'type'    => 'select',
 			   'desc'    => __( 'Automatically change order status from "processing" to "completed".', 'dispensary-details' ),
-			   'id'      => 'wpdd_settings_order_status_completed',
+			   'id'      => 'dispensary_details_settings_order_status_completed',
 				 'options' => [
 					 'no'  => 'No',
 					 'yes' => 'Yes',
@@ -145,7 +145,7 @@ class Dispensary_Details_WooCommerce_Settings {
 				'name'    => __( 'Doctor recommendation', 'dispensary-details' ),
 				'type'    => 'select',
 				'desc'    => __( 'Adds verification fields to registration and edit user forms.', 'dispensary-details' ),
-				'id'      => 'wpdd_settings_require_recommendation',
+				'id'      => 'dispensary_details_settings_require_recommendation',
 				'options' => [
 					'no'  => 'No',
 					'yes' => 'Yes',
@@ -156,7 +156,7 @@ class Dispensary_Details_WooCommerce_Settings {
 				'name'    => __( 'Require recommendation', 'dispensary-details' ),
 				'type'    => 'select',
 				'desc'    => __( 'Only allow checkout after recommendation docs are added.', 'dispensary-details' ),
-				'id'      => 'wpdd_settings_require_recommendation_checkout',
+				'id'      => 'dispensary_details_settings_require_recommendation_checkout',
 				'options' => [
 					'no'  => 'No',
 					'yes' => 'Yes',
@@ -165,23 +165,25 @@ class Dispensary_Details_WooCommerce_Settings {
 			// Section End.
 			'section_end' => [
 			   'type' => 'sectionend',
-			   'id'   => 'wpdd_settings_section_end'
+			   'id'   => 'dispensary_details_settings_section_end'
             ],
 		];
-		return apply_filters( 'wpdd_woocommerce_settings', $settings );
+		return apply_filters( 'dispensary_details_woocommerce_settings', $settings );
 
 	}
 }
 Dispensary_Details_WooCommerce_Settings::init();
 
-/**
- * Minimum Order Amount
- */
-if ( null !== get_option( 'wpdd_settings_minimum_amount' ) || '' !== get_option( 'wpdd_settings_minimum_amount' ) ) {
-	function dispensary_details_minimum_order_amount() {
-
+if ( null !== get_option( 'dispensary_details_settings_minimum_amount' ) || '' !== get_option( 'dispensary_details_settings_minimum_amount' ) ) {
+    /**
+     * Minimum Order Amount
+     * 
+     * @since  1.0.0
+     * @return void
+     */
+    function dispensary_details_minimum_order_amount() {
 		// Set minimum amount.
-		$minimum = get_option( 'wpdd_settings_minimum_amount' );
+		$minimum = get_option( 'dispensary_details_settings_minimum_amount' );
 
 		if ( WC()->cart->subtotal < $minimum ) {
 			if( is_cart() ) {
@@ -208,15 +210,18 @@ if ( null !== get_option( 'wpdd_settings_minimum_amount' ) || '' !== get_option(
 
 /**
  * Redirect user from Checkout if they're not logged in.
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_login_redirect() {
-	if ( null !== get_option( 'wpdd_settings_a2c_redirect' ) && 'none' !== get_option( 'wpdd_settings_a2c_redirect' ) ) {
+	if ( null !== get_option( 'dispensary_details_settings_a2c_redirect' ) && 'none' !== get_option( 'dispensary_details_settings_a2c_redirect' ) ) {
 		if (
 			! is_user_logged_in()
 			&& ( is_checkout() )
 		) {
 			// Redirect to the URL from the settings.
-			wp_redirect( get_permalink( get_option( 'wpdd_settings_a2c_redirect' ) ) );
+			wp_redirect( get_permalink( get_option( 'dispensary_details_settings_a2c_redirect' ) ) );
 		} else {
 			// Do nothing.
 		}
@@ -224,8 +229,17 @@ function dispensary_details_login_redirect() {
 }
 add_action( 'template_redirect', 'dispensary_details_login_redirect' );
 
-// Change the Shipping Address checkout label.
-if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
+if ( 'yes' === get_option( 'dispensary_details_settings_shipping_delivery' ) ) {
+    /**
+     * Change the Shipping Address checkout label.
+     * 
+     * @param mixed $translated_text
+     * @param mixed $text
+     * @param mixed $domain
+     * 
+     * @since  1.0.0
+     * @return mixed
+     */
 	function dispensary_details_shipping_field_strings( $translated_text, $text, $domain ) {
 		switch ( $translated_text ) {
 		case 'Shipping Address' :
@@ -236,8 +250,17 @@ if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
 	}
 }
 
-// Change the Ship to a different address text.
-if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
+if ( 'yes' === get_option( 'dispensary_details_settings_shipping_delivery' ) ) {
+    /**
+     * Change the Ship to a different address text.
+     * 
+     * @param mixed $translated_text
+     * @param mixed $text
+     * @param mixed $domain
+     * 
+     * @since  1.0.0
+     * @return void
+     */
 	function dispensary_details_strings_translation( $translated_text, $text, $domain ) {
 	  switch ( $translated_text ) {
 	    case 'Ship to a different address?' :
@@ -248,26 +271,30 @@ if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
 	}
 }
 
-/**
- *
- * Function to replace shipping text to delivery text
- *
- * @param $package_name
- * @param $i
- * @param $package
- *
- * @return string
- */
-if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
+if ( 'yes' === get_option( 'dispensary_details_settings_shipping_delivery' ) ) {
+    /**
+     *
+     * Function to replace shipping text to delivery text
+     *
+     * @param $package_name
+     * @param $i
+     * @param $package
+     *
+     * @since  1.0.0
+     * @return string
+     */
 	function dispensary_details_delivery_text( $package_name, $i, $package ) {
     	return sprintf( _nx( 'Delivery', 'Delivery %d', ( $i + 1 ), 'shipping packages', 'dispensary-details' ), ( $i + 1 ) );
 	}
 }
 
-/*
- *  Change the string "Shipping" to "Delivery" on Order Received page.
- */
-if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
+if ( 'yes' === get_option( 'dispensary_details_settings_shipping_delivery' ) ) {
+    /**
+     * Change the string "Shipping" to "Delivery" on Order Received page.
+     * 
+     * @since  1.0.0
+     * @return mixed
+     */
 	function dispensary_details_translate_reply( $translated ) {
 		$translated = str_ireplace( 'Shipping', 'Delivery', $translated );
 		return $translated;
@@ -276,9 +303,12 @@ if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
 
 /**
  * Runs filters if Delivery is selected in Settings.
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_shipping_delivery() {
-	if ( 'yes' === get_option( 'wpdd_settings_shipping_delivery' ) ) {
+	if ( 'yes' === get_option( 'dispensary_details_settings_shipping_delivery' ) ) {
 		add_filter( 'gettext', 'dispensary_details_shipping_field_strings', 20, 3 );
 		add_filter( 'gettext', 'dispensary_details_strings_translation', 20, 3 );
 		add_filter( 'woocommerce_shipping_package_name' , 'dispensary_details_delivery_text', 10, 3 );
@@ -292,12 +322,15 @@ add_action( 'init', 'dispensary_details_shipping_delivery', 1 );
 
 /**
  * Auto changes orders from 'processing' to 'completed'.
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_order_status_completed( $order_id ) {
     if ( ! $order_id ) return;
 
-		if ( 'yes' === get_option( 'wpdd_settings_order_status_completed' ) ) {
-			$order = new WC_Order( $order_id ); // Get an instance of the WC_Order object.
+		if ( 'yes' === get_option( 'dispensary_details_settings_order_status_completed' ) ) {
+			$order = new WC_Order( $order_id );
 
 			if ( $order->has_status( 'processing' ) ) {
 				$order->update_status( 'completed' );
@@ -310,32 +343,35 @@ add_action( 'woocommerce_thankyou', 'dispensary_details_order_status_completed',
 
 /**
  * Redirect to page if Cart is empty.
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function cart_empty_redirect_to_shop() {
     global $woocommerce;
 
-		// Check if Redirect is set in Settings.
-		if ( null !== get_option( 'wpdd_settings_empty_cart_redirect' ) && 'none' !== get_option( 'wpdd_settings_empty_cart_redirect' ) ) {
-			// If we're on the Cart page & cart count is 0, do the redirect.
-			if ( is_page( 'cart' ) && 0 === $woocommerce->cart->cart_contents_count ) {
-				wp_redirect( get_permalink( get_option( 'wpdd_settings_empty_cart_redirect' ) ) );
-			} else {
-				// Do nothing.
-			}
-		} else {
-		 	// Do nothing.
-		}
+    // Check if Redirect is set in Settings.
+    if ( null !== get_option( 'dispensary_details_settings_empty_cart_redirect' ) && 'none' !== get_option( 'dispensary_details_settings_empty_cart_redirect' ) ) {
+        // If we're on the Cart page & cart count is 0, do the redirect.
+        if ( is_page( 'cart' ) && 0 === $woocommerce->cart->cart_contents_count ) {
+            wp_redirect( get_permalink( get_option( 'dispensary_details_settings_empty_cart_redirect' ) ) );
+        } else {
+            // Do nothing.
+        }
+    } else {
+        // Do nothing.
+    }
 }
-
 add_action( 'wp_head', 'cart_empty_redirect_to_shop' );
 
-/**
- * Require verification documents for checkout
- *
- * @since 1.5
- */
-if ( 'yes' == get_option( 'wpdd_settings_require_recommendation_checkout' ) ) {
-	function dispensary_details_require_doctor_recommendation_checkout() {
+if ( 'yes' == get_option( 'dispensary_details_settings_require_recommendation_checkout' ) ) {
+    /**
+     * Require verification documents for checkout
+     *
+     * @since  1.0.0
+     * @return void
+     */
+    function dispensary_details_require_doctor_recommendation_checkout() {
 
 		// Get user.
 		$user_id = get_current_user_id();
@@ -368,7 +404,8 @@ if ( 'yes' == get_option( 'wpdd_settings_require_recommendation_checkout' ) ) {
 /**
  * WooCommerce - Inventory Management for Cannabis products
  *
- * @since 1.3
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_inventory_reduction( $loop, $variation_data, $variation ) {
 	echo '<div class="variation-custom-fields">';
@@ -383,18 +420,22 @@ function dispensary_details_inventory_reduction( $loop, $variation_data, $variat
 
 	echo "</div>";
 }
-
-// Display Fields in admin on product edit screen.
 add_action( 'woocommerce_product_after_variable_attributes', 'dispensary_details_inventory_reduction', 10, 3 );
 
-/** Save new fields for variations */
+/**
+ * Save new fields for variations
+ * 
+ * @param mixed $variation_id
+ * @param mixed $i
+ * 
+ * @since  1.0.0
+ * @return void
+ */
 function save_dispensary_details_inventory_reduction( $variation_id, $i ) {
 	// Save Field.
 	$inventory_reduction = stripslashes( $_POST['_inventory_reduction'][$i] );
 	update_post_meta( $variation_id, '_inventory_reduction', esc_attr( $inventory_reduction ) );
 }
-
-//Save variation fields values.
 add_action( 'woocommerce_save_product_variation', 'save_dispensary_details_inventory_reduction', 10, 2 );
 
 // Removes the WooCommerce filter, that is validating the quantity to be an int
@@ -404,6 +445,13 @@ add_filter( 'woocommerce_stock_amount', 'floatval' );
 
 /**
  * Reduce inventory based on variable input field.
+ * 
+ * @param mixed $quantity
+ * @param mixed $order
+ * @param mixed $item
+ * 
+ * @since  1.0.0
+ * @return mixed
  */
 function dispensary_details_filter_order_item_quantity( $quantity, $order, $item ) {
 
@@ -431,11 +479,8 @@ add_filter( 'woocommerce_order_item_quantity', 'dispensary_details_filter_order_
  *
  * Tab: Compounds
  *
- * @since 1.3
- */
-
-/**
- * Adding a custom tab
+ * @since  1.0.0
+ * @return mixed
  */
 function dispensary_details_compounds_tab( $tabs ) {
 
@@ -451,6 +496,9 @@ add_filter( 'woocommerce_product_data_tabs', 'dispensary_details_compounds_tab' 
 
 /**
  * Adding a custom panel
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_compounds_panel( $product ) {
 	?>
@@ -502,6 +550,9 @@ add_action( 'woocommerce_product_data_panels', 'dispensary_details_compounds_pan
 
 /**
  * Saving the custom fields
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function save_dispensary_details_compounds( $post_id ) {
 
@@ -549,11 +600,8 @@ add_action( 'woocommerce_process_product_meta', 'save_dispensary_details_compoun
  *
  * Tab: Tinctures
  *
- * @since 1.3
- */
-
-/**
- * Adding a custom tab
+ * @since  1.0.0
+ * @return mixed
  */
 function dispensary_details_tinctures_tab( $tabs ) {
 
@@ -569,6 +617,9 @@ add_filter( 'woocommerce_product_data_tabs', 'dispensary_details_tinctures_tab' 
 
 /**
  * Adding a custom panel
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_tinctures_panel( $product ) {
 	?>
@@ -614,6 +665,9 @@ add_action( 'woocommerce_product_data_panels', 'dispensary_details_tinctures_pan
 
 /**
  * Saving the custom fields
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function save_dispensary_details_tinctures( $post_id ) {
 
@@ -655,12 +709,9 @@ add_action( 'woocommerce_process_product_meta', 'save_dispensary_details_tinctur
  * Custom Product Data Tab
  *
  * Tab: Edibles
- *
- * @since 1.3
- */
-
-/**
- * Adding a custom tab
+ * 
+ * @since  1.0.0
+ * @return mixed
  */
 function dispensary_details_edibles_tab( $tabs ) {
 
@@ -676,6 +727,9 @@ add_filter( 'woocommerce_product_data_tabs', 'dispensary_details_edibles_tab' );
 
 /**
  * Adding a custom panel
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_edibles_panel( $product ) {
 	?>
@@ -715,6 +769,9 @@ add_action( 'woocommerce_product_data_panels', 'dispensary_details_edibles_panel
 
 /**
  * Saving the custom fields
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function save_dispensary_details_edibles( $post_id ) {
 
@@ -751,12 +808,9 @@ add_action( 'woocommerce_process_product_meta', 'save_dispensary_details_edibles
  * Custom Product Data Tab
  *
  * Tab: Topicals
- *
- * @since 1.3
- */
-
-/**
- * Adding a custom tab
+ * 
+ * @since  1.0.0
+ * @return mixed
  */
 function dispensary_details_topicals_tab( $tabs ) {
 
@@ -772,6 +826,9 @@ add_filter( 'woocommerce_product_data_tabs', 'dispensary_details_topicals_tab' )
 
 /**
  * Adding a custom panel
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_topicals_panel( $product ) {
 	?>
@@ -805,6 +862,9 @@ add_action( 'woocommerce_product_data_panels', 'dispensary_details_topicals_pane
 
 /**
  * Saving the custom fields
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function save_dispensary_details_topicals( $post_id ) {
 
@@ -836,12 +896,9 @@ add_action( 'woocommerce_process_product_meta', 'save_dispensary_details_topical
  * Custom Product Data Tab
  *
  * Tab: Growers
- *
- * @since 1.3
- */
-
-/**
- * Adding a custom tab
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function dispensary_details_growers_tab( $tabs ) {
 
@@ -902,6 +959,9 @@ add_action( 'woocommerce_product_data_panels', 'dispensary_details_growers_panel
 
 /**
  * Saving the custom fields
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function save_dispensary_details_growers( $post_id ) {
 
@@ -941,8 +1001,9 @@ add_action( 'woocommerce_process_product_meta', 'save_dispensary_details_growers
 
 /**
  * Customize WooCommerce account edit template
- *
- * @since 1.4
+ * 
+ * @since  1.0.0
+ * @return mixed
  */
 function dispensary_details_get_woocommerce_template( $located, $template_name, $args, $template_path, $default_path ) {
     if ( 'myaccount/form-edit-account.php' == $template_name ) {
@@ -956,13 +1017,14 @@ add_filter( 'wc_get_template', 'dispensary_details_get_woocommerce_template', 10
 /**
  * Inventory check on add to cart
  *
- * @param bool $passed
- * @param int $product_id
- * @param int $quantity
+ * @param bool   $passed
+ * @param int    $product_id
+ * @param int    $quantity
  * @param string $variation_id
  * @param string $variations
+ * 
+ * @since  1.0.0
  * @return bool
- * @since 1.6
  */
 function dispensary_details_validate_add_cart_item( $passed, $product_id, $quantity, $variation_id = '', $variations = '' ) {
 	// Stock amount.
@@ -1013,8 +1075,10 @@ add_filter( 'woocommerce_add_to_cart_validation', 'dispensary_details_validate_a
 /**
  * Variation active
  *
- * @param bool $active
+ * @param bool  $active
  * @param array $variation
+ * 
+ * @since  1.0.0
  * @return bool
  */
 function dispensary_details_variation_is_active( $active, $variation ) {

@@ -68,7 +68,7 @@ class Dispensary_Details {
 	 */
 	public function __construct() {
 		$this->plugin_name = 'dispensary-details';
-		$this->version     = '1.6';
+		$this->version     = '1.0.0';
 
 		if ( defined( 'DISPENSARY_DETAILS_VERSION' ) ) {
 			$this->version = DISPENSARY_DETAILS_VERSION;
@@ -103,58 +103,53 @@ class Dispensary_Details {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpd-details-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-dispensary-details-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpd-details-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-dispensary-details-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wpd-details-admin.php';
-
-		/**
-		 * The file responsible for defining all metaboxes for dispensary details.
-		 */
-		//require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wpd-details-metaboxes.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-dispensary-details-admin.php';
 
 		/**
 		 * The file responsible for defining all taxonomies for dispensary details.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wpd-details-taxonomies.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-dispensary-details-taxonomies.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wpd-details-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-dispensary-details-public.php';
 
 		/**
 		 * The file responsible for defining all front end display for dispensary details.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wpd-details-woocommerce.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-dispensary-details-woocommerce.php';
 
 		/**
 		 * The file responsible for defining all WooCommerce filters for dispensary details.
 		 */
 		if ( ! class_exists( 'Wpd_Wooconnect' ) ) {
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wpd-details-woocommerce.php';
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-dispensary-details-woocommerce.php';
 		}
 
 		/**
 		 * The file responsible for defining all custom User Fields.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/wpd-details-user-fields.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/dispensary-details-user-fields.php';
 
 		/**
 		 * The file responsible for defining all codes to create the shortcode.
 		 * 
-		 * @since 1.5
+		 * @since 1.0.0
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/wpd-details-shortcode.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/dispensary-details-shortcode.php';
 
 		$this->loader = new Dispensary_Details_Loader();
 

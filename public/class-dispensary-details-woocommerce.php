@@ -54,10 +54,10 @@ function dispensary_details_tab_content() {
  * @return void
  */
 function dispensary_details_vendors_single_product_summary( $post_id ) {
-    $wpd_vendor = '';
+    $dd_vendor = '';
 	if ( get_the_term_list( $post_id, 'vendor', true ) ) {
-		$wpd_vendor = '<span class="wpd-details-vendor">' . get_the_term_list( $post_id, 'vendor', '', ', ', '' ) . '</span>';
+		$dd_vendor = '<span class="dispensary-details-vendor">' . get_the_term_list( $post_id, 'vendor', '', ', ', '' ) . '</span>';
 	}
-	echo $wpd_vendor;
+	echo $dd_vendor;
 }
 add_action( 'woocommerce_single_product_summary', 'dispensary_details_vendors_single_product_summary', 4 );

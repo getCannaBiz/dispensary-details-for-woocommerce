@@ -1,4 +1,4 @@
-table.wpd-details-table {
+table.dispensary-details-table {
 	background: #FFF;
 	border-width: 1px;
 	font-size: 14px;
@@ -8,27 +8,27 @@ table.wpd-details-table {
 	width: 100%;
 }
 
-table.wpd-details-table td {
+table.dispensary-details-table td {
 	padding: 10px;
 }
 
-table.wpd-details-table td:first-child {
+table.dispensary-details-table td:first-child {
     width: 25%;
 }
 
 @media screen and (max-width: 600px) {
-	table.wpd-details-table td:first-child {
+	table.dispensary-details-table td:first-child {
 		width: 50%;
 	}
 }
 
 @media screen and (max-width: 480px) {
-	table.wpd-details-table td:first-child {
+	table.dispensary-details-table td:first-child {
 		width: auto;
 	}
 }
 
-table.wpd-details-table td span {
+table.dispensary-details-table td span {
 	color: #454545;
 	font-weight: 600;
 	margin-right: 10px;
@@ -90,13 +90,13 @@ button.remove-recommendation-doc:hover {
 
 /* WooCommerce Patient Verification File upload */
 
-img.wpd-details-recommendation-doc,
-.entry-content img.wpd-details-recommendation-doc:last-child {
+img.dispensary-details-recommendation-doc,
+.entry-content img.dispensary-details-recommendation-doc:last-child {
 	height: auto;
     margin-bottom: 12px;
     width: 100%;
 }
 
-input#reg_wpd_details_recommendation_doc {
+input#reg_dispensary_details_recommendation_doc {
     width: 100%;
 }
