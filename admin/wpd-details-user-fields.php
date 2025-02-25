@@ -28,24 +28,24 @@ if ( ! defined( 'WPINC' ) ) {
  * 
  * @since 1.4
  */
-function wpd_details_save_custom_profile_fields( $user_id ) {
+function dispensary_details_save_custom_profile_fields( $user_id ) {
 
     // Update recommendation number.
-    if ( isset( $_POST['wpd_details_recommendation_num'] ) ) {
-        update_user_meta( $user_id, 'wpd_details_recommendation_num', esc_html( $_POST['wpd_details_recommendation_num'] ) );
+    if ( isset( $_POST['dispensary_details_recommendation_num'] ) ) {
+        update_user_meta( $user_id, 'dispensary_details_recommendation_num', esc_html( $_POST['dispensary_details_recommendation_num'] ) );
     }
     // Update recommendation expiration date.
-    if ( isset( $_POST['wpd_details_recommendation_exp'] ) ) {
-        update_user_meta( $user_id, 'wpd_details_recommendation_exp', sanitize_text_field( $_POST['wpd_details_recommendation_exp'] ) );
+    if ( isset( $_POST['dispensary_details_recommendation_exp'] ) ) {
+        update_user_meta( $user_id, 'dispensary_details_recommendation_exp', sanitize_text_field( $_POST['dispensary_details_recommendation_exp'] ) );
     }
 
     // Remove recommendation doc.
     if ( isset( $_POST['remove_recommendation_doc'] ) ) {
-        update_user_meta( $user_id, 'wpd_details_recommendation_doc', '' );
+        update_user_meta( $user_id, 'dispensary_details_recommendation_doc', '' );
     }
 
     // If no new files are uploaded, return.
-    if ( ! isset( $_FILES ) || empty( $_FILES ) || ! isset( $_FILES['wpd_details_recommendation_doc'] ) )
+    if ( ! isset( $_FILES ) || empty( $_FILES ) || ! isset( $_FILES['dispensary_details_recommendation_doc'] ) )
         return;
 
     // Include file for wp_handle_upload.
@@ -62,12 +62,12 @@ function wpd_details_save_custom_profile_fields( $user_id ) {
     $_POST['action'] = 'wp_handle_upload';
 
     // Get doctor recommendation file upload (if any).
-    $doc_rec = wp_handle_upload( $_FILES['wpd_details_recommendation_doc'], [ 'test_form' => false, 'mimes' => [ 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg' ] ] );
+    $doc_rec = wp_handle_upload( $_FILES['dispensary_details_recommendation_doc'], [ 'test_form' => false, 'mimes' => [ 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg' ] ] );
 
     // Take doctor recommendation upload, add to media library.
     if ( isset( $doc_rec['file'] ) ) {
         // Update doctor recommendation meta.
-        update_user_meta( $user_id, 'wpd_details_recommendation_doc', $doc_rec, get_user_meta( $user_id, 'wpd_details_recommendation_doc', true ) );
+        update_user_meta( $user_id, 'dispensary_details_recommendation_doc', $doc_rec, get_user_meta( $user_id, 'dispensary_details_recommendation_doc', true ) );
 
         $filename   = $doc_rec['file'];
         $title      = explode( '.', basename( $filename ) );
@@ -86,27 +86,28 @@ function wpd_details_save_custom_profile_fields( $user_id ) {
     }
 
 }
-add_action( 'personal_options_update', 'wpd_details_save_custom_profile_fields' );
-add_action( 'edit_user_profile_update', 'wpd_details_save_custom_profile_fields' );
-add_action( 'woocommerce_save_account_details', 'wpd_details_save_custom_profile_fields' );
+add_action( 'personal_options_update', 'dispensary_details_save_custom_profile_fields' );
+add_action( 'edit_user_profile_update', 'dispensary_details_save_custom_profile_fields' );
+add_action( 'woocommerce_save_account_details', 'dispensary_details_save_custom_profile_fields' );
 
 /**
  * Add profile options to Edit User screen
  * 
- * @since 1.4
+ * @since  1.4
+ * @return void
  */
-function wpd_details_add_profile_options( $profileuser ) {
-    $doc_rec = get_user_meta( $profileuser->ID, 'wpd_details_recommendation_doc', true );
+function dispensary_details_add_profile_options( $profileuser ) {
+    $doc_rec = get_user_meta( $profileuser->ID, 'dispensary_details_recommendation_doc', true );
     ?>
-    <?php do_action( 'wpd_details_verification_title_before' ); ?>
-    <h2><?php _e( 'Customer Verification', 'wpd-details' ); ?></h2>
-    <?php do_action( 'wpd_details_verification_table_before' ); ?>
+    <?php do_action( 'dispensary_details_verification_title_before' ); ?>
+    <h2><?php esc_html_e( 'Customer Verification', 'dispensary-details' ); ?></h2>
+    <?php do_action( 'dispensary_details_verification_table_before' ); ?>
 	<table class="form-table">
-    <?php do_action( 'wpd_details_verification_table_top' ); ?>
+    <?php do_action( 'dispensary_details_verification_table_top' ); ?>
     <tr>
-        <th scope="row"><?php _e( 'Doctor recommendation', 'wpd-details' ); ?></th>
+        <th scope="row"><?php esc_html_e( 'Doctor recommendation', 'dispensary-details' ); ?></th>
         <td class="wpd-details-recommendation-doc">
-            <?php if ( get_user_meta( $profileuser->ID, 'wpd_details_recommendation_doc', true ) ) { ?>
+            <?php if ( get_user_meta( $profileuser->ID, 'dispensary_details_recommendation_doc', true ) ) { ?>
             <div class="recommendation-doc">
             <?php //var_dump( $doc_rec );
                 if ( ! isset( $doc_rec['error'] ) ) {
@@ -119,48 +120,48 @@ function wpd_details_add_profile_options( $profileuser ) {
                     echo $doc_rec. '<br />';
                 }
             ?>
-            <button class="remove-recommendation-doc" name="remove_recommendation_doc"><?php _e( 'x', 'wpd-details' ); ?></button>
+            <button class="remove-recommendation-doc" name="remove_recommendation_doc"><?php esc_html_e( 'x', 'dispensary-details' ); ?></button>
             </div><!-- /.recommendation-doc -->
             <?php } ?>
-            <input type="file" name="wpd_details_recommendation_doc" value="" />
+            <input type="file" name="dispensary_details_recommendation_doc" value="" />
         </td>
     </tr>
     <tr>
-        <th scope="row"><?php _e( 'Recommendation number', 'wpd-details' ); ?></th>
+        <th scope="row"><?php esc_html_e( 'Recommendation number', 'dispensary-details' ); ?></th>
         <td>
-            <input class="regular-text" type="text" name="wpd_details_recommendation_num" value="<?php echo get_user_meta( $profileuser->ID, 'wpd_details_recommendation_num', true ); ?>" />
+            <input class="regular-text" type="text" name="dispensary_details_recommendation_num" value="<?php echo get_user_meta( $profileuser->ID, 'dispensary_details_recommendation_num', true ); ?>" />
         </td>
     </tr>
     <tr>
-        <th scope="row"><?php _e( 'Expiration date', 'wpd-details' ); ?></th>
+        <th scope="row"><?php esc_html_e( 'Expiration date', 'dispensary-details' ); ?></th>
         <td>
-            <input class="regular-text" type="date" name="wpd_details_recommendation_exp" value="<?php echo get_user_meta( $profileuser->ID, 'wpd_details_recommendation_exp', true ); ?>" />
+            <input class="regular-text" type="date" name="dispensary_details_recommendation_exp" value="<?php echo get_user_meta( $profileuser->ID, 'dispensary_details_recommendation_exp', true ); ?>" />
         </td>
     </tr>
-    <?php do_action( 'wpd_details_verification_table_bottom' ); ?>
+    <?php do_action( 'dispensary_details_verification_table_bottom' ); ?>
     </table>
-    <?php do_action( 'wpd_details_verification_table_after' ); ?>
+    <?php do_action( 'dispensary_details_verification_table_after' ); ?>
     <?php
 }
-add_action( 'show_user_profile', 'wpd_details_add_profile_options' );
-add_action( 'edit_user_profile', 'wpd_details_add_profile_options' );
+add_action( 'show_user_profile', 'dispensary_details_add_profile_options' );
+add_action( 'edit_user_profile', 'dispensary_details_add_profile_options' );
 
 /**
  * Add form upload capabilites to edit user page.
  * 
  * @since 1.4
  */
-function wpd_details_make_form_accept_uploads() {
+function dispensary_details_make_form_accept_uploads() {
 	echo ' enctype="multipart/form-data"';
 }
-add_action( 'user_edit_form_tag', 'wpd_details_make_form_accept_uploads' );
+add_action( 'user_edit_form_tag', 'dispensary_details_make_form_accept_uploads' );
 
 /**
- * Add wpd_details_recommendation_doc to WooCommerce My Account page.
+ * Add dispensary_details_recommendation_doc to WooCommerce My Account page.
  * 
  * @since 1.4
  */
-function wpd_details_add_to_edit_account_form() {
+function dispensary_details_add_to_edit_account_form() {
     // Include file for wp_handle_upload.
     if ( ! function_exists( 'wp_handle_upload' ) ) {
         require_once( ABSPATH . 'wp-admin/includes/file.php' );
@@ -176,23 +177,23 @@ function wpd_details_add_to_edit_account_form() {
     $user    = get_userdata( $user_id );
 
     // Save recommendation number.
-    if ( isset( $_POST['wpd_details_recommendation_num'] ) ) {
-        update_user_meta( $user->ID, 'wpd_details_recommendation_num', esc_html( $_POST['wpd_details_recommendation_num'] ) );
+    if ( isset( $_POST['dispensary_details_recommendation_num'] ) ) {
+        update_user_meta( $user->ID, 'dispensary_details_recommendation_num', esc_html( $_POST['dispensary_details_recommendation_num'] ) );
     }
     // Save recommendation expiration.
-    if ( isset( $_POST['wpd_details_recommendation_exp'] ) ) {
-        update_user_meta( $user->ID, 'wpd_details_recommendation_exp', esc_html( $_POST['wpd_details_recommendation_exp'] ) );
+    if ( isset( $_POST['dispensary_details_recommendation_exp'] ) ) {
+        update_user_meta( $user->ID, 'dispensary_details_recommendation_exp', esc_html( $_POST['dispensary_details_recommendation_exp'] ) );
     }
     ?>
     <?php if ( 'yes' === get_option( 'wpdd_settings_require_recommendation' ) ) { ?>
     <fieldset>
-        <legend><?php _e( 'Customer Verification', 'wpd-details' ); ?></legend>
+        <legend><?php esc_html_e( 'Customer Verification', 'dispensary-details' ); ?></legend>
         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-            <label for="reg_wpd_details_recommendation_doc"><?php _e( 'Doctor recommendation', 'wpd-details' ); ?></label>
-            <?php if ( get_user_meta( $user->ID, 'wpd_details_recommendation_doc', true ) ) { ?>
+            <label for="reg_dispensary_details_recommendation_doc"><?php esc_html_e( 'Doctor recommendation', 'dispensary-details' ); ?></label>
+            <?php if ( get_user_meta( $user->ID, 'dispensary_details_recommendation_doc', true ) ) { ?>
             <div class="recommendation-doc">
             <?php
-            $doc_rec = get_user_meta( $user->ID, 'wpd_details_recommendation_doc', true );
+            $doc_rec = get_user_meta( $user->ID, 'dispensary_details_recommendation_doc', true );
             if ( ! isset( $doc_rec['error'] ) ) {
                 if ( ! empty( $doc_rec ) ) {
                     $doc_rec = $doc_rec['url'];
@@ -203,50 +204,46 @@ function wpd_details_add_to_edit_account_form() {
                 echo $doc_rec. '<br />';
             }
             ?>
-            <button class="remove-recommendation-doc" name="remove_recommendation_doc"><?php _e( 'x', 'wpd-details' ); ?></button>
+            <button class="remove-recommendation-doc" name="remove_recommendation_doc"><?php esc_html_e( 'x', 'dispensary-details' ); ?></button>
             </div><!-- /.recommendation-doc -->
             <?php } ?>
-            <input type="file" name="wpd_details_recommendation_doc" id="reg_wpd_details_recommendation_doc" value="" />
+            <input type="file" name="dispensary_details_recommendation_doc" id="reg_dispensary_details_recommendation_doc" value="" />
         </p>
 
         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-            <label for="reg_wpd_details_recommendation_num"><?php _e( 'Recommendation number', 'wpd-details' ); ?></label>
-            <input type="text" class="input-text" name="wpd_details_recommendation_num" id="reg_wpd_details_recommendation_num" value="<?php echo get_user_meta( $user->ID, 'wpd_details_recommendation_num', true ); ?>" />
+            <label for="reg_dispensary_details_recommendation_num"><?php esc_html_e( 'Recommendation number', 'dispensary-details' ); ?></label>
+            <input type="text" class="input-text" name="dispensary_details_recommendation_num" id="reg_dispensary_details_recommendation_num" value="<?php echo get_user_meta( $user->ID, 'dispensary_details_recommendation_num', true ); ?>" />
         </p>
 
         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-            <label for="reg_wpd_details_recommendation_exp"><?php _e( 'Expiration Date', 'wpd-details' ); ?></label>
-            <input type="date" class="input-date" name="wpd_details_recommendation_exp" id="reg_wpd_details_recommendation_exp" value="<?php echo get_user_meta( $user->ID, 'wpd_details_recommendation_exp', true ); ?>" />
+            <label for="reg_dispensary_details_recommendation_exp"><?php esc_html_e( 'Expiration Date', 'dispensary-details' ); ?></label>
+            <input type="date" class="input-date" name="dispensary_details_recommendation_exp" id="reg_dispensary_details_recommendation_exp" value="<?php echo get_user_meta( $user->ID, 'dispensary_details_recommendation_exp', true ); ?>" />
         </p>
 
     </fieldset>
     <?php } ?>
     <?php
 }
-add_action( 'woocommerce_edit_account_form', 'wpd_details_add_to_edit_account_form' );
+add_action( 'woocommerce_edit_account_form', 'dispensary_details_add_to_edit_account_form' );
 
 /**
- * @snippet       Add First & Last Name to My Account Register Form - WooCommerce
- * @how-to        Watch tutorial @ https://businessbloomer.com/?p=19055
- * @sourcecode    https://businessbloomer.com/?p=21974
- * @author        Rodolfo Melogli
- * @credits       Claudio SM Web
- * @compatible    WC 3.4
+ * Add custom fields to the WooCommerce account registration form.
+ *
+ * Outputs additional fields for billing first name, billing last name,
+ * and, if enabled via settings, recommendation number and expiration date.
+ *
+ * @return void
  */
- 
-///////////////////////////////
-// 1. ADD FIELDS
- 
-function wpd_details_add_name_woo_account_registration() {
+function dispensary_details_add_name_woo_account_registration() {
     ?>
  
     <p class="form-row form-row-first">
-        <label for="reg_billing_first_name"><?php _e( 'First name', 'wpd-details' ); ?> <span class="required">*</span></label>
+        <label for="reg_billing_first_name"><?php esc_html_e( 'First name', 'dispensary-details' ); ?> <span class="required">*</span></label>
         <input type="text" class="input-text" name="billing_first_name" id="reg_billing_first_name" value="<?php if ( ! empty( $_POST['billing_first_name'] ) ) esc_attr_e( $_POST['billing_first_name'] ); ?>" />
     </p>
  
     <p class="form-row form-row-last">
-        <label for="reg_billing_last_name"><?php _e( 'Last name', 'wpd-details' ); ?> <span class="required">*</span></label>
+        <label for="reg_billing_last_name"><?php esc_html_e( 'Last name', 'dispensary-details' ); ?> <span class="required">*</span></label>
         <input type="text" class="input-text" name="billing_last_name" id="reg_billing_last_name" value="<?php if ( ! empty( $_POST['billing_last_name'] ) ) esc_attr_e( $_POST['billing_last_name'] ); ?>" />
     </p>
  
@@ -255,15 +252,15 @@ function wpd_details_add_name_woo_account_registration() {
     <?php if ( 'yes' === get_option( 'wpdd_settings_require_recommendation' ) ) { ?>
 
     <p class="form-row">
-        <label for="reg_wpd_details_recommendation_num"><?php _e( 'Recommendation number', 'wpd-details' ); ?></label>
-        <input type="text" class="input-text" name="wpd_details_recommendation_num" id="reg_wpd_details_recommendation_num" value="<?php if ( ! empty( $_POST['wpd_details_recommendation_num'] ) ) esc_attr_e( $_POST['wpd_details_recommendation_num'] ); ?>" />
+        <label for="reg_dispensary_details_recommendation_num"><?php esc_html_e( 'Recommendation number', 'dispensary-details' ); ?></label>
+        <input type="text" class="input-text" name="dispensary_details_recommendation_num" id="reg_dispensary_details_recommendation_num" value="<?php if ( ! empty( $_POST['dispensary_details_recommendation_num'] ) ) esc_attr_e( $_POST['dispensary_details_recommendation_num'] ); ?>" />
     </p>
 
     <div class="clear"></div>
 
     <p class="form-row">
-        <label for="reg_wpd_details_recommendation_exp"><?php _e( 'Expiration date', 'wpd-details' ); ?></label>
-        <input type="date" class="input-date" name="wpd_details_recommendation_exp" id="reg_wpd_details_recommendation_exp" value="<?php if ( ! empty( $_POST['wpd_details_recommendation_exp'] ) ) esc_attr_e( $_POST['wpd_details_recommendation_exp'] ); ?>" />
+        <label for="reg_dispensary_details_recommendation_exp"><?php esc_html_e( 'Expiration date', 'dispensary-details' ); ?></label>
+        <input type="date" class="input-date" name="dispensary_details_recommendation_exp" id="reg_dispensary_details_recommendation_exp" value="<?php if ( ! empty( $_POST['dispensary_details_recommendation_exp'] ) ) esc_attr_e( $_POST['dispensary_details_recommendation_exp'] ); ?>" />
     </p>
 
     <?php } ?>
@@ -272,28 +269,42 @@ function wpd_details_add_name_woo_account_registration() {
 
     <?php
 }
-add_action( 'woocommerce_register_form_start', 'wpd_details_add_name_woo_account_registration' );
+add_action( 'woocommerce_register_form_start', 'dispensary_details_add_name_woo_account_registration' );
 
-
-///////////////////////////////
-// 2. VALIDATE FIELDS
- 
-function wpd_details_validate_name_fields( $errors, $username, $email ) {
+/**
+ * Validate custom registration name fields.
+ *
+ * Checks whether billing first name and billing last name have been provided.
+ * If not, it adds corresponding error messages to the registration errors object.
+ *
+ * @param WP_Error $errors   The WooCommerce registration errors object.
+ * @param string   $username The submitted username.
+ * @param string   $email    The submitted email address.
+ * 
+ * @return WP_Error The updated registration errors object.
+ */
+function dispensary_details_validate_name_fields( $errors, $username, $email ) {
     if ( isset( $_POST['billing_first_name'] ) && empty( $_POST['billing_first_name'] ) ) {
-        $errors->add( 'billing_first_name_error', __( '<strong>Error</strong>: First name is required!', 'wpd-details' ) );
+        $errors->add( 'billing_first_name_error', __( '<strong>Error</strong>: First name is required!', 'dispensary-details' ) );
     }
     if ( isset( $_POST['billing_last_name'] ) && empty( $_POST['billing_last_name'] ) ) {
-        $errors->add( 'billing_last_name_error', __( '<strong>Error</strong>: Last name is required!', 'wpd-details' ) );
+        $errors->add( 'billing_last_name_error', __( '<strong>Error</strong>: Last name is required!', 'dispensary-details' ) );
     }
     return $errors;
 }
-add_filter( 'woocommerce_registration_errors', 'wpd_details_validate_name_fields', 10, 3 );
+add_filter( 'woocommerce_registration_errors', 'dispensary_details_validate_name_fields', 10, 3 );
 
-
-///////////////////////////////
-// 3. SAVE FIELDS
- 
-function wpd_details_save_name_fields( $customer_id ) {
+/**
+ * Save custom registration fields to user meta.
+ *
+ * Updates the newly created customer's meta with billing first name,
+ * billing last name, and, if enabled via settings, recommendation number and expiration date.
+ *
+ * @param int $customer_id The newly created customer's user ID.
+ * 
+ * @return void
+ */
+function dispensary_details_save_name_fields( $customer_id ) {
     if ( isset( $_POST['billing_first_name'] ) ) {
         update_user_meta( $customer_id, 'billing_first_name', sanitize_text_field( $_POST['billing_first_name'] ) );
         update_user_meta( $customer_id, 'first_name', sanitize_text_field( $_POST['billing_first_name'] ) );
@@ -303,12 +314,12 @@ function wpd_details_save_name_fields( $customer_id ) {
         update_user_meta( $customer_id, 'last_name', sanitize_text_field( $_POST['billing_last_name'] ) );
     }
     if ( 'yes' === get_option( 'wpdd_settings_require_recommendation' ) ) {
-        if ( isset( $_POST['wpd_details_recommendation_num'] ) ) {
-            update_user_meta( $customer_id, 'wpd_details_recommendation_num', sanitize_text_field( $_POST['wpd_details_recommendation_num'] ) );
+        if ( isset( $_POST['dispensary_details_recommendation_num'] ) ) {
+            update_user_meta( $customer_id, 'dispensary_details_recommendation_num', sanitize_text_field( $_POST['dispensary_details_recommendation_num'] ) );
         }
-        if ( isset( $_POST['wpd_details_recommendation_exp'] ) ) {
-            update_user_meta( $customer_id, 'wpd_details_recommendation_exp', sanitize_text_field( $_POST['wpd_details_recommendation_exp'] ) );
+        if ( isset( $_POST['dispensary_details_recommendation_exp'] ) ) {
+            update_user_meta( $customer_id, 'dispensary_details_recommendation_exp', sanitize_text_field( $_POST['dispensary_details_recommendation_exp'] ) );
         }
     } 
 }
-add_action( 'woocommerce_created_customer', 'wpd_details_save_name_fields' );
+add_action( 'woocommerce_created_customer', 'dispensary_details_save_name_fields' );

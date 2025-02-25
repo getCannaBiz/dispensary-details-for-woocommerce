@@ -33,15 +33,15 @@ class Dispensary_Details_Activator {
 		/**
 		 * Taxonomies
 		 */
-		wpd_details_aroma();
-		wpd_details_flavor();
-		wpd_details_effect();
-		wpd_details_symptom();
-		wpd_details_condition();
-		wpd_details_ingredient();
-		wpd_details_vendor();
-		wpd_details_shelf_type();
-		wpd_details_strain_type();
+		dispensary_details_aroma();
+		dispensary_details_flavor();
+		dispensary_details_effect();
+		dispensary_details_symptom();
+		dispensary_details_condition();
+		dispensary_details_ingredient();
+		dispensary_details_vendor();
+		dispensary_details_shelf_type();
+		dispensary_details_strain_type();
 
 		/**
 		 * Flush Rewrite Rules

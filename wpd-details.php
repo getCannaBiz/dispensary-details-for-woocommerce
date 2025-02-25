@@ -16,7 +16,7 @@
  * Author URI:        https://cannabizsoftware.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       wpd-details
+ * Text Domain:       dispensary-details
  * Domain Path:       /languages
  */
 
@@ -32,7 +32,7 @@ define( 'DISPENSARY_DETAILS_VERSION', '1.6' );
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wpd-details-activator.php
  */
-function activate_wpd_details() {
+function activate_dispensary_details() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-details-activator.php';
 	Dispensary_Details_Activator::activate();
 }
@@ -41,13 +41,13 @@ function activate_wpd_details() {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-wpd-details-deactivator.php
  */
-function deactivate_wpd_details() {
+function deactivate_dispensary_details() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-details-deactivator.php';
 	Dispensary_Details_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_wpd_details' );
-register_deactivation_hook( __FILE__, 'deactivate_wpd_details' );
+register_activation_hook( __FILE__, 'activate_dispensary_details' );
+register_deactivation_hook( __FILE__, 'deactivate_dispensary_details' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -64,10 +64,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wpd-details.php';
  *
  * @since    1.0.0
  */
-function run_wpd_details() {
+function run_dispensary_details() {
 
 	$plugin = new Dispensary_Details();
 	$plugin->run();
 
 }
-run_wpd_details();
+run_dispensary_details();

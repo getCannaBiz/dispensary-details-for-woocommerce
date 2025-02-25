@@ -25,7 +25,7 @@ Add additional details to your dispensary items being sold through WooCommerce. 
 
 = 1.5.0 =
 * Added setting to require recommendation before checkout in `admin/class-wpd-details-woocommerce.php`
-* Added `wpd_details` shortcode in `includes/class-wpd-details.php`
+* Added `dispensary_details` shortcode in `includes/class-wpd-details.php`
 * Added Shelf type taxonomy in `admin/class-wpd-details-taxonomies.php`
 * Added Strain type taxonomy in `admin/class-wpd-details-taxonomies.php`
 * Added Shelf type and Strain type functions to activation hook in `includes/class-wpd-details-activator.php`

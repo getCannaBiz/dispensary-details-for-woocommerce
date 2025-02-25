@@ -16,16 +16,17 @@
  *
  * Adds the compound details metabox to specific custom post types
  *
- * @since    1.9.9
+ * @since  1.9.9
+ * @return void
  */
 function add_compounddetails_metaboxes() {
-	$screens = apply_filters( 'wpd_details_compound_details_screens', [ 'product' ] );
+	$screens = apply_filters( 'dispensary_details_compound_details_screens', [ 'product' ] );
 
 	foreach ( $screens as $screen ) {
 		add_meta_box(
-			'wpd_details_compounds',
-			__( 'Compound Details', 'wpd-details' ),
-			'wpd_details_compounddetails',
+			'dispensary_details_compounds',
+			__( 'Compound Details', 'dispensary-details' ),
+			'dispensary_details_compounddetails',
 			$screen,
 			'normal',
 			'default'
@@ -38,8 +39,11 @@ add_action( 'add_meta_boxes', 'add_compounddetails_metaboxes' );
 
 /**
  * Building the metabox
+ * 
+ * @since  1.0.0
+ * @return void
  */
-function wpd_details_compounddetails() {
+function dispensary_details_compounddetails() {
 	global $post;
 
 	/** Noncename needed to verify where the data originated */
@@ -56,27 +60,27 @@ function wpd_details_compounddetails() {
 
 	/** Echo out the fields */
 	echo '<div class="compoundbox">';
-	echo '<p>' . __( 'THC', 'wpd-details' ) . ' %</p>';
+	echo '<p>' . __( 'THC', 'dispensary-details' ) . ' %</p>';
 	echo '<input type="text" name="_thc" value="' . $thc  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="compoundbox">';
-	echo '<p>' . __( 'THCA', 'wpd-details' ) . ' %</p>';
+	echo '<p>' . __( 'THCA', 'dispensary-details' ) . ' %</p>';
 	echo '<input type="text" name="_thca" value="' . $thca  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="compoundbox">';
-	echo '<p>' . __( 'CBD', 'wpd-details' ) . ' %</p>';
+	echo '<p>' . __( 'CBD', 'dispensary-details' ) . ' %</p>';
 	echo '<input type="text" name="_cbd" value="' . $cbd  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="compoundbox">';
-	echo '<p>' . __( 'CBA', 'wpd-details' ) . ' %</p>';
+	echo '<p>' . __( 'CBA', 'dispensary-details' ) . ' %</p>';
 	echo '<input type="text" name="_cba" value="' . $cba  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="compoundbox">';
-	echo '<p>' . __( 'CBN', 'wpd-details' ) . ' %</p>';
+	echo '<p>' . __( 'CBN', 'dispensary-details' ) . ' %</p>';
 	echo '<input type="text" name="_cbn" value="' . $cbn  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="compoundbox">';
-	echo '<p>' . __( 'CBG', 'wpd-details' ) . ' %</p>';
+	echo '<p>' . __( 'CBG', 'dispensary-details' ) . ' %</p>';
 	echo '<input type="text" name="_cbg" value="' . $cbg  . '" class="widefat" />';
 	echo '</div>';
 
@@ -84,8 +88,11 @@ function wpd_details_compounddetails() {
 
 /**
  * Save the Metabox Data
+ * 
+ * @since  1.0.0
+ * @return mixed
  */
-function wpd_details_save_compounddetails_meta( $post_id, $post ) {
+function dispensary_details_save_compounddetails_meta( $post_id, $post ) {
 
 	/**
 	 * Verify this came from the our screen and with proper authorization,
@@ -128,10 +135,8 @@ function wpd_details_save_compounddetails_meta( $post_id, $post ) {
 			delete_post_meta( $post->ID, $key );
 		}
 	}
-
 }
-
-add_action( 'save_post', 'wpd_details_save_compounddetails_meta', 1, 2 ); // save the custom fields
+add_action( 'save_post', 'dispensary_details_save_compounddetails_meta', 1, 2 ); // save the custom fields
 
 
 /**
@@ -139,17 +144,18 @@ add_action( 'save_post', 'wpd_details_save_compounddetails_meta', 1, 2 ); // sav
  *
  * Adds a custom metabox for additional edibles details
  *
- * @since    1.0.0
+ * @since  1.0.0
+ * @return void
  */
 function add_thc_cbd_mg_metaboxes() {
 
-	$screens = apply_filters( 'wpd_details_edibles_screens', [ 'product' ] );
+	$screens = apply_filters( 'dispensary_details_edibles_screens', [ 'product' ] );
 
 	foreach ( $screens as $screen ) {
 		add_meta_box(
-			'wpd_details_edibles',
-			__( 'Edible Details', 'wpd-details' ),
-			'wpd_details_edibles',
+			'dispensary_details_edibles',
+			__( 'Edible Details', 'dispensary-details' ),
+			'dispensary_details_edibles',
 			$screen,
 			'normal',
 			'default'
@@ -162,8 +168,11 @@ add_action( 'add_meta_boxes', 'add_thc_cbd_mg_metaboxes' );
 
 /**
  * THC and CBD mg
+ * 
+ * @since  1.0.0
+ * @return void
  */
-function wpd_details_edibles() {
+function dispensary_details_edibles() {
 	global $post;
 
 	/** Noncename needed to verify where the data originated */
@@ -178,27 +187,30 @@ function wpd_details_edibles() {
 
 	/** Echo out the fields */
 	echo '<div class="ediblesbox">';
-	echo '<p>' . __( 'THC mg per serving', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'THC mg per serving', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_thcmg" value="' . $thcmg  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="ediblesbox">';
-	echo '<p>' . __( 'CBD mg per serving', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'CBD mg per serving', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_cbdmg" value="' . $cbdmg  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="ediblesbox">';
-	echo '<p>' . __( 'Servings', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'Servings', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_thccbdservings" value="' . $thccbdservings  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="ediblesbox">';
-	echo '<p>' . __( 'Net weight (grams)', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'Net weight (grams)', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_netweight" value="' . $netweight  . '" class="widefat" />';
 	echo '</div>';
 }
 
 /**
  * Save the Metabox Data
+ * 
+ * @since  1.0.0
+ * @return mixed
  */
-function wpd_details_save_thc_cbd_mg_meta( $post_id, $post ) {
+function dispensary_details_save_thc_cbd_mg_meta( $post_id, $post ) {
 
 	/**
 	 * Verify this came from the our screen and with proper authorization,
@@ -241,40 +253,40 @@ function wpd_details_save_thc_cbd_mg_meta( $post_id, $post ) {
 	}
 
 }
-
-add_action( 'save_post', 'wpd_details_save_thc_cbd_mg_meta', 1, 2 ); /** Save the custom fields */
-
+add_action( 'save_post', 'dispensary_details_save_thc_cbd_mg_meta', 1, 2 ); /** Save the custom fields */
 
 /**
  * Topicals Details content metabox
  *
  * Adds a custom metabox for additional Topicals details
  *
- * @since    1.4.0
+ * @since  1.4.0
+ * @return void
  */
 function add_thccbdtopical_metaboxes() {
 
-	$screens = apply_filters( 'wpd_details_topicals_screens', [ 'product' ] );
+	$screens = apply_filters( 'dispensary_details_topicals_screens', [ 'product' ] );
 
 	foreach ( $screens as $screen ) {
 		add_meta_box(
-			'wpd_details_topicals',
-			__( 'Topical Details', 'wpd-details' ),
-			'wpd_details_topicals',
+			'dispensary_details_topicals',
+			__( 'Topical Details', 'dispensary-details' ),
+			'dispensary_details_topicals',
 			$screen,
 			'normal',
 			'default'
 		);
 	}
-
 }
-
 add_action( 'add_meta_boxes', 'add_thccbdtopical_metaboxes' );
 
 /**
  * Building the metabox
+ * 
+ * @since  1.0.0
+ * @return void
  */
-function wpd_details_topicals() {
+function dispensary_details_topicals() {
 	global $post;
 
 	/** Noncename needed to verify where the data originated */
@@ -288,15 +300,15 @@ function wpd_details_topicals() {
 
 	/** Echo out the fields */
 	echo '<div class="topicalsbox">';
-	echo '<p>' . __( 'Size (oz)', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'Size (oz)', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_sizetopical" value="' . $sizetopicals  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="topicalsbox">';
-	echo '<p>' . __( 'THC mg', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'THC mg', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_thctopical" value="' . $thctopicals  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="topicalsbox">';
-	echo '<p>' . __( 'CBD mg', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'CBD mg', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_cbdtopical" value="' . $cbdtopicals  . '" class="widefat" />';
 	echo '</div>';
 
@@ -304,8 +316,11 @@ function wpd_details_topicals() {
 
 /**
  * Save the Metabox Data
+ * 
+ * @since  1.0.0
+ * @return mixed
  */
-function wpd_details_save_thccbdtopical_meta( $post_id, $post ) {
+function dispensary_details_save_thccbdtopical_meta( $post_id, $post ) {
 
 	/**
 	 * Verify this came from the our screen and with proper authorization,
@@ -345,41 +360,38 @@ function wpd_details_save_thccbdtopical_meta( $post_id, $post ) {
 			delete_post_meta( $post->ID, $key );
 		}
 	}
-
 }
-
-add_action( 'save_post', 'wpd_details_save_thccbdtopical_meta', 1, 2 ); /** Save the custom fields */
+add_action( 'save_post', 'dispensary_details_save_thccbdtopical_meta', 1, 2 ); /** Save the custom fields */
 
 /**
  * Growers Clone Details metabox
  *
  * Adds the clone details metabox to WooCommerce Products
  *
- * @since    1.0.0
+ * @since  1.0.0
+ * @return void
  */
 function add_grower_details_metaboxes() {
 
-	$screens = apply_filters( 'wpd_details_growers_screens', [ 'product' ] );
+	$screens = apply_filters( 'dispensary_details_growers_screens', [ 'product' ] );
 
 	foreach ( $screens as $screen ) {
 		add_meta_box(
-			'wpd_details_growers',
-			__( 'Grower Details', 'wpd-details' ),
-			'wpd_details_growers',
+			'dispensary_details_growers',
+			__( 'Grower Details', 'dispensary-details' ),
+			'dispensary_details_growers',
 			$screen,
 			'normal',
 			'default'
 		);
 	}
-
 }
-
 add_action( 'add_meta_boxes', 'add_grower_details_metaboxes' );
 
 /**
  * Building the metabox
  */
-function wpd_details_growers() {
+function dispensary_details_growers() {
 	global $post;
 
 	/** Noncename needed to verify where the data originated */
@@ -395,23 +407,23 @@ function wpd_details_growers() {
 
 	/** Echo out the fields */
 	echo '<div class="growerbox">';
-	echo '<p>' . __( 'Origin', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'Origin', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_origin" value="' . $origin  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="growerbox">';
-	echo '<p>' . __( 'Grow time', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'Grow time', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_time" value="' . $time  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="growerbox">';
-	echo '<p>' . __( 'Yield', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'Yield', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_yield" value="' . $yield  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="growerbox">';
-	echo '<p>' . __( 'Seeds per unit', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'Seeds per unit', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_seedcount" value="' . $seedcount  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="growerbox">';
-	echo '<p>' . __( 'Clones per unit', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'Clones per unit', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_clonecount" value="' . $clonecount  . '" class="widefat" />';
 	echo '</div>';
 
@@ -419,8 +431,11 @@ function wpd_details_growers() {
 
 /**
  * Save the Metabox Data
+ * 
+ * @since  1.0.0
+ * @return mixed
  */
-function wpd_details_save_grower_details_meta( $post_id, $post ) {
+function dispensary_details_save_grower_details_meta( $post_id, $post ) {
 
 	/**
 	 * Verify this came from the our screen and with proper authorization,
@@ -464,39 +479,40 @@ function wpd_details_save_grower_details_meta( $post_id, $post ) {
 	}
 
 }
-
-add_action( 'save_post', 'wpd_details_save_grower_details_meta', 1, 2 ); // save the custom fields
+add_action( 'save_post', 'dispensary_details_save_grower_details_meta', 1, 2 ); // save the custom fields
 
 /**
  * Details metabox for the Tinctures menu type
  *
  * Adds a details metabox
  *
- * @since    1.2.0
+ * @since  1.2.0
+ * @return void
  */
 function add_tincture_details_metaboxes() {
 
-	$screens = apply_filters( 'wpd_details_tinctures_screens', [ 'product' ] );
+	$screens = apply_filters( 'dispensary_details_tinctures_screens', [ 'product' ] );
 
 	foreach ( $screens as $screen ) {
 		add_meta_box(
-			'wpd_details_tinctures',
-			__( 'Tincture Details', 'wpd-details' ),
-			'wpd_details_tinctures',
+			'dispensary_details_tinctures',
+			__( 'Tincture Details', 'dispensary-details' ),
+			'dispensary_details_tinctures',
 			$screen,
 			'normal',
 			'default'
 		);
 	}
-
 }
-
 add_action( 'add_meta_boxes', 'add_tincture_details_metaboxes' );
 
 /**
  * Building the metabox
+ * 
+ * @since  1.0.0
+ * @return void
  */
-function wpd_details_tinctures() {
+function dispensary_details_tinctures() {
 	global $post;
 
 	/** Noncename needed to verify where the data originated */
@@ -512,23 +528,23 @@ function wpd_details_tinctures() {
 
 	/** Echo out the fields */
 	echo '<div class="tincturesdetailsbox">';
-	echo '<p>' . __( 'THC mg per serving', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'THC mg per serving', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_tincture_thcmg" value="' . esc_html( $thcmg ) . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="tincturesdetailsbox">';
-	echo '<p>' . __( 'CBD mg per serving', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'CBD mg per serving', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_tincture_cbdmg" value="' . esc_html( $cbdmg ) . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="tincturesdetailsbox">';
-	echo '<p>' . __( 'mL per serving', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'mL per serving', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_tincture_mlserving" value="' . esc_html( $mlserving ) . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="tincturesdetailsbox">';
-	echo '<p>' . __( 'Servings', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'Servings', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_tincture_thccbdservings" value="' . esc_html( $thccbdservings ) . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="tincturesdetailsbox">';
-	echo '<p>' . __( 'Net weight (ounces)', 'wpd-details' ) . '</p>';
+	echo '<p>' . __( 'Net weight (ounces)', 'dispensary-details' ) . '</p>';
 	echo '<input type="text" name="_tincture_netweight" value="' . esc_html( $netweight ) . '" class="widefat" />';
 	echo '</div>';
 
@@ -536,8 +552,11 @@ function wpd_details_tinctures() {
 
 /**
  * Save the Metabox Data
+ * 
+ * @since  1.0.0
+ * @return mixed
  */
-function wpd_details_save_tincture_details_meta( $post_id, $post ) {
+function dispensary_details_save_tincture_details_meta( $post_id, $post ) {
 
 	/**
 	 * Verify this came from the our screen and with proper authorization,
@@ -581,5 +600,4 @@ function wpd_details_save_tincture_details_meta( $post_id, $post ) {
 	}
 
 }
-
-add_action( 'save_post', 'wpd_details_save_tincture_details_meta', 1, 2 ); /** Save the custom fields */
+add_action( 'save_post', 'dispensary_details_save_tincture_details_meta', 1, 2 ); /** Save the custom fields */

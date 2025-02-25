@@ -12,30 +12,36 @@
 
 /**
  * Adding in the CannaBiz Software WooConnect Details tab
+ * 
+ * @since  1.0.0
+ * @return mixed
  */
-function wpd_details_tab( $tabs ) {
+function dispensary_details_tab( $tabs ) {
 
 	// Adds the new tab.
 	$tabs['product_details'] = [
-		'title'   	=> esc_html__( 'Details', 'wpd-details' ),
+		'title'   	=> esc_html__( 'Details', 'dispensary-details' ),
 		'priority' 	=> 1,
-		'callback' 	=> 'wpd_details_tab_content'
+		'callback' 	=> 'dispensary_details_tab_content'
 	];
 
 	return $tabs;
 }
-add_filter( 'woocommerce_product_tabs', 'wpd_details_tab' );
+add_filter( 'woocommerce_product_tabs', 'dispensary_details_tab' );
 
 /**
  * Single Product - Details tab content
+ * 
+ * @since  1.0.0
+ * @return void
  */
-function wpd_details_tab_content() {
+function dispensary_details_tab_content() {
 		// The new tab content
 		global $post;
 
-		echo '<h2>' . __( 'Details', 'wpd-details' ) . '</h2>';
+		echo '<h2>' . esc_html__( 'Details', 'dispensary-details' ) . '</h2>';
 
-		echo do_shortcode( '[wpd_details]' );
+		echo do_shortcode( '[dispensary_details]' );
 
 		// Reset Post Data
 		wp_reset_postdata();
@@ -44,14 +50,14 @@ function wpd_details_tab_content() {
 /**
  * Display Vendor above single product titles
  *
- * @since 1.7
+ * @since  1.7
+ * @return void
  */
-function wpd_details_vendors_single_product_summary( $post_id ) {
+function dispensary_details_vendors_single_product_summary( $post_id ) {
+    $wpd_vendor = '';
 	if ( get_the_term_list( $post_id, 'vendor', true ) ) {
 		$wpd_vendor = '<span class="wpd-details-vendor">' . get_the_term_list( $post_id, 'vendor', '', ', ', '' ) . '</span>';
-	} else {
-		$wpd_vendor = '';
 	}
 	echo $wpd_vendor;
 }
-add_action( 'woocommerce_single_product_summary', 'wpd_details_vendors_single_product_summary', 4 );
+add_action( 'woocommerce_single_product_summary', 'dispensary_details_vendors_single_product_summary', 4 );
