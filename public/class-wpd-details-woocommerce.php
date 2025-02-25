@@ -13,19 +13,18 @@
 /**
  * Adding in the WP Dispensary WooConnect Details tab
  */
-add_filter( 'woocommerce_product_tabs', 'wpd_details_tab' );
 function wpd_details_tab( $tabs ) {
 
-	// Adds the new tab
-
-	$tabs['product_details'] = array(
-		'title'   	=> __( 'Details', 'wpd-details' ),
+	// Adds the new tab.
+	$tabs['product_details'] = [
+		'title'   	=> esc_html__( 'Details', 'wpd-details' ),
 		'priority' 	=> 1,
 		'callback' 	=> 'wpd_details_tab_content'
-	);
+	];
 
 	return $tabs;
 }
+add_filter( 'woocommerce_product_tabs', 'wpd_details_tab' );
 
 /**
  * Single Product - Details tab content
@@ -49,9 +48,9 @@ function wpd_details_tab_content() {
  */
 function wpd_details_vendors_single_product_summary( $post_id ) {
 	if ( get_the_term_list( $post_id, 'vendor', true ) ) {
-			$wpd_vendor = '<span class="wpd-details-vendor">' . get_the_term_list( $post_id, 'vendor', '', ', ', '' ) . '</span>';
+		$wpd_vendor = '<span class="wpd-details-vendor">' . get_the_term_list( $post_id, 'vendor', '', ', ', '' ) . '</span>';
 	} else {
-			$wpd_vendor = '';
+		$wpd_vendor = '';
 	}
 	echo $wpd_vendor;
 }

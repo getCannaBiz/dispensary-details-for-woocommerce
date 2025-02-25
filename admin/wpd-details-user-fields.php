@@ -62,7 +62,7 @@ function wpd_details_save_custom_profile_fields( $user_id ) {
     $_POST['action'] = 'wp_handle_upload';
 
     // Get doctor recommendation file upload (if any).
-    $doc_rec = wp_handle_upload( $_FILES['wpd_details_recommendation_doc'], array( 'test_form' => false, 'mimes' => array( 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg' ) ) );
+    $doc_rec = wp_handle_upload( $_FILES['wpd_details_recommendation_doc'], [ 'test_form' => false, 'mimes' => [ 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg' ] ] );
 
     // Take doctor recommendation upload, add to media library.
     if ( isset( $doc_rec['file'] ) ) {
@@ -72,13 +72,13 @@ function wpd_details_save_custom_profile_fields( $user_id ) {
         $filename   = $doc_rec['file'];
         $title      = explode( '.', basename( $filename ) );
         $ext        = array_pop( $title );
-        $attachment = array(
+        $attachment = [
            'guid'           => $doc_rec['url'], 
            'post_mime_type' => $doc_rec['type'],
            'post_title'     => implode( '.', $title ),
            'post_content'   => '',
            'post_status'    => 'inherit'
-        );
+        ];
         $attach_id   = wp_insert_attachment( $attachment, $filename );
         $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
 

@@ -19,7 +19,7 @@
  * @since    1.9.9
  */
 function add_compounddetails_metaboxes() {
-	$screens = apply_filters( 'wpd_details_compound_details_screens', array( 'product' ) );
+	$screens = apply_filters( 'wpd_details_compound_details_screens', [ 'product' ] );
 
 	foreach ( $screens as $screen ) {
 		add_meta_box(
@@ -143,7 +143,7 @@ add_action( 'save_post', 'wpd_details_save_compounddetails_meta', 1, 2 ); // sav
  */
 function add_thc_cbd_mg_metaboxes() {
 
-	$screens = apply_filters( 'wpd_details_edibles_screens', array( 'product' ) );
+	$screens = apply_filters( 'wpd_details_edibles_screens', [ 'product' ] );
 
 	foreach ( $screens as $screen ) {
 		add_meta_box(
@@ -254,7 +254,7 @@ add_action( 'save_post', 'wpd_details_save_thc_cbd_mg_meta', 1, 2 ); /** Save th
  */
 function add_thccbdtopical_metaboxes() {
 
-	$screens = apply_filters( 'wpd_details_topicals_screens', array( 'product' ) );
+	$screens = apply_filters( 'wpd_details_topicals_screens', [ 'product' ] );
 
 	foreach ( $screens as $screen ) {
 		add_meta_box(
@@ -359,7 +359,7 @@ add_action( 'save_post', 'wpd_details_save_thccbdtopical_meta', 1, 2 ); /** Save
  */
 function add_grower_details_metaboxes() {
 
-	$screens = apply_filters( 'wpd_details_growers_screens', array( 'product' ) );
+	$screens = apply_filters( 'wpd_details_growers_screens', [ 'product' ] );
 
 	foreach ( $screens as $screen ) {
 		add_meta_box(
@@ -476,7 +476,7 @@ add_action( 'save_post', 'wpd_details_save_grower_details_meta', 1, 2 ); // save
  */
 function add_tincture_details_metaboxes() {
 
-	$screens = apply_filters( 'wpd_details_tinctures_screens', array( 'product' ) );
+	$screens = apply_filters( 'wpd_details_tinctures_screens', [ 'product' ] );
 
 	foreach ( $screens as $screen ) {
 		add_meta_box(

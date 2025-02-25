@@ -26,7 +26,7 @@ add_action( 'init', 'wpd_details_aroma', 0 );
  */
 function wpd_details_aroma() {
 
-	  $labels = array(
+	  $labels = [
 		'name'                       => _x( 'Aromas', 'general name', 'wpd-details' ),
 		'singular_name'              => _x( 'Aroma', 'singular name', 'wpd-details' ),
 		'search_items'               => __( 'Search Aromas', 'wpd-details' ),
@@ -43,16 +43,16 @@ function wpd_details_aroma() {
 		'choose_from_most_used'      => __( 'Choose from the most used aromas', 'wpd-details' ),
 		'not_found'                  => __( 'no aromas found', 'wpd-details' ),
 		'menu_name'                  => __( 'Aromas', 'wpd-details' ),
-	  );
+	  ];
 
-		$capabilities = array(
+		$capabilities = [
 			'manage_terms' => 'edit_aromas',
 			'edit_terms'   => 'edit_aromas',
 			'delete_terms' => 'edit_aromas',
 			'assign_terms' => 'read',
-		);
+		];
 
-	  register_taxonomy( 'aroma', 'product', array(
+	  register_taxonomy( 'aroma', 'product', [
 			'hierarchical'           => false,
 			'labels'                 => $labels,
 			'capabilities'           => $capabilities,
@@ -62,10 +62,10 @@ function wpd_details_aroma() {
 			'show_in_nav_menus'      => false,
 			'update_count_callback'  => '_update_post_term_count',
 			'query_var'              => true,
-			'rewrite'                => array(
+			'rewrite'                => [
 				'slug' => 'aroma',
-			),
-	  ) );
+            ],
+	  ] );
 
 }
 
@@ -84,7 +84,7 @@ add_action( 'init', 'wpd_details_flavor', 0 );
  */
 function wpd_details_flavor() {
 
-	  $labels = array(
+	  $labels = [
 		'name'                       => _x( 'Flavors', 'general name', 'wpd-details' ),
 		'singular_name'              => _x( 'Flavor', 'singular name', 'wpd-details' ),
 		'search_items'               => __( 'Search Flavors', 'wpd-details' ),
@@ -101,16 +101,16 @@ function wpd_details_flavor() {
 		'choose_from_most_used'      => __( 'Choose from the most used flavors', 'wpd-details' ),
 		'not_found'                  => __( 'No flavors found', 'wpd-details' ),
 		'menu_name'                  => __( 'Flavors', 'wpd-details' ),
-	  );
+	  ];
 
-		$capabilities = array(
+		$capabilities = [
 			'manage_terms' => 'edit_flavors',
 			'edit_terms'   => 'edit_flavors',
 			'delete_terms' => 'edit_flavors',
 			'assign_terms' => 'read',
-		);
+		];
 
-	  register_taxonomy( 'flavor', 'product', array(
+	  register_taxonomy( 'flavor', 'product', [
 			'hierarchical'           => false,
 			'labels'                 => $labels,
 			'capabilities'           => $capabilities,
@@ -120,10 +120,10 @@ function wpd_details_flavor() {
 			'show_in_nav_menus'      => false,
 			'update_count_callback'  => '_update_post_term_count',
 			'query_var'              => true,
-			'rewrite'                => array(
+			'rewrite'                => [
 				'slug' => 'flavor',
-			),
-	  ) );
+            ],
+	  ] );
 }
 
 /**
@@ -141,7 +141,7 @@ add_action( 'init', 'wpd_details_effect', 0 );
  */
 function wpd_details_effect() {
 
-	  $labels = array(
+	  $labels = [
 		'name'                       => _x( 'Effects', 'general name', 'wpd-details' ),
 		'singular_name'              => _x( 'Effect', 'singular name', 'wpd-details' ),
 		'search_items'               => __( 'Search Effects', 'wpd-details' ),
@@ -158,16 +158,16 @@ function wpd_details_effect() {
 		'choose_from_most_used'      => __( 'Choose from the most used effects', 'wpd-details' ),
 		'not_found'                  => __( 'No effects found', 'wpd-details' ),
 		'menu_name'                  => __( 'Effects', 'wpd-details' ),
-	  );
+	  ];
 
-		$capabilities = array(
+		$capabilities = [
 			'manage_terms' => 'edit_effects',
 			'edit_terms'   => 'edit_effects',
 			'delete_terms' => 'edit_effects',
 			'assign_terms' => 'read',
-		);
+		];
 
-	  register_taxonomy( 'effect', 'product', array(
+	  register_taxonomy( 'effect', 'product', [
 			'hierarchical'           => false,
 			'labels'                 => $labels,
 			'capabilities'           => $capabilities,
@@ -177,10 +177,10 @@ function wpd_details_effect() {
 			'show_in_nav_menus'      => false,
 			'update_count_callback'  => '_update_post_term_count',
 			'query_var'              => true,
-			'rewrite'                => array(
+			'rewrite'                => [
 				'slug' => 'effect',
-			),
-	  ) );
+            ],
+	  ] );
 }
 
 /**
@@ -198,7 +198,7 @@ add_action( 'init', 'wpd_details_symptom', 0 );
  */
 function wpd_details_symptom() {
 
-	  $labels = array(
+	  $labels = [
 			'name'                       => _x( 'Symptoms', 'general name', 'wpd-details' ),
 			'singular_name'              => _x( 'Symptom', 'singular name', 'wpd-details' ),
 			'search_items'               => __( 'Search Symptoms', 'wpd-details' ),
@@ -215,16 +215,16 @@ function wpd_details_symptom() {
 			'choose_from_most_used'      => __( 'Choose from the most used symptoms', 'wpd-details' ),
 			'not_found'                  => __( 'No symptoms found', 'wpd-details' ),
 			'menu_name'                  => __( 'Symptoms', 'wpd-details' ),
-	  );
+	  ];
 
-		$capabilities = array(
+		$capabilities = [
 			'manage_terms' => 'edit_symptoms',
 			'edit_terms'   => 'edit_symptoms',
 			'delete_terms' => 'edit_symptoms',
 			'assign_terms' => 'read',
-		);
+		];
 
-	  register_taxonomy( 'symptom', 'product', array(
+	  register_taxonomy( 'symptom', 'product', [
 			'hierarchical'           => false,
 			'labels'                 => $labels,
 			'capabilities'           => $capabilities,
@@ -234,10 +234,10 @@ function wpd_details_symptom() {
 			'show_in_nav_menus'      => false,
 			'update_count_callback'  => '_update_post_term_count',
 			'query_var'              => true,
-			'rewrite'                => array(
+			'rewrite'                => [
 				'slug' => 'symptom',
-			),
-	  ) );
+            ],
+	  ] );
 }
 
 /**
@@ -255,7 +255,7 @@ add_action( 'init', 'wpd_details_condition', 0 );
  */
 function wpd_details_condition() {
 
-	  $labels = array(
+	  $labels = [
 			'name'                       => _x( 'Conditions', 'general name', 'wpd-details' ),
 			'singular_name'              => _x( 'Condition', 'singular name', 'wpd-details' ),
 			'search_items'               => __( 'Search Conditions', 'wpd-details' ),
@@ -272,16 +272,16 @@ function wpd_details_condition() {
 			'choose_from_most_used'      => __( 'Choose from the most used conditions', 'wpd-details' ),
 			'not_found'                  => __( 'No conditions found', 'wpd-details' ),
 			'menu_name'                  => __( 'Conditions', 'wpd-details' ),
-	  );
+	  ];
 
-		$capabilities = array(
+		$capabilities = [
 			'manage_terms' => 'edit_conditions',
 			'edit_terms'   => 'edit_conditions',
 			'delete_terms' => 'edit_conditions',
 			'assign_terms' => 'read',
-		);
+		];
 
-	  register_taxonomy( 'condition', 'product', array(
+	  register_taxonomy( 'condition', 'product', [
 			'hierarchical'           => false,
 			'labels'                 => $labels,
 			'capabilities'           => $capabilities,
@@ -291,10 +291,10 @@ function wpd_details_condition() {
 			'show_in_nav_menus'      => false,
 			'update_count_callback'  => '_update_post_term_count',
 			'query_var'              => true,
-			'rewrite'                => array(
+			'rewrite'                => [
 				'slug' => 'condition',
-			),
-	  ) );
+            ],
+	  ] );
 }
 
 /**
@@ -312,7 +312,7 @@ add_action( 'init', 'wpd_details_ingredient', 0 );
  */
 function wpd_details_ingredient() {
 
-	  $labels = array(
+	  $labels = [
 			'name'                       => _x( 'Ingredients', 'general name', 'wpd-details' ),
 			'singular_name'              => _x( 'Ingredient', 'singular name', 'wpd-details' ),
 			'search_items'               => __( 'Search Ingredients', 'wpd-details' ),
@@ -329,16 +329,16 @@ function wpd_details_ingredient() {
 			'choose_from_most_used'      => __( 'Choose from the most used ingredients', 'wpd-details' ),
 			'not_found'                  => __( 'No ingredients found', 'wpd-details' ),
 			'menu_name'                  => __( 'Ingredients', 'wpd-details' ),
-	  );
+	  ];
 
-		$capabilities = array(
+		$capabilities = [
 			'manage_terms' => 'edit_ingredients',
 			'edit_terms'   => 'edit_ingredients',
 			'delete_terms' => 'edit_ingredients',
 			'assign_terms' => 'read',
-		);
+		];
 
-	  register_taxonomy( 'ingredients', 'product', array(
+	  register_taxonomy( 'ingredients', 'product', [
 			'hierarchical'           => false,
 			'labels'                 => $labels,
 			'capabilities'           => $capabilities,
@@ -348,10 +348,10 @@ function wpd_details_ingredient() {
 			'show_in_nav_menus'      => false,
 			'update_count_callback'  => '_update_post_term_count',
 			'query_var'              => true,
-			'rewrite'                => array(
+			'rewrite'                => [
 				'slug' => 'ingredient',
-			),
-	  ) );
+            ],
+	  ] );
 }
 
 /**
@@ -369,7 +369,7 @@ add_action( 'init', 'wpd_details_vendor', 0 );
  */
 function wpd_details_vendor() {
 
-	$labels = array(
+	$labels = [
 		'name'                       => _x( 'Vendors', 'general name', 'wpd-details' ),
 		'singular_name'              => _x( 'Vendor', 'singular name', 'wpd-details' ),
 		'search_items'               => __( 'Search Vendors', 'wpd-details' ),
@@ -386,16 +386,16 @@ function wpd_details_vendor() {
 		'choose_from_most_used'      => __( 'Choose from the most used vendors', 'wpd-details' ),
 		'not_found'                  => __( 'No vendors found', 'wpd-details' ),
 		'menu_name'                  => __( 'Vendors', 'wpd-details' ),
-	);
+	];
 
-	$capabilities = array(
+	$capabilities = [
 		'manage_terms' => 'edit_vendors',
 		'edit_terms'   => 'edit_vendors',
 		'delete_terms' => 'edit_vendors',
 		'assign_terms' => 'read',
-	);
+	];
 
-	register_taxonomy( 'vendor', 'product', array(
+	register_taxonomy( 'vendor', 'product', [
 		'hierarchical'           => false,
 		'labels'                 => $labels,
 		'capabilities'           => $capabilities,
@@ -405,10 +405,10 @@ function wpd_details_vendor() {
 		'show_in_nav_menus'      => false,
 		'update_count_callback'  => '_update_post_term_count',
 		'query_var'              => true,
-		'rewrite'                => array(
+		'rewrite'                => [
 			'slug' => 'vendor',
-		),
-	) );
+        ],
+	] );
 
 }
 
@@ -421,7 +421,7 @@ function wpd_details_vendor() {
  */
 function wpd_details_shelf_type() {
 
-	$labels = array(
+	$labels = [
 		'name'                       => _x( 'Shelf types', 'general name', 'wpd-details' ),
 		'singular_name'              => _x( 'Shelf type', 'singular name', 'wpd-details' ),
 		'search_items'               => __( 'Search shelf types', 'wpd-details' ),
@@ -438,16 +438,16 @@ function wpd_details_shelf_type() {
 		'choose_from_most_used'      => __( 'Choose from the most used shelf types', 'wpd-details' ),
 		'not_found'                  => __( 'No shelf types found', 'wpd-details' ),
 		'menu_name'                  => __( 'Shelf types', 'wpd-details' ),
-	);
+	];
 
-	$capabilities = array(
+	$capabilities = [
 		'manage_terms' => 'edit_shelf_type',
 		'edit_terms'   => 'edit_shelf_type',
 		'delete_terms' => 'edit_shelf_type',
 		'assign_terms' => 'read',
-	);
+	];
 
-	register_taxonomy( 'shelf_type', 'product', array(
+	register_taxonomy( 'shelf_type', 'product', [
 		'hierarchical'           => false,
 		'labels'                 => $labels,
 		'capabilities'           => $capabilities,
@@ -457,10 +457,10 @@ function wpd_details_shelf_type() {
 		'show_in_nav_menus'      => false,
 		'update_count_callback'  => '_update_post_term_count',
 		'query_var'              => true,
-		'rewrite'                => array(
+		'rewrite'                => [
 			'slug' => 'shelf-type',
-		),
-	) );
+        ],
+	] );
 
 }
 add_action( 'init', 'wpd_details_shelf_type', 0 );
@@ -474,7 +474,7 @@ add_action( 'init', 'wpd_details_shelf_type', 0 );
  */
 function wpd_details_strain_type() {
 
-	$labels = array(
+	$labels = [
 		'name'                       => _x( 'Strain types', 'general name', 'wpd-details' ),
 		'singular_name'              => _x( 'Strain type', 'singular name', 'wpd-details' ),
 		'search_items'               => __( 'Search strain types', 'wpd-details' ),
@@ -491,16 +491,16 @@ function wpd_details_strain_type() {
 		'choose_from_most_used'      => __( 'Choose from the most used strain types', 'wpd-details' ),
 		'not_found'                  => __( 'No strain types found', 'wpd-details' ),
 		'menu_name'                  => __( 'Strain types', 'wpd-details' ),
-	);
+	];
 
-	$capabilities = array(
+	$capabilities = [
 		'manage_terms' => 'edit_strain_type',
 		'edit_terms'   => 'edit_strain_type',
 		'delete_terms' => 'edit_strain_type',
 		'assign_terms' => 'read',
-	);
+	];
 
-	register_taxonomy( 'strain_type', 'product', array(
+	register_taxonomy( 'strain_type', 'product', [
 		'hierarchical'           => false,
 		'labels'                 => $labels,
 		'capabilities'           => $capabilities,
@@ -510,10 +510,10 @@ function wpd_details_strain_type() {
 		'show_in_nav_menus'      => false,
 		'update_count_callback'  => '_update_post_term_count',
 		'query_var'              => true,
-		'rewrite'                => array(
+		'rewrite'                => [
 			'slug' => 'strain-type',
-		),
-	) );
+        ],
+	] );
 
 }
 add_action( 'init', 'wpd_details_strain_type', 0 );

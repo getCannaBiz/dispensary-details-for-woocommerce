@@ -71,103 +71,103 @@ class WPD_Details_WooCommerce_Settings {
 	public static function get_settings() {
 
 		// Get loop of all Pages.
-		$args = array(
+		$args = [
 			'sort_column'  => 'post_title',
 			'hierarchical' => 1,
 			'post_type'    => 'page',
 			'post_status'  => 'publish'
-		);
+		];
 		$pages = get_pages( $args );
 
 		// Create data array.
-		$pages_array = array( 'none' => '' );
+		$pages_array = [ 'none' => '' ];
 
 		// Loop through pages.
 		foreach ( $pages as $page ) {
 			$pages_array[ $page->ID ] = $page->post_title;
 		}
 
-		$settings = array(
+		$settings = [
 			// Section title.
-			'wpdd_settings_section_title' => array(
+			'wpdd_settings_section_title' => [
 			   'name' => __( 'Dispensary Details', 'wpd-details' ),
 			   'type' => 'title',
 			   'desc' => 'Brought to you by <a href="https://www.wpdispensary.com" target="_blank">WP Dispensary</a> &middot; <a href="https://www.wpdispensary.com/support/" target="_blank">Support</a> &middot; <a href="https://www.wpdispensary.com/documentation/" target="_blank">Documentation</a>',
 			   'id'   => 'wpdd_settings_section_title'
-			),
+            ],
 			// Minimum order.
-			'min_order_amount' => array(
+			'min_order_amount' => [
 			   'name' => __( 'Minimum order', 'wpd-details' ),
 			   'type' => 'text',
 			   'desc' => __( 'The minimum amount before a customer can check out.', 'wpd-details' ),
 			   'id'   => 'wpdd_settings_minimum_amount'
-			),
+            ],
 			// Shipping or Delivery.
-			'shipping_or_delivery' => array(
+			'shipping_or_delivery' => [
 				'name'    => __( 'Delivery service', 'wpd-details' ),
 				'type'    => 'select',
 				'desc'    => __( 'Will you be delivering products to patients?', 'wpd-details' ),
 				'id'      => 'wpdd_settings_shipping_delivery',
-				'options' => array(
+				'options' => [
 					'no'  => 'No',
 					'yes' => 'Yes',
-				),
-			),
+                ],
+            ],
 			// Empty Cart page redirect.
-			'empty_cart_redirect_page' => array(
+			'empty_cart_redirect_page' => [
 				'name'    => __( 'Redirect empty cart', 'wpd-details' ),
 				'type'    => 'select',
 				'desc'    => __( 'Select the page your Cart page should redirects visitors to if empty.', 'wpd-details' ),
 				'id'      => 'wpdd_settings_empty_cart_redirect',
 				'options' => $pages_array,
-			),
+            ],
 			// Visitor Checkout page redirect.
-			'a2c_redirect_page' => array(
+			'a2c_redirect_page' => [
 				'name'    => __( 'Redirect visitor checkout', 'wpd-details' ),
 				'type'    => 'select',
 				'desc'    => __( 'Select the page your Checkout page should redirects visitors to.', 'wpd-details' ),
 				'id'      => 'wpdd_settings_a2c_redirect',
 				'options' => $pages_array,
-			),
+			],
 			// Order Status completed.
-			'order_status_completed' => array(
+			'order_status_completed' => [
 			   'name'    => __( 'Auto-complete orders', 'wpd-details' ),
 			   'type'    => 'select',
 			   'desc'    => __( 'Automatically change order status from "processing" to "completed".', 'wpd-details' ),
 			   'id'      => 'wpdd_settings_order_status_completed',
-				 'options' => array(
+				 'options' => [
 					 'no'  => 'No',
 					 'yes' => 'Yes',
-				 ),
-			),
+                 ],
+            ],
 			// Doctor Recommendation.
-			'require_recommendation' => array(
+			'require_recommendation' => [
 				'name'    => __( 'Doctor recommendation', 'wpd-details' ),
 				'type'    => 'select',
 				'desc'    => __( 'Adds verification fields to registration and edit user forms.', 'wpd-details' ),
 				'id'      => 'wpdd_settings_require_recommendation',
-				'options' => array(
+				'options' => [
 					'no'  => 'No',
 					'yes' => 'Yes',
-				),
-			),
+                ],
+            ],
 			// Require Recommendation.
-			'require_recommendation_checkout' => array(
+			'require_recommendation_checkout' => [
 				'name'    => __( 'Require recommendation', 'wpd-details' ),
 				'type'    => 'select',
 				'desc'    => __( 'Only allow checkout after recommendation docs are added.', 'wpd-details' ),
 				'id'      => 'wpdd_settings_require_recommendation_checkout',
-				'options' => array(
+				'options' => [
 					'no'  => 'No',
 					'yes' => 'Yes',
-				),
-			),
+                ],
+            ],
 			// Section End.
-			'section_end' => array(
+			'section_end' => [
 			   'type' => 'sectionend',
 			   'id'   => 'wpdd_settings_section_end'
-			),
-		);
+            ],
+		];
 		return apply_filters( 'wpdd_woocommerce_settings', $settings );
 
 	}
@@ -374,12 +374,12 @@ function wpd_details_inventory_reduction( $loop, $variation_data, $variation ) {
 	echo '<div class="variation-custom-fields">';
 
 	// Inventory reduction.
-	woocommerce_wp_text_input( array(
+	woocommerce_wp_text_input( [
 		'id'          => '_inventory_reduction['. $loop .']',
 		'label'       => __( 'Reduce stock quantity by:', 'wpd-details' ),
 		'placeholder' => 'ex: 7',
 		'value'       => get_post_meta( $variation->ID, '_inventory_reduction', true )
-	) );
+	] );
 
 	echo "</div>";
 }
@@ -439,11 +439,11 @@ add_filter( 'woocommerce_order_item_quantity', 'wpd_details_filter_order_item_qu
  */
 function wpd_details_compounds_tab( $tabs ) {
 
-  $tabs['wpd_details_compounds'] = array(
+  $tabs['wpd_details_compounds'] = [
     'label'  => __( 'Compounds', 'wpd-details' ),
     'target' => 'wpd_details_compounds_panel',
-    'class'  => array(),
-  );
+    'class'  => [],
+  ];
 
   return $tabs;
 }
@@ -458,40 +458,40 @@ function wpd_details_compounds_panel( $product ) {
 		<div class="options_group">
 		<?php
 		// THC.
-		$thc_field = array(
+		$thc_field = [
 			'id'    => 'wpd_details_thc',
 			'label' => __( 'THC %', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $thc_field );
 		// THCA.
-		$thca_field = array(
+		$thca_field = [
 			'id'    => 'wpd_details_thca',
 			'label' => __( 'THCA %', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $thca_field );
 		// CBD.
-		$cbd_field = array(
+		$cbd_field = [
 			'id'    => 'wpd_details_cbd',
 			'label' => __( 'CBD %', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $cbd_field );
 		// CBA.
-		$cba_field = array(
+		$cba_field = [
 			'id'    => 'wpd_details_cba',
 			'label' => __( 'CBA %', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $cba_field );
 		// CBN.
-		$cbn_field = array(
+		$cbn_field = [
 			'id'    => 'wpd_details_cbn',
 			'label' => __( 'CBN %', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $cbn_field );
 		// CBG.
-		$cbg_field = array(
+		$cbg_field = [
 			'id'    => 'wpd_details_cbg',
 			'label' => __( 'CBG %', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $cbg_field );
 		?>
 		</div>
@@ -557,11 +557,11 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_compounds' );
  */
 function wpd_details_tinctures_tab( $tabs ) {
 
-	$tabs['wpd_details_tinctures'] = array(
+	$tabs['wpd_details_tinctures'] = [
 	  'label'  => __( 'Tinctures', 'wpd-details' ),
 	  'target' => 'wpd_details_tinctures_panel',
-	  'class'  => array(),
-	);
+	  'class'  => [],
+	];
 
 	return $tabs;
 }
@@ -576,34 +576,34 @@ function wpd_details_tinctures_panel( $product ) {
 		<div class="options_group">
 		<?php
 		// THC.
-		$thcmg_field = array(
+		$thcmg_field = [
 			'id'    => 'wpd_details_tincture_thcmg',
 			'label' => __( 'THC mg per serving', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $thcmg_field );
 		// CBD.
-		$cbdmg_field = array(
+		$cbdmg_field = [
 			'id'    => 'wpd_details_tincture_cbdmg',
 			'label' => __( 'CBD mg per serving', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $cbdmg_field );
 		// ml.
-		$mlservings_field = array(
+		$mlservings_field = [
 			'id'    => 'wpd_details_tincture_mlservings',
 			'label' => __( 'ml per serving', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $mlservings_field );
 		// Servings.
-		$thccbdservings_field = array(
+		$thccbdservings_field = [
 			'id'    => 'wpd_details_tincture_thccbdservings',
 			'label' => __( 'Servings', 'wpd-details' ),
-			);
+			];
 		woocommerce_wp_text_input( $thccbdservings_field );
 		// Net weight.
-		$netweight_field = array(
+		$netweight_field = [
 			'id'    => 'wpd_details_tincture_netweight',
 			'label' => __( 'Net weight (oz)', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $netweight_field );
 		?>
 		</div>
@@ -664,11 +664,11 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_tinctures' );
  */
 function wpd_details_edibles_tab( $tabs ) {
 
-	$tabs['wpd_details_edibles'] = array(
+	$tabs['wpd_details_edibles'] = [
 	  'label'  => __( 'Edibles', 'wpd-details' ),
 	  'target' => 'wpd_details_edibles_panel',
-	  'class'  => array(),
-	);
+	  'class'  => [],
+	];
 
 	return $tabs;
 }
@@ -683,28 +683,28 @@ function wpd_details_edibles_panel( $product ) {
 		<div class="options_group">
 		<?php
 		// THC.
-		$thcmg_field = array(
+		$thcmg_field = [
 			'id'    => 'wpd_details_thcmg',
 			'label' => __( 'THC mg per serving', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $thcmg_field );
 		// CBD.
-		$cbdmg_field = array(
+		$cbdmg_field = [
 			'id'    => 'wpd_details_cbdmg',
 			'label' => __( 'CBD mg per serving', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $cbdmg_field );
 		// Servings.
-		$thccbdservings_field = array(
+		$thccbdservings_field = [
 			'id'    => 'wpd_details_thccbdservings',
 			'label' => __( 'Servings', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $thccbdservings_field );
 		// Net Weight.
-		$netweight_field = array(
+		$netweight_field = [
 			'id'    => 'wpd_details_netweight',
 			'label' => __( 'Net weight (g)', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $netweight_field );
 		?>
 		</div>
@@ -760,11 +760,11 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_edibles' );
  */
 function wpd_details_topicals_tab( $tabs ) {
 
-	$tabs['wpd_details_topicals'] = array(
+	$tabs['wpd_details_topicals'] = [
 	  'label'  => __( 'Topicals', 'wpd-details' ),
 	  'target' => 'wpd_details_topicals_panel',
-	  'class'  => array(),
-	);
+	  'class'  => [],
+	];
 
 	return $tabs;
 }
@@ -779,22 +779,22 @@ function wpd_details_topicals_panel( $product ) {
 		<div class="options_group">
 		<?php
 		// THC.
-		$thctopical_field = array(
+		$thctopical_field = [
 			'id'    => 'wpd_details_thctopical',
 			'label' => __( 'THC mg', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $thctopical_field );
 		// CBD.
-		$cbdtopical_field = array(
+		$cbdtopical_field = [
 			'id'    => 'wpd_details_cbdtopical',
 			'label' => __( 'CBD mg', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $cbdtopical_field );
 		// Size.
-		$sizetopical_field = array(
+		$sizetopical_field = [
 			'id'    => 'wpd_details_sizetopical',
 			'label' => __( 'Size (oz)', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $sizetopical_field );
 		?>
 		</div>
@@ -845,11 +845,11 @@ add_action( 'woocommerce_process_product_meta', 'save_wpd_details_topicals' );
  */
 function wpd_details_growers_tab( $tabs ) {
 
-	$tabs['wpd_details_growers'] = array(
+	$tabs['wpd_details_growers'] = [
 	  'label'  => __( 'Growers', 'wpd-details' ),
 	  'target' => 'wpd_details_growers_panel',
-	  'class'  => array(),
-	);
+	  'class'  => [],
+	];
 
 	return $tabs;
 }
@@ -864,34 +864,34 @@ function wpd_details_growers_panel( $product ) {
 		<div class="options_group">
 		<?php
 		// Origin.
-		$origin_field = array(
+		$origin_field = [
 			'id'    => 'wpd_details_origin',
 			'label' => __( 'Origin', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $origin_field );
 		// Time.
-		$time_field = array(
+		$time_field = [
 			'id'    => 'wpd_details_time',
 			'label' => __( 'Grow Time', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $time_field );
 		// Yield.
-		$yield_field = array(
+		$yield_field = [
 			'id'    => 'wpd_details_yield',
 			'label' => __( 'Yield', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $yield_field );
 		// Seeds.
-		$seeds_field = array(
+		$seeds_field = [
 			'id'    => 'wpd_details_seedcount',
 			'label' => __( 'Seeds per unit', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $seeds_field );
 		// Clones.
-		$clones_field = array(
+		$clones_field = [
 			'id'    => 'wpd_details_clonecount',
 			'label' => __( 'Clones per unit', 'wpd-details' ),
-		);
+		];
 		woocommerce_wp_text_input( $clones_field );
 		?>
 		</div>
