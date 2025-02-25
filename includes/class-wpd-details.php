@@ -6,11 +6,11 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
- * @package    WPD_Details
- * @subpackage WPD_Details/includes
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    WPD_Details
- * @subpackage WPD_Details/includes
- * @author     WP Dispensary <contact@wpdispensary.com>
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/includes
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
  */
-class WPD_Details {
+class Dispensary_Details {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class WPD_Details {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      WPD_Details_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Dispensary_Details_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -86,10 +86,10 @@ class WPD_Details {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - WPD_Details_Loader. Orchestrates the hooks of the plugin.
-	 * - WPD_Details_i18n. Defines internationalization functionality.
-	 * - WPD_Details_Admin. Defines all hooks for the admin area.
-	 * - WPD_Details_Public. Defines all hooks for the public side of the site.
+	 * - Dispensary_Details_Loader. Orchestrates the hooks of the plugin.
+	 * - Dispensary_Details_i18n. Defines internationalization functionality.
+	 * - Dispensary_Details_Admin. Defines all hooks for the admin area.
+	 * - Dispensary_Details_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -156,14 +156,14 @@ class WPD_Details {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/wpd-details-shortcode.php';
 
-		$this->loader = new WPD_Details_Loader();
+		$this->loader = new Dispensary_Details_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the WPD_Details_i18n class in order to set the domain and to register the hook
+	 * Uses the Dispensary_Details_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -171,7 +171,7 @@ class WPD_Details {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new WPD_Details_i18n();
+		$plugin_i18n = new Dispensary_Details_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -186,7 +186,7 @@ class WPD_Details {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new WPD_Details_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Dispensary_Details_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -202,7 +202,7 @@ class WPD_Details {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new WPD_Details_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Dispensary_Details_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -233,7 +233,7 @@ class WPD_Details {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    WPD_Details_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Dispensary_Details_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

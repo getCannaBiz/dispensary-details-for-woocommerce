@@ -3,10 +3,10 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
- * @package    WPD_Details
+ * @package    Dispensary_Details
  */
 
 // If uninstall not called from WordPress, then exit.

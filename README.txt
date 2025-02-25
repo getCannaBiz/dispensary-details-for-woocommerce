@@ -1,6 +1,6 @@
 === Dispensary Details for WooCommerce ===
-Contributors: wpdispensary, deviodigital
-Donate link: https://www.wpdispensary.com
+Contributors: deviodigital
+Donate link: https://cannabizsoftware.com
 Tags: dispensary, weed, woocommerce, ecommerce, marijuana, cannabis
 Requires at least: 3.0.1
 Tested up to: 5.3.2
@@ -12,14 +12,14 @@ Add additional details to your dispensary items being sold through WooCommerce.
 
 == Description ==
 
-Add additional details to your dispensary items being sold through WooCommerce. Brought to you by [WP Dispensary](https://www.wpdispensary.com/)
+Add additional details to your dispensary items being sold through WooCommerce. Brought to you by [CannaBiz Software](https://cannabizsoftware.com/)
 
 == Changelog ==
 
 = 1.6.0 =
 * Added validation check to the add to cart button for product inventory amount in `admin/class-wpd-details-woocommerce.php`
 * Added validation check to the add to cart button for product inventory amount in `public/js/wpd-details-public.js`
-* Bugfix removed recommendation doc if red X is clicked in `admin/wpd-details-user-fileds.php`
+* Bugfix removed recommendation doc if red X is clicked in `admin/wpd-details-user-fields.php`
 * Updated text strings for localization in `languages/wpd-details.pot`
 * Updated code to escape all `$_POST` instances in multiple files
 

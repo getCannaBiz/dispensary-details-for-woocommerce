@@ -3,11 +3,11 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
- * @package    WPD_Details
- * @subpackage WPD_Details/admin
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/admin
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    WPD_Details
- * @subpackage WPD_Details/admin
- * @author     WP Dispensary <contact@wpdispensary.com>
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/admin
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
  */
-class WPD_Details_Admin {
+class Dispensary_Details_Admin {
 
 	/**
 	 * The ID of this plugin.
@@ -65,10 +65,10 @@ class WPD_Details_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in WPD_Details_Loader as all of the hooks are defined
+		 * defined in Dispensary_Details_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The WPD_Details_Loader will then create the relationship
+		 * The Dispensary_Details_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -88,10 +88,10 @@ class WPD_Details_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in WPD_Details_Loader as all of the hooks are defined
+		 * defined in Dispensary_Details_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The WPD_Details_Loader will then create the relationship
+		 * The Dispensary_Details_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */

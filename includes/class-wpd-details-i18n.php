@@ -6,11 +6,11 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
- * @package    WPD_Details
- * @subpackage WPD_Details/includes
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    WPD_Details
- * @subpackage WPD_Details/includes
- * @author     WP Dispensary <contact@wpdispensary.com>
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/includes
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
  */
-class WPD_Details_i18n {
+class Dispensary_Details_i18n {
 
 
 	/**

@@ -2,21 +2,21 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
- * @package    WPD_Details
- * @subpackage WPD_Details/admin
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/admin
  */
 
 /**
- * WP Dispensary Details Settings
+ * CannaBiz Software Details Settings
  *
  * Related to WooCOmmerce Settings API.
  *
  * @since  1.1
  */
-class WPD_Details_WooCommerce_Settings {
+class Dispensary_Details_WooCommerce_Settings {
 	/**
 	* Bootstraps the class and hooks required actions & filters.
 	*
@@ -92,7 +92,7 @@ class WPD_Details_WooCommerce_Settings {
 			'wpdd_settings_section_title' => [
 			   'name' => __( 'Dispensary Details', 'wpd-details' ),
 			   'type' => 'title',
-			   'desc' => 'Brought to you by <a href="https://www.wpdispensary.com" target="_blank">WP Dispensary</a> &middot; <a href="https://www.wpdispensary.com/support/" target="_blank">Support</a> &middot; <a href="https://www.wpdispensary.com/documentation/" target="_blank">Documentation</a>',
+			   'desc' => 'Brought to you by <a href="https://cannabizsoftware.com" target="_blank">CannaBiz Software</a> &middot; <a href="https://cannabizsoftware.com/support/" target="_blank">Support</a> &middot; <a href="https://cannabizsoftware.com/documentation/" target="_blank">Documentation</a>',
 			   'id'   => 'wpdd_settings_section_title'
             ],
 			// Minimum order.
@@ -172,7 +172,7 @@ class WPD_Details_WooCommerce_Settings {
 
 	}
 }
-WPD_Details_WooCommerce_Settings::init();
+Dispensary_Details_WooCommerce_Settings::init();
 
 /**
  * Minimum Order Amount

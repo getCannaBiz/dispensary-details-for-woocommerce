@@ -5,11 +5,11 @@
  *
  * This file is used to markup the public-facing aspects of the plugin.
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
- * @package    WPD_Details
- * @subpackage WPD_Details/public/partials
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/public/partials
  */
 ?>
 

@@ -3,11 +3,11 @@
 /**
  * Fired during plugin activation
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
- * @package    WPD_Details
- * @subpackage WPD_Details/includes
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    WPD_Details
- * @subpackage WPD_Details/includes
- * @author     WP Dispensary <contact@wpdispensary.com>
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/includes
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
  */
-class WPD_Details_Activator {
+class Dispensary_Details_Activator {
 
 	/**
 	 * Short Description. (use period)

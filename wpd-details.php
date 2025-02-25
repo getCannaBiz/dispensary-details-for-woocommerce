@@ -3,17 +3,17 @@
 /**
  * The plugin bootstrap file
  *
- * @link              https://www.wpdispensary.com
+ * @link              https://cannabizsoftware.com
  * @since             1.0.0
- * @package           WPD_Details
+ * @package           Dispensary_Details
  *
  * @wordpress-plugin
  * Plugin Name:       Dispensary Details for WooCommerce
- * Plugin URI:        https://www.wpdispensary.com/product/dispensary-details-for-woocommerce
- * Description:       Add additional details to your dispensary items being sold through WooCommerce. Brought to you by <a href="https://www.wpdispensary.com" target="_blank">WP Dispensary</a>.
+ * Plugin URI:        https://cannabizsoftware.com/product/dispensary-details-for-woocommerce
+ * Description:       Add additional details to your dispensary items being sold through WooCommerce. Brought to you by <a href="https://cannabizsoftware.com" target="_blank">CannaBiz Software</a>.
  * Version:           1.6
- * Author:            WP Dispensary
- * Author URI:        https://www.wpdispensary.com
+ * Author:            CannaBiz Software
+ * Author URI:        https://cannabizsoftware.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wpd-details
@@ -34,7 +34,7 @@ define( 'DISPENSARY_DETAILS_VERSION', '1.6' );
  */
 function activate_wpd_details() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-details-activator.php';
-	WPD_Details_Activator::activate();
+	Dispensary_Details_Activator::activate();
 }
 
 /**
@@ -43,7 +43,7 @@ function activate_wpd_details() {
  */
 function deactivate_wpd_details() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-details-deactivator.php';
-	WPD_Details_Deactivator::deactivate();
+	Dispensary_Details_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_wpd_details' );
@@ -66,7 +66,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wpd-details.php';
  */
 function run_wpd_details() {
 
-	$plugin = new WPD_Details();
+	$plugin = new Dispensary_Details();
 	$plugin->run();
 
 }

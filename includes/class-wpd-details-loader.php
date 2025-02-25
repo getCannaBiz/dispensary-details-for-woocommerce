@@ -3,11 +3,11 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
- * @package    WPD_Details
- * @subpackage WPD_Details/includes
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    WPD_Details
- * @subpackage WPD_Details/includes
- * @author     WP Dispensary <contact@wpdispensary.com>
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/includes
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
  */
-class WPD_Details_Loader {
+class Dispensary_Details_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

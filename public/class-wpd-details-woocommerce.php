@@ -3,15 +3,15 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
- * @package    WPD_Details
- * @subpackage WPD_Details/admin
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/admin
  */
 
 /**
- * Adding in the WP Dispensary WooConnect Details tab
+ * Adding in the CannaBiz Software WooConnect Details tab
  */
 function wpd_details_tab( $tabs ) {
 

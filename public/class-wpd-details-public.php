@@ -3,11 +3,11 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
- * @package    WPD_Details
- * @subpackage WPD_Details/public
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/public
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    WPD_Details
- * @subpackage WPD_Details/public
- * @author     WP Dispensary <contact@wpdispensary.com>
+ * @package    Dispensary_Details
+ * @subpackage Dispensary_Details/public
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
  */
-class WPD_Details_Public {
+class Dispensary_Details_Public {
 
 	/**
 	 * The ID of this plugin.
@@ -65,10 +65,10 @@ class WPD_Details_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in WPD_Details_Loader as all of the hooks are defined
+		 * defined in Dispensary_Details_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The WPD_Details_Loader will then create the relationship
+		 * The Dispensary_Details_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -88,10 +88,10 @@ class WPD_Details_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in WPD_Details_Loader as all of the hooks are defined
+		 * defined in Dispensary_Details_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The WPD_Details_Loader will then create the relationship
+		 * The Dispensary_Details_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
