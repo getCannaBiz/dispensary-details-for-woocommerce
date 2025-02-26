@@ -63,7 +63,7 @@ function dispensary_details_save_custom_profile_fields( $user_id ) {
     $_POST['action'] = 'wp_handle_upload';
 
     // Get doctor recommendation file upload (if any).
-    $doc_rec = wp_handle_upload( $_FILES['dispensary_details_recommendation_doc'], [ 'test_form' => false, 'mimes' => [ 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg' ] ] );
+    $doc_rec = wp_handle_upload( $_FILES['dispensary_details_recommendation_doc'], [ 'test_form' => false, 'mimes' => [ 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg', 'webp' => 'image/webp' ] ] );
 
     // Take doctor recommendation upload, add to media library.
     if ( isset( $doc_rec['file'] ) ) {
