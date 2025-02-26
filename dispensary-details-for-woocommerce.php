@@ -8,9 +8,9 @@
  * @package           Dispensary_Details
  *
  * @wordpress-plugin
- * Plugin Name:       Dispensary Details for WooCommerce
- * Plugin URI:        https://cannabizsoftware.com/product/dispensary-details-for-woocommerce
- * Description:       Add additional details to your dispensary items being sold through WooCommerce. Brought to you by <a href="https://cannabizsoftware.com" target="_blank">CannaBiz Software</a>.
+ * Plugin Name:       Dispensary Details for WooCommerce®
+ * Plugin URI:        https://github.com/getcannabiz/dispensary-details-for-woocommerce/
+ * Description:       Add additional details to your dispensary items being sold through WooCommerce®.
  * Version:           1.0.0
  * Author:            CannaBiz Software
  * Author URI:        https://cannabizsoftware.com
@@ -18,6 +18,7 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       dispensary-details
  * Domain Path:       /languages
+ * Update URI:        https://github.com/getcannabiz/dispensary-details-for-woocommerce/
  */
 
 // If this file is called directly, abort.

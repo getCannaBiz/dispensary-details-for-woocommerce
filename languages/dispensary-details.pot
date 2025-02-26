@@ -1,9 +1,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Dispensary Details for WooCommerce\n"
-"POT-Creation-Date: 2025-02-25 15:13-0500\n"
-"PO-Revision-Date: 2025-02-25 15:13-0500\n"
+"Project-Id-Version: Dispensary Details for WooCommerce®\n"
+"POT-Creation-Date: 2025-02-25 22:24-0500\n"
+"PO-Revision-Date: 2025-02-25 22:24-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,7 @@ msgstr ""
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
 
 #: admin/class-dispensary-details-taxonomies.php:25
 msgctxt "general name"
@@ -880,18 +881,17 @@ msgid "Save changes"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Dispensary Details for WooCommerce"
+msgid "Dispensary Details for WooCommerce®"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://cannabizsoftware.com/product/dispensary-details-for-woocommerce"
+msgid "https://github.com/getcannabiz/dispensary-details-for-woocommerce/"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
 "Add additional details to your dispensary items being sold through "
-"WooCommerce. Brought to you by <a href=\"https://cannabizsoftware.com\" "
-"target=\"_blank\">CannaBiz Software</a>."
+"WooCommerce®."
 msgstr ""
 
 #. Author of the plugin/theme
