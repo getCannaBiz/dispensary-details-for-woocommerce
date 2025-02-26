@@ -28,6 +28,18 @@ if ( ! defined( 'WPINC' ) ) {
 // Define version constant.
 define( 'DISPENSARY_DETAILS_VERSION', '1.0.0' );
 
+require 'vendor/plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+	'https://github.com/getcannabiz/dispensary-details-for-woocommerce/',
+	__FILE__,
+	'dispensary-details-for-woocommerce'
+);
+
+// Set the branch that contains the stable release.
+$myUpdateChecker->setBranch( 'main' );
+
 // Check if Composer's autoloader is already registered globally.
 if ( ! class_exists( 'RobertDevore\WPComCheck\WPComPluginHandler' ) ) {
     require_once __DIR__ . '/vendor/autoload.php';
