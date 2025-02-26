@@ -1,7 +1,5 @@
 # Dispensary Details for WooCommerce®
 
-# Dispensary Details for WooCommerce®
-
 **Dispensary Details for WooCommerce®** is a free, open-source plugin that enhances WooCommerce with cannabis-specific product details and dispensary-related features. Originally developed in 2018 and previously sold as a premium plugin, it is now available for free to support the cannabis industry with open-source solutions.
 
 ---
