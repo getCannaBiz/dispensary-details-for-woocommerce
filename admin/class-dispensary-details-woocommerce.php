@@ -90,23 +90,23 @@ class Dispensary_Details_WooCommerce_Settings {
 		$settings = [
 			// Section title.
 			'dispensary_details_settings_section_title' => [
-			   'name' => __( 'Dispensary Details', 'dispensary-details' ),
+			   'name' => esc_html__( 'Dispensary Details', 'dispensary-details' ),
 			   'type' => 'title',
-			   'desc' => 'Brought to you by <a href="https://cannabizsoftware.com" target="_blank">CannaBiz Software</a> &middot; <a href="https://cannabizsoftware.com/support/" target="_blank">Support</a> &middot; <a href="https://cannabizsoftware.com/documentation/" target="_blank">Documentation</a>',
+			   'desc' => 'Brought to you by <a href="https://cannabizsoftware.com" target="_blank">' . esc_html__( 'CannaBiz Software', 'dispensary-details' ) . '</a>',
 			   'id'   => 'dispensary_details_settings_section_title'
             ],
 			// Minimum order.
 			'min_order_amount' => [
-			   'name' => __( 'Minimum order', 'dispensary-details' ),
+			   'name' => esc_html__( 'Minimum order', 'dispensary-details' ),
 			   'type' => 'text',
-			   'desc' => __( 'The minimum amount before a customer can check out.', 'dispensary-details' ),
+			   'desc' => esc_html__( 'The minimum amount before a customer can check out.', 'dispensary-details' ),
 			   'id'   => 'dispensary_details_settings_minimum_amount'
             ],
 			// Shipping or Delivery.
 			'shipping_or_delivery' => [
-				'name'    => __( 'Delivery service', 'dispensary-details' ),
+				'name'    => esc_html__( 'Delivery service', 'dispensary-details' ),
 				'type'    => 'select',
-				'desc'    => __( 'Will you be delivering products to patients?', 'dispensary-details' ),
+				'desc'    => esc_html__( 'Will you be delivering products to patients?', 'dispensary-details' ),
 				'id'      => 'dispensary_details_settings_shipping_delivery',
 				'options' => [
 					'no'  => 'No',
@@ -115,25 +115,25 @@ class Dispensary_Details_WooCommerce_Settings {
             ],
 			// Empty Cart page redirect.
 			'empty_cart_redirect_page' => [
-				'name'    => __( 'Redirect empty cart', 'dispensary-details' ),
+				'name'    => esc_html__( 'Redirect empty cart', 'dispensary-details' ),
 				'type'    => 'select',
-				'desc'    => __( 'Select the page your Cart page should redirects visitors to if empty.', 'dispensary-details' ),
+				'desc'    => esc_html__( 'Select the page your Cart page should redirects visitors to if empty.', 'dispensary-details' ),
 				'id'      => 'dispensary_details_settings_empty_cart_redirect',
 				'options' => $pages_array,
             ],
 			// Visitor Checkout page redirect.
 			'a2c_redirect_page' => [
-				'name'    => __( 'Redirect visitor checkout', 'dispensary-details' ),
+				'name'    => esc_html__( 'Redirect visitor checkout', 'dispensary-details' ),
 				'type'    => 'select',
-				'desc'    => __( 'Select the page your Checkout page should redirects visitors to.', 'dispensary-details' ),
+				'desc'    => esc_html__( 'Select the page your Checkout page should redirects visitors to.', 'dispensary-details' ),
 				'id'      => 'dispensary_details_settings_a2c_redirect',
 				'options' => $pages_array,
 			],
 			// Order Status completed.
 			'order_status_completed' => [
-			   'name'    => __( 'Auto-complete orders', 'dispensary-details' ),
+			   'name'    => esc_html__( 'Auto-complete orders', 'dispensary-details' ),
 			   'type'    => 'select',
-			   'desc'    => __( 'Automatically change order status from "processing" to "completed".', 'dispensary-details' ),
+			   'desc'    => esc_html__( 'Automatically change order status from "processing" to "completed".', 'dispensary-details' ),
 			   'id'      => 'dispensary_details_settings_order_status_completed',
 				 'options' => [
 					 'no'  => 'No',
@@ -142,9 +142,9 @@ class Dispensary_Details_WooCommerce_Settings {
             ],
 			// Doctor Recommendation.
 			'require_recommendation' => [
-				'name'    => __( 'Doctor recommendation', 'dispensary-details' ),
+				'name'    => esc_html__( 'Doctor recommendation', 'dispensary-details' ),
 				'type'    => 'select',
-				'desc'    => __( 'Adds verification fields to registration and edit user forms.', 'dispensary-details' ),
+				'desc'    => esc_html__( 'Adds verification fields to registration and edit user forms.', 'dispensary-details' ),
 				'id'      => 'dispensary_details_settings_require_recommendation',
 				'options' => [
 					'no'  => 'No',
@@ -153,9 +153,9 @@ class Dispensary_Details_WooCommerce_Settings {
             ],
 			// Require Recommendation.
 			'require_recommendation_checkout' => [
-				'name'    => __( 'Require recommendation', 'dispensary-details' ),
+				'name'    => esc_html__( 'Require recommendation', 'dispensary-details' ),
 				'type'    => 'select',
-				'desc'    => __( 'Only allow checkout after recommendation docs are added.', 'dispensary-details' ),
+				'desc'    => esc_html__( 'Only allow checkout after recommendation docs are added.', 'dispensary-details' ),
 				'id'      => 'dispensary_details_settings_require_recommendation_checkout',
 				'options' => [
 					'no'  => 'No',
@@ -413,7 +413,7 @@ function dispensary_details_inventory_reduction( $loop, $variation_data, $variat
 	// Inventory reduction.
 	woocommerce_wp_text_input( [
 		'id'          => '_inventory_reduction['. $loop .']',
-		'label'       => __( 'Reduce stock quantity by:', 'dispensary-details' ),
+		'label'       => esc_html__( 'Reduce stock quantity by:', 'dispensary-details' ),
 		'placeholder' => 'ex: 7',
 		'value'       => get_post_meta( $variation->ID, '_inventory_reduction', true )
 	] );
@@ -485,7 +485,7 @@ add_filter( 'woocommerce_order_item_quantity', 'dispensary_details_filter_order_
 function dispensary_details_compounds_tab( $tabs ) {
 
   $tabs['dispensary_details_compounds'] = [
-    'label'  => __( 'Compounds', 'dispensary-details' ),
+    'label'  => esc_html__( 'Compounds', 'dispensary-details' ),
     'target' => 'dispensary_details_compounds_panel',
     'class'  => [],
   ];
@@ -508,37 +508,37 @@ function dispensary_details_compounds_panel( $product ) {
 		// THC.
 		$thc_field = [
 			'id'    => 'dispensary_details_thc',
-			'label' => __( 'THC %', 'dispensary-details' ),
+			'label' => esc_html__( 'THC %', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $thc_field );
 		// THCA.
 		$thca_field = [
 			'id'    => 'dispensary_details_thca',
-			'label' => __( 'THCA %', 'dispensary-details' ),
+			'label' => esc_html__( 'THCA %', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $thca_field );
 		// CBD.
 		$cbd_field = [
 			'id'    => 'dispensary_details_cbd',
-			'label' => __( 'CBD %', 'dispensary-details' ),
+			'label' => esc_html__( 'CBD %', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $cbd_field );
 		// CBA.
 		$cba_field = [
 			'id'    => 'dispensary_details_cba',
-			'label' => __( 'CBA %', 'dispensary-details' ),
+			'label' => esc_html__( 'CBA %', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $cba_field );
 		// CBN.
 		$cbn_field = [
 			'id'    => 'dispensary_details_cbn',
-			'label' => __( 'CBN %', 'dispensary-details' ),
+			'label' => esc_html__( 'CBN %', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $cbn_field );
 		// CBG.
 		$cbg_field = [
 			'id'    => 'dispensary_details_cbg',
-			'label' => __( 'CBG %', 'dispensary-details' ),
+			'label' => esc_html__( 'CBG %', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $cbg_field );
 		?>
@@ -606,7 +606,7 @@ add_action( 'woocommerce_process_product_meta', 'save_dispensary_details_compoun
 function dispensary_details_tinctures_tab( $tabs ) {
 
 	$tabs['dispensary_details_tinctures'] = [
-	  'label'  => __( 'Tinctures', 'dispensary-details' ),
+	  'label'  => esc_html__( 'Tinctures', 'dispensary-details' ),
 	  'target' => 'dispensary_details_tinctures_panel',
 	  'class'  => [],
 	];
@@ -629,31 +629,31 @@ function dispensary_details_tinctures_panel( $product ) {
 		// THC.
 		$thcmg_field = [
 			'id'    => 'dispensary_details_tincture_thcmg',
-			'label' => __( 'THC mg per serving', 'dispensary-details' ),
+			'label' => esc_html__( 'THC mg per serving', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $thcmg_field );
 		// CBD.
 		$cbdmg_field = [
 			'id'    => 'dispensary_details_tincture_cbdmg',
-			'label' => __( 'CBD mg per serving', 'dispensary-details' ),
+			'label' => esc_html__( 'CBD mg per serving', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $cbdmg_field );
 		// ml.
 		$mlservings_field = [
 			'id'    => 'dispensary_details_tincture_mlservings',
-			'label' => __( 'ml per serving', 'dispensary-details' ),
+			'label' => esc_html__( 'ml per serving', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $mlservings_field );
 		// Servings.
 		$thccbdservings_field = [
 			'id'    => 'dispensary_details_tincture_thccbdservings',
-			'label' => __( 'Servings', 'dispensary-details' ),
+			'label' => esc_html__( 'Servings', 'dispensary-details' ),
 			];
 		woocommerce_wp_text_input( $thccbdservings_field );
 		// Net weight.
 		$netweight_field = [
 			'id'    => 'dispensary_details_tincture_netweight',
-			'label' => __( 'Net weight (oz)', 'dispensary-details' ),
+			'label' => esc_html__( 'Net weight (oz)', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $netweight_field );
 		?>
@@ -716,7 +716,7 @@ add_action( 'woocommerce_process_product_meta', 'save_dispensary_details_tinctur
 function dispensary_details_edibles_tab( $tabs ) {
 
 	$tabs['dispensary_details_edibles'] = [
-	  'label'  => __( 'Edibles', 'dispensary-details' ),
+	  'label'  => esc_html__( 'Edibles', 'dispensary-details' ),
 	  'target' => 'dispensary_details_edibles_panel',
 	  'class'  => [],
 	];
@@ -739,25 +739,25 @@ function dispensary_details_edibles_panel( $product ) {
 		// THC.
 		$thcmg_field = [
 			'id'    => 'dispensary_details_thcmg',
-			'label' => __( 'THC mg per serving', 'dispensary-details' ),
+			'label' => esc_html__( 'THC mg per serving', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $thcmg_field );
 		// CBD.
 		$cbdmg_field = [
 			'id'    => 'dispensary_details_cbdmg',
-			'label' => __( 'CBD mg per serving', 'dispensary-details' ),
+			'label' => esc_html__( 'CBD mg per serving', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $cbdmg_field );
 		// Servings.
 		$thccbdservings_field = [
 			'id'    => 'dispensary_details_thccbdservings',
-			'label' => __( 'Servings', 'dispensary-details' ),
+			'label' => esc_html__( 'Servings', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $thccbdservings_field );
 		// Net Weight.
 		$netweight_field = [
 			'id'    => 'dispensary_details_netweight',
-			'label' => __( 'Net weight (g)', 'dispensary-details' ),
+			'label' => esc_html__( 'Net weight (g)', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $netweight_field );
 		?>
@@ -815,7 +815,7 @@ add_action( 'woocommerce_process_product_meta', 'save_dispensary_details_edibles
 function dispensary_details_topicals_tab( $tabs ) {
 
 	$tabs['dispensary_details_topicals'] = [
-	  'label'  => __( 'Topicals', 'dispensary-details' ),
+	  'label'  => esc_html__( 'Topicals', 'dispensary-details' ),
 	  'target' => 'dispensary_details_topicals_panel',
 	  'class'  => [],
 	];
@@ -838,19 +838,19 @@ function dispensary_details_topicals_panel( $product ) {
 		// THC.
 		$thctopical_field = [
 			'id'    => 'dispensary_details_thctopical',
-			'label' => __( 'THC mg', 'dispensary-details' ),
+			'label' => esc_html__( 'THC mg', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $thctopical_field );
 		// CBD.
 		$cbdtopical_field = [
 			'id'    => 'dispensary_details_cbdtopical',
-			'label' => __( 'CBD mg', 'dispensary-details' ),
+			'label' => esc_html__( 'CBD mg', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $cbdtopical_field );
 		// Size.
 		$sizetopical_field = [
 			'id'    => 'dispensary_details_sizetopical',
-			'label' => __( 'Size (oz)', 'dispensary-details' ),
+			'label' => esc_html__( 'Size (oz)', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $sizetopical_field );
 		?>
@@ -903,7 +903,7 @@ add_action( 'woocommerce_process_product_meta', 'save_dispensary_details_topical
 function dispensary_details_growers_tab( $tabs ) {
 
 	$tabs['dispensary_details_growers'] = [
-	  'label'  => __( 'Growers', 'dispensary-details' ),
+	  'label'  => esc_html__( 'Growers', 'dispensary-details' ),
 	  'target' => 'dispensary_details_growers_panel',
 	  'class'  => [],
 	];
@@ -923,31 +923,31 @@ function dispensary_details_growers_panel( $product ) {
 		// Origin.
 		$origin_field = [
 			'id'    => 'dispensary_details_origin',
-			'label' => __( 'Origin', 'dispensary-details' ),
+			'label' => esc_html__( 'Origin', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $origin_field );
 		// Time.
 		$time_field = [
 			'id'    => 'dispensary_details_time',
-			'label' => __( 'Grow Time', 'dispensary-details' ),
+			'label' => esc_html__( 'Grow Time', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $time_field );
 		// Yield.
 		$yield_field = [
 			'id'    => 'dispensary_details_yield',
-			'label' => __( 'Yield', 'dispensary-details' ),
+			'label' => esc_html__( 'Yield', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $yield_field );
 		// Seeds.
 		$seeds_field = [
 			'id'    => 'dispensary_details_seedcount',
-			'label' => __( 'Seeds per unit', 'dispensary-details' ),
+			'label' => esc_html__( 'Seeds per unit', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $seeds_field );
 		// Clones.
 		$clones_field = [
 			'id'    => 'dispensary_details_clonecount',
-			'label' => __( 'Clones per unit', 'dispensary-details' ),
+			'label' => esc_html__( 'Clones per unit', 'dispensary-details' ),
 		];
 		woocommerce_wp_text_input( $clones_field );
 		?>

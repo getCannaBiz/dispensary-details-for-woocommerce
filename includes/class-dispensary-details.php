@@ -135,9 +135,7 @@ class Dispensary_Details {
 		/**
 		 * The file responsible for defining all WooCommerce filters for dispensary details.
 		 */
-		if ( ! class_exists( 'Wpd_Wooconnect' ) ) {
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-dispensary-details-woocommerce.php';
-		}
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-dispensary-details-woocommerce.php';
 
 		/**
 		 * The file responsible for defining all custom User Fields.
@@ -146,8 +144,6 @@ class Dispensary_Details {
 
 		/**
 		 * The file responsible for defining all codes to create the shortcode.
-		 * 
-		 * @since 1.0.0
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/dispensary-details-shortcode.php';
 

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The plugin bootstrap file
  *
@@ -93,3 +92,22 @@ function run_dispensary_details() {
 
 }
 run_dispensary_details();
+
+/**
+ * Add a Settings link on the Plugins screen.
+ *
+ * @param array $links Array of plugin action links.
+ * 
+ * @since  1.0.0
+ * @return array Modified array with our Settings link added.
+ */
+function dispensary_details_add_plugin_action_links( $links ) {
+    $settings_link = sprintf(
+        '<a href="%s">%s</a>',
+        esc_url( admin_url( 'admin.php?page=wc-settings&tab=dispensary_details' ) ),
+        esc_html__( 'Settings', 'dispensary-details' )
+    );
+    array_unshift( $links, $settings_link );
+    return $links;
+}
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'dispensary_details_add_plugin_action_links' );
